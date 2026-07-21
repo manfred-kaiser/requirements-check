@@ -1,0 +1,171 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "requirements-check"
+dynamic = ["version"]
+authors = [
+    {name = "Manfred Kaiser", email = "manfred.kaiser@ssh-mitm.at"}
+]
+description = "Check requirements.txt for outdated dependencies and known vulnerabilities"
+readme = "README.md"
+license = {text = "MIT"}
+keywords = [
+    "requirements",
+    "dependencies",
+    "security",
+    "pypi",
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "License :: OSI Approved :: MIT License",
+    "Topic :: Software Development :: Quality Assurance",
+    "Topic :: Security",
+    "Development Status :: 4 - Beta",
+]
+requires-python = ">= 3.11"
+dependencies = [
+    "httpx",
+    "packaging",
+    "rich",
+]
+
+[project.optional-dependencies]
+docs = [
+    "myst-parser",
+    "sphinx",
+    "sphinx-copybutton",
+    "sphinx-rtd-theme",
+]
+
+[project.scripts]
+requirements-check = "requirements_check.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/manfred-kaiser/requirements-check"
+Documentation = "https://requirements-check.readthedocs.io"
+Changelog = "https://github.com/manfred-kaiser/requirements-check/blob/main/CHANGELOG.md"
+Source = "https://github.com/manfred-kaiser/requirements-check"
+Tracker = "https://github.com/manfred-kaiser/requirements-check/issues"
+
+[tool.hatch.version]
+path = "requirements_check/__init__.py"
+
+[tool.hatch.build]
+include = [
+    "requirements_check/**/*.py",
+]
+
+[tool.hatch.envs.hatch-test]
+dependencies = ["pytest", "pytest-asyncio", "pytest-httpx"]
+
+[tool.hatch.envs.hatch-test.scripts]
+run = "pytest{env:HATCH_TEST_ARGS:} {args:tests/}"
+
+[[tool.hatch.envs.hatch-test.matrix]]
+python = ["3.11", "3.12", "3.13", "3.14"]
+
+[tool.hatch.envs.docs]
+detached = false
+features = ["docs"]
+
+[tool.hatch.envs.docs.scripts]
+build = ["sphinx-build docs build/html"]
+
+[tool.hatch.envs.test]
+dependencies = ["pytest", "pytest-asyncio", "pytest-httpx"]
+
+[tool.hatch.envs.test.scripts]
+run = "pytest tests/"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+
+[tool.hatch.envs.lint]
+detached = false
+dependencies = [
+    "bandit",
+    "black~=26.0",
+    "Flake8-pyproject",
+    "flake8",
+    "mypy",
+    "pylint",
+    "pytest",
+    "pytest-asyncio",
+    "pytest-httpx",
+    "ruff",
+]
+
+[tool.hatch.envs.lint.scripts]
+check = [
+    "pytest",
+    "black --check requirements_check",
+    "bandit -r requirements_check",
+    "ruff check requirements_check",
+    "flake8 requirements_check",
+    "pylint requirements_check",
+    "mypy requirements_check",
+]
+
+[[tool.hatch.envs.lint.matrix]]
+python = ["3.11", "3.12", "3.13", "3.14"]
+
+[tool.flake8]
+ignore = ["E203", "E501", "W503"]
+
+[tool.mypy]
+strict = true
+install_types = true
+non_interactive = true
+
+[tool.pylint]
+disable = [
+    "line-too-long",
+    "too-many-instance-attributes",
+]
+
+[tool.pylint.design]
+max-args = 7
+max-locals = 25
+
+[tool.pylint.MASTER]
+load-plugins = "pylint.extensions.docparams"
+
+[tool.ruff.lint]
+select = ["ALL"]
+ignore = [
+    "D203",    # one-blank-line-before-class
+    "D213",    # multi-line-summary-second-line
+    "E501",    # Line too long
+]
+
+[tool.ruff.lint.pylint]
+max-args = 7
+
+[tool.black]
+target-version = ["py311"]
+
+[tool.bumpversion]
+current_version = "0.1.0"
+
+[[tool.bumpversion.files]]
+filename = "requirements_check/__init__.py"
+
+[[tool.bumpversion.files]]
+filename = "CHANGELOG.md"
+search = "[Unreleased]: https://github.com/manfred-kaiser/requirements-check/compare/{current_version}...main"
+replace = """[Unreleased]: https://github.com/manfred-kaiser/requirements-check/compare/{new_version}...main
+[{new_version}]: https://github.com/manfred-kaiser/requirements-check/compare/{current_version}...{new_version}"""
+
+[[tool.bumpversion.files]]
+filename = "CHANGELOG.md"
+search = "## [Unreleased]"
+replace = """## [Unreleased]
+
+## [{new_version}] - {now:%Y-%m-%d}"""

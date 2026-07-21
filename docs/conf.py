@@ -1,0 +1,43 @@
+import datetime
+
+project = "requirements-check"
+author = "Manfred Kaiser"
+copyright = f"{datetime.datetime.now().year}, {author}"  # pylint: disable=redefined-builtin
+
+extensions = [
+    "sphinx_copybutton",
+    "sphinx.ext.autodoc",
+    "myst_parser",
+]
+
+myst_enable_extensions = ["colon_fence"]
+
+html_theme = "sphinx_rtd_theme"
+
+html_theme_options = {
+    "logo_only": False,
+    "navigation_depth": 3,
+}
+
+html_context = {
+    "display_github": True,
+    "github_user": "manfred-kaiser",
+    "github_repo": "requirements-check",
+    "github_version": "main",
+    "conf_py_path": "/docs/",
+}
+
+templates_path = ["_templates"]
+html_baseurl = "https://requirements-check.readthedocs.io/"
+
+master_doc = "index"
+autosectionlabel_maxdepth = 1
+
+copybutton_prompt_text = r"\$ |> "
+copybutton_prompt_is_regexp = True
+copybutton_only_copy_prompt_lines = True
+copybutton_selector = "div:not(.no-copybutton) > div.highlight > pre"
+copybutton_line_continuation_character = "\\"
+
+language = "en"
+exclude_patterns = []
