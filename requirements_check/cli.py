@@ -10,6 +10,7 @@ from typing import TYPE_CHECKING
 from rich.console import Console
 
 from .analyzer import Analyzer
+from .parser import PyprojectTomlError, is_pyproject_toml
 from .report import render_html, render_json, render_table, render_vulnerability_details
 from .sarif import render_sarif
 from .sbom import render_cyclonedx
@@ -76,9 +77,19 @@ def _build_parser() -> argparse.ArgumentParser:
     )
     parser.add_argument(
         "--constraints",
-        help="Path to a loose, unresolved requirements file (e.g. a pip-compile "
-        ".in source) to cross-check suggestions against your own version "
-        "ceilings; defaults to FILE with a .in extension, if present",
+        help="Path to a loose, unresolved requirements file (a pip-compile .in "
+        "source, or a pyproject.toml's [project.dependencies]) to cross-check "
+        "suggestions against your own version ceilings; defaults to FILE with "
+        "a .in extension, if present, or to FILE itself when FILE is a "
+        "pyproject.toml",
+    )
+    parser.add_argument(
+        "--extra",
+        action="append",
+        metavar="NAME",
+        help="Also check a [project.optional-dependencies] extra from a pyproject.toml "
+        "FILE (repeatable); a package required by several groups is merged into one "
+        "row, or reported as a conflict if no release satisfies all of them",
     )
     parser.add_argument(
         "--python-version",
@@ -161,6 +172,13 @@ def main(argv: list[str] | None = None) -> None:
     """Parse CLI arguments, run the analysis, and print the report."""
     args = _build_parser().parse_args(argv)
 
+    if args.extra and not is_pyproject_toml(args.file):
+        print(
+            "error: --extra can only be used when FILE is a pyproject.toml",
+            file=sys.stderr,
+        )
+        raise SystemExit(EXIT_USAGE_ERROR)
+
     analyzer = Analyzer(
         args.file,
         check_security=not args.no_security,
@@ -169,11 +187,15 @@ def main(argv: list[str] | None = None) -> None:
         python_version=args.python_version,
         proxy=args.proxy,
         ca_bundle=args.ca_bundle,
+        extras=args.extra,
     )
     try:
         result = analyzer.analyze_sync()
     except FileNotFoundError:
         print(f"error: {args.file} not found", file=sys.stderr)
+        raise SystemExit(EXIT_USAGE_ERROR) from None
+    except PyprojectTomlError as exc:
+        print(f"error: {exc}", file=sys.stderr)
         raise SystemExit(EXIT_USAGE_ERROR) from None
 
     output_path = Path(args.output) if args.output else None

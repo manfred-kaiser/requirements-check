@@ -85,7 +85,21 @@ def _build_note(dep: Dependency) -> str:
         parts.append(
             f"capped by constraint {dep.constraint} (max: {dep.best_within_constraint})",
         )
+    if dep.locked_to and dep.locked_by:
+        parts.append(f"locked to {dep.locked_to} by {dep.locked_by}")
     return " ".join(parts) or "-"
+
+
+def _build_source_cell(dep: Dependency) -> str:
+    """Build a bulleted list, one item per source, with its own range in parens."""
+    if not dep.sources:
+        return "-"
+    lines = []
+    for source in dep.sources:
+        specifier = dep.source_specifiers.get(source)
+        label = f"{source} ({specifier})" if specifier else source
+        lines.append(f"• {label}")
+    return "\n".join(lines)
 
 
 def render_table(result: AnalysisResult, console: Console | None = None) -> None:
@@ -97,6 +111,9 @@ def render_table(result: AnalysisResult, console: Console | None = None) -> None
     table.add_column("Patch")
     table.add_column("Minor")
     table.add_column("Major")
+    show_sources = any(dep.sources for dep in result.dependencies)
+    if show_sources:
+        table.add_column("Source")
     table.add_column("Note")
     table.add_column("Vulnerabilities")
 
@@ -109,19 +126,27 @@ def render_table(result: AnalysisResult, console: Console | None = None) -> None
             fix_style = _FIX_STYLE.get(fix_level, "red") if fix_level else "red"
             fix_label = _FIX_LABEL.get(fix_level, "unknown") if fix_level else "unknown"
             vulns = f"[red]{len(dep.vulnerabilities)} known[/red] [{fix_style}]({fix_label})[/{fix_style}]"
+        elif dep.pinned_version is None and not dep.error:
+            # An empty vulnerabilities list here doesn't mean "checked, clean" —
+            # OSV needs an exact version, so this dependency was never queried.
+            # Showing a bare "-" would look identical to an actually-clean one.
+            vulns = "[dim]not checked (no pinned version)[/dim]"
         else:
             vulns = "-"
 
         patch, minor, major = _dedupe_update_columns(dep)
-        table.add_row(
+        row = [
             dep.name,
             dep.pinned_version or "-",
             patch,
             minor,
             major,
-            f"[{style}]{note}[/{style}]" if style else note,
-            vulns,
-        )
+        ]
+        if show_sources:
+            row.append(_build_source_cell(dep))
+        row.append(f"[{style}]{note}[/{style}]" if style else note)
+        row.append(vulns)
+        table.add_row(*row)
 
     console.print(table)
 

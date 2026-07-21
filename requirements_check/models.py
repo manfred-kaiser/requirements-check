@@ -50,6 +50,10 @@ class Dependency:
     vulnerability_fix_level: UpdateLevel | None = None
     constraint: str | None = None
     best_within_constraint: str | None = None
+    locked_to: str | None = None
+    locked_by: str | None = None
+    sources: list[str] = field(default_factory=list)
+    source_specifiers: dict[str, str] = field(default_factory=dict)
     error: str | None = None
 
     def to_dict(self) -> dict[str, Any]:
@@ -64,6 +68,10 @@ class Dependency:
             "latest_major": self.latest_major,
             "constraint": self.constraint,
             "best_within_constraint": self.best_within_constraint,
+            "locked_to": self.locked_to,
+            "locked_by": self.locked_by,
+            "sources": self.sources,
+            "source_specifiers": self.source_specifiers,
             "update_level": self.update_level.value,
             "vulnerabilities": [
                 {

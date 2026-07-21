@@ -32,6 +32,20 @@ def test_main_exits_with_usage_error_when_file_is_missing(tmp_path, capsys):
     assert "not found" in capsys.readouterr().err
 
 
+def test_main_exits_with_usage_error_for_dynamic_pyproject_dependencies(
+    tmp_path,
+    capsys,
+):
+    path = tmp_path / "pyproject.toml"
+    path.write_text('[project]\nname = "example"\ndynamic = ["dependencies"]\n')
+
+    with pytest.raises(SystemExit) as exc_info:
+        main([str(path)])
+
+    assert exc_info.value.code == EXIT_USAGE_ERROR
+    assert "dynamically computed" in capsys.readouterr().err
+
+
 def test_main_prints_json_output(tmp_path, httpx_mock, capsys):
     path = _write(tmp_path, "foo==1.0.0\n")
 
@@ -267,3 +281,87 @@ def test_main_writes_table_to_output_file(tmp_path, httpx_mock, capsys):
     captured = capsys.readouterr()
     assert captured.out == ""
     assert "foo" in out_file.read_text()
+
+
+def test_main_exits_with_usage_error_when_extra_used_without_pyproject_toml(
+    tmp_path,
+    capsys,
+):
+    path = _write(tmp_path, "foo==1.0.0\n")
+
+    with pytest.raises(SystemExit) as exc_info:
+        main([str(path), "--extra", "docs"])
+
+    assert exc_info.value.code == EXIT_USAGE_ERROR
+    assert "--extra" in capsys.readouterr().err
+
+
+def test_main_exits_with_usage_error_for_an_unknown_extra(tmp_path, capsys):
+    path = tmp_path / "pyproject.toml"
+    path.write_text(
+        '[project]\nname = "example"\ndependencies = ["foo==1.0.0"]\n',
+    )
+
+    with pytest.raises(SystemExit) as exc_info:
+        main([str(path), "--extra", "docs"])
+
+    assert exc_info.value.code == EXIT_USAGE_ERROR
+    assert "docs" in capsys.readouterr().err
+
+
+def test_main_checks_a_named_extra_and_shows_the_source_column(
+    tmp_path,
+    httpx_mock,
+    capsys,
+):
+    path = tmp_path / "pyproject.toml"
+    path.write_text(
+        '[project]\nname = "example"\ndependencies = ["foo==1.0.0"]\n\n'
+        '[project.optional-dependencies]\ndocs = ["bar==2.0.0"]\n',
+    )
+
+    _mock_pypi(
+        httpx_mock,
+        "foo",
+        {"releases": {"1.0.0": [{"yanked": False, "requires_python": None}]}},
+        pinned_version="1.0.0",
+    )
+    _mock_pypi(
+        httpx_mock,
+        "bar",
+        {"releases": {"2.0.0": [{"yanked": False, "requires_python": None}]}},
+        pinned_version="2.0.0",
+    )
+    httpx_mock.add_response(
+        url="https://api.osv.dev/v1/querybatch",
+        json={"results": [{"vulns": []}, {"vulns": []}]},
+    )
+
+    main([str(path), "--extra", "docs", "--no-color"])
+
+    output = capsys.readouterr().out
+    assert "Source" in output
+    assert "docs" in output
+
+    _mock_pypi(
+        httpx_mock,
+        "foo",
+        {"releases": {"1.0.0": [{"yanked": False, "requires_python": None}]}},
+        pinned_version="1.0.0",
+    )
+    _mock_pypi(
+        httpx_mock,
+        "bar",
+        {"releases": {"2.0.0": [{"yanked": False, "requires_python": None}]}},
+        pinned_version="2.0.0",
+    )
+    httpx_mock.add_response(
+        url="https://api.osv.dev/v1/querybatch",
+        json={"results": [{"vulns": []}, {"vulns": []}]},
+    )
+
+    main([str(path), "--extra", "docs", "--json"])
+    data = json.loads(capsys.readouterr().out)
+    by_name = {dep["name"]: dep for dep in data["dependencies"]}
+    assert sorted(by_name["foo"]["sources"]) == ["dependencies"]
+    assert sorted(by_name["bar"]["sources"]) == ["docs"]

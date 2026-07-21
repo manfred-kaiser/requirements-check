@@ -2,12 +2,19 @@
 
 import json
 
+import pytest
+
 from requirements_check.models import UpdateLevel
 from requirements_check.parser import (
+    DynamicDependenciesError,
+    UnknownExtraError,
     is_cyclonedx_sbom,
+    is_pyproject_toml,
     parse_constraints,
     parse_cyclonedx_sbom,
     parse_dependencies,
+    parse_pyproject_extra,
+    parse_pyproject_toml,
     parse_requirements,
 )
 
@@ -219,3 +226,250 @@ def test_parse_dependencies_auto_detects_sbom_vs_requirements(tmp_path):
 
     assert [dep.name for dep in parse_dependencies(sbom_path)] == ["foo"]
     assert [dep.name for dep in parse_dependencies(txt_path)] == ["bar"]
+
+
+def _write_pyproject(tmp_path, content):
+    path = tmp_path / "pyproject.toml"
+    path.write_text(content)
+    return path
+
+
+def test_is_pyproject_toml_detects_a_project_table(tmp_path):
+    path = _write_pyproject(tmp_path, '[project]\nname = "example"\n')
+    assert is_pyproject_toml(path) is True
+
+
+def test_is_pyproject_toml_rejects_a_plain_requirements_txt(tmp_path):
+    path = _write(tmp_path, "foo==1.0.0\n")
+    assert is_pyproject_toml(path) is False
+
+
+def test_is_pyproject_toml_rejects_toml_without_a_project_table(tmp_path):
+    path = _write_pyproject(tmp_path, '[build-system]\nrequires = ["hatchling"]\n')
+    assert is_pyproject_toml(path) is False
+
+
+def test_is_pyproject_toml_rejects_malformed_toml(tmp_path):
+    path = _write_pyproject(tmp_path, "not valid [[[ toml")
+    assert is_pyproject_toml(path) is False
+
+
+def test_is_pyproject_toml_rejects_a_missing_file(tmp_path):
+    assert is_pyproject_toml(tmp_path / "does-not-exist.toml") is False
+
+
+def test_parse_pyproject_toml_extracts_direct_dependencies(tmp_path):
+    path = _write_pyproject(
+        tmp_path,
+        """
+        [project]
+        name = "example"
+        dependencies = ["httpx>=0.25", "packaging==24.0"]
+        """,
+    )
+
+    deps = parse_pyproject_toml(path)
+
+    by_name = {dep.name: dep for dep in deps}
+    assert by_name["httpx"].pinned_version is None
+    assert by_name["httpx"].update_level == UpdateLevel.NONE
+    assert by_name["packaging"].pinned_version == "24.0"
+    assert all(dep.line_number is None for dep in deps)
+
+
+def test_parse_pyproject_toml_returns_empty_list_when_no_dependencies_declared(
+    tmp_path,
+):
+    path = _write_pyproject(tmp_path, '[project]\nname = "example"\n')
+    assert parse_pyproject_toml(path) == []
+
+
+def test_parse_pyproject_toml_flags_unparsable_entries_as_unsupported(tmp_path):
+    path = _write_pyproject(
+        tmp_path,
+        """
+        [project]
+        name = "example"
+        dependencies = ["not a valid requirement !!!"]
+        """,
+    )
+
+    deps = parse_pyproject_toml(path)
+
+    assert deps[0].update_level == UpdateLevel.UNSUPPORTED
+
+
+def test_parse_pyproject_toml_raises_when_dependencies_are_dynamic_and_unresolvable(
+    tmp_path,
+):
+    path = _write_pyproject(
+        tmp_path,
+        """
+        [project]
+        name = "example"
+        dynamic = ["dependencies"]
+        """,
+    )
+
+    with pytest.raises(DynamicDependenciesError):
+        parse_pyproject_toml(path)
+
+
+def test_parse_pyproject_toml_resolves_dynamic_dependencies_via_hatch_requirements_txt_hook(
+    tmp_path,
+):
+    (tmp_path / "reqs.txt").write_text("foo>=1.0\nbar==2.0.0\n")
+    path = _write_pyproject(
+        tmp_path,
+        """
+        [project]
+        name = "example"
+        dynamic = ["dependencies"]
+
+        [tool.hatch.metadata.hooks.requirements_txt]
+        files = ["reqs.txt"]
+        """,
+    )
+
+    deps = parse_pyproject_toml(path)
+
+    by_name = {dep.name: dep for dep in deps}
+    assert by_name["foo"].pinned_version is None
+    assert by_name["bar"].pinned_version == "2.0.0"
+
+
+def test_parse_pyproject_toml_raises_when_dynamic_and_no_hook_files_configured(
+    tmp_path,
+):
+    path = _write_pyproject(
+        tmp_path,
+        """
+        [project]
+        name = "example"
+        dynamic = ["dependencies"]
+
+        [tool.hatch.metadata.hooks.requirements_txt]
+        """,
+    )
+
+    with pytest.raises(DynamicDependenciesError):
+        parse_pyproject_toml(path)
+
+
+def test_parse_dependencies_auto_detects_pyproject_toml(tmp_path):
+    path = _write_pyproject(
+        tmp_path,
+        """
+        [project]
+        name = "example"
+        dependencies = ["httpx>=0.25"]
+        """,
+    )
+
+    assert [dep.name for dep in parse_dependencies(path)] == ["httpx"]
+
+
+def test_parse_constraints_extracts_ranges_from_pyproject_toml(tmp_path):
+    path = _write_pyproject(
+        tmp_path,
+        """
+        [project]
+        name = "example"
+        dependencies = ["flask<3.0,>=2.0", "requests"]
+        """,
+    )
+
+    constraints = parse_constraints(path)
+
+    assert "flask" in constraints
+    assert "requests" not in constraints  # unconstrained, no specifier
+
+
+def test_parse_constraints_propagates_dynamic_dependencies_error(tmp_path):
+    path = _write_pyproject(
+        tmp_path,
+        """
+        [project]
+        name = "example"
+        dynamic = ["dependencies"]
+        """,
+    )
+
+    with pytest.raises(DynamicDependenciesError):
+        parse_constraints(path)
+
+
+def test_parse_pyproject_extra_extracts_a_static_extra(tmp_path):
+    path = _write_pyproject(
+        tmp_path,
+        """
+        [project]
+        name = "example"
+        dependencies = ["httpx>=0.25"]
+
+        [project.optional-dependencies]
+        docs = ["sphinx>=7.0", "sphinx-copybutton"]
+        """,
+    )
+
+    deps = parse_pyproject_extra(path, "docs")
+
+    assert {dep.name for dep in deps} == {"sphinx", "sphinx-copybutton"}
+
+
+def test_parse_pyproject_extra_raises_for_an_unknown_static_extra(tmp_path):
+    path = _write_pyproject(
+        tmp_path,
+        """
+        [project]
+        name = "example"
+        dependencies = ["httpx>=0.25"]
+
+        [project.optional-dependencies]
+        docs = ["sphinx>=7.0"]
+        """,
+    )
+
+    with pytest.raises(UnknownExtraError):
+        parse_pyproject_extra(path, "test")
+
+
+def test_parse_pyproject_extra_resolves_via_hatch_requirements_txt_hook(tmp_path):
+    (tmp_path / "doc-requirements.txt").write_text("sphinx>=7.0\n")
+    path = _write_pyproject(
+        tmp_path,
+        """
+        [project]
+        name = "example"
+        dynamic = ["dependencies", "optional-dependencies"]
+
+        [tool.hatch.metadata.hooks.requirements_txt]
+        files = ["reqs.txt"]
+
+        [tool.hatch.metadata.hooks.requirements_txt.optional-dependencies]
+        docs = ["doc-requirements.txt"]
+        """,
+    )
+    (tmp_path / "reqs.txt").write_text("httpx>=0.25\n")
+
+    deps = parse_pyproject_extra(path, "docs")
+
+    assert [dep.name for dep in deps] == ["sphinx"]
+
+
+def test_parse_pyproject_extra_raises_for_an_unknown_dynamic_extra(tmp_path):
+    (tmp_path / "reqs.txt").write_text("httpx>=0.25\n")
+    path = _write_pyproject(
+        tmp_path,
+        """
+        [project]
+        name = "example"
+        dynamic = ["dependencies", "optional-dependencies"]
+
+        [tool.hatch.metadata.hooks.requirements_txt]
+        files = ["reqs.txt"]
+        """,
+    )
+
+    with pytest.raises(UnknownExtraError):
+        parse_pyproject_extra(path, "docs")

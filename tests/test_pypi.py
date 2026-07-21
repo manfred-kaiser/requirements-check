@@ -30,7 +30,9 @@ async def test_fetch_versions_skips_yanked_and_prerelease_releases(httpx_mock):
 
 
 async def test_fetch_versions_reports_404_as_not_found(httpx_mock):
-    httpx_mock.add_response(url="https://pypi.org/pypi/doesnotexist/json", status_code=404)
+    httpx_mock.add_response(
+        url="https://pypi.org/pypi/doesnotexist/json", status_code=404
+    )
 
     async with httpx.AsyncClient() as client:
         info = await fetch_versions(client, "doesnotexist")

@@ -143,6 +143,50 @@ def test_render_table_note_shows_label_and_error_for_a_not_found_package():
     assert "Package not found on PyPI" in output
 
 
+def test_render_table_flags_unpinned_dependencies_as_not_checked_for_vulnerabilities():
+    result = AnalysisResult(
+        dependencies=[
+            Dependency(
+                name="httpx",
+                raw_line="httpx>=0.25",
+                pinned_version=None,
+                latest_major="0.28.1",
+                update_level=UpdateLevel.UNPINNED,
+            ),
+        ],
+    )
+
+    console = Console(record=True, width=200)
+    render_table(result, console=console)
+    output = console.export_text()
+
+    assert "not checked" in output
+    assert "no pinned version" in output
+
+
+def test_render_table_does_not_claim_not_checked_for_a_not_found_package():
+    # A NOT_FOUND package has no pinned_version either way, but "not
+    # checked" would be a meaningless thing to say — "not found" already
+    # explains the empty Vulnerabilities column.
+    result = AnalysisResult(
+        dependencies=[
+            Dependency(
+                name="doesnotexist",
+                raw_line="doesnotexist>=1.0",
+                pinned_version=None,
+                update_level=UpdateLevel.NOT_FOUND,
+                error="Package not found on PyPI",
+            ),
+        ],
+    )
+
+    console = Console(record=True, width=200)
+    render_table(result, console=console)
+    output = console.export_text()
+
+    assert "not checked" not in output
+
+
 def test_render_table_blanks_out_columns_that_repeat_the_prior_column():
     result = AnalysisResult(
         dependencies=[
@@ -173,14 +217,138 @@ def test_render_table_blanks_out_columns_that_repeat_the_prior_column():
     render_table(result, console=console)
     output = console.export_text()
 
-    patch_only_row = next(
-        line for line in output.splitlines() if "patch-only" in line
-    )
+    patch_only_row = next(line for line in output.splitlines() if "patch-only" in line)
     assert patch_only_row.count("1.0.1") == 1
 
     major_jump_row = next(line for line in output.splitlines() if "major-jump" in line)
     assert major_jump_row.count("1.0.1") == 1
     assert "2.0.0" in major_jump_row
+
+
+def test_render_table_note_shows_sibling_lock():
+    result = AnalysisResult(
+        dependencies=[
+            Dependency(
+                name="pydantic-core",
+                raw_line="pydantic-core==2.46.4",
+                pinned_version="2.46.4",
+                latest_minor="2.47.0",
+                update_level=UpdateLevel.MINOR,
+                locked_to="2.46.4",
+                locked_by="pydantic==2.13.4",
+            ),
+        ],
+    )
+
+    console = Console(record=True, width=200)
+    render_table(result, console=console)
+    output = console.export_text()
+
+    assert "locked to 2.46.4 by pydantic==2.13.4" in output
+
+
+def test_render_table_source_cell_shows_each_group_on_its_own_line_with_its_range():
+    result = AnalysisResult(
+        dependencies=[
+            Dependency(
+                name="httpx",
+                raw_line="httpx>=0.20 / httpx<0.28",
+                pinned_version=None,
+                latest_major="0.28.1",
+                update_level=UpdateLevel.UNPINNED,
+                sources=["dependencies", "docs"],
+                source_specifiers={"dependencies": ">=0.20", "docs": "<0.28"},
+            ),
+        ],
+    )
+
+    console = Console(record=True, width=200)
+    render_table(result, console=console)
+    output = console.export_text()
+
+    assert "dependencies (>=0.20)" in output
+    assert "docs (<0.28)" in output
+
+
+def test_render_table_source_cell_omits_parens_for_a_group_without_its_own_range():
+    result = AnalysisResult(
+        dependencies=[
+            Dependency(
+                name="sphinx",
+                raw_line="sphinx",
+                pinned_version=None,
+                latest_major="7.5.0",
+                update_level=UpdateLevel.UNPINNED,
+                sources=["docs"],
+            ),
+        ],
+    )
+
+    console = Console(record=True, width=200)
+    render_table(result, console=console)
+    output = console.export_text()
+
+    assert "docs" in output
+    assert "docs (" not in output
+
+
+def test_render_table_source_cell_is_a_dash_for_a_row_without_sources():
+    # The Source column is shown once ANY row has sources, but an individual
+    # row without any (e.g. mixed input) should still render sensibly.
+    result = AnalysisResult(
+        dependencies=[
+            Dependency(
+                name="sphinx",
+                raw_line="sphinx",
+                pinned_version=None,
+                update_level=UpdateLevel.UNPINNED,
+                sources=["docs"],
+            ),
+            Dependency(
+                name="foo",
+                raw_line="foo==1.0.0",
+                pinned_version="1.0.0",
+                update_level=UpdateLevel.NONE,
+            ),
+        ],
+    )
+
+    console = Console(record=True, width=200)
+    render_table(result, console=console)
+    output = console.export_text()
+
+    foo_row = next(line for line in output.splitlines() if "foo" in line)
+    assert "-" in foo_row
+
+
+def test_render_table_shows_source_column_only_when_a_dependency_has_sources():
+    result = AnalysisResult(
+        dependencies=[
+            Dependency(
+                name="foo",
+                raw_line="foo==1.0.0",
+                pinned_version="1.0.0",
+                update_level=UpdateLevel.NONE,
+                sources=["dependencies", "docs"],
+            ),
+        ],
+    )
+
+    console = Console(record=True, width=200)
+    render_table(result, console=console)
+    output = console.export_text()
+
+    assert "Source" in output
+    assert "dependencies" in output
+    assert "docs" in output
+
+
+def test_render_table_omits_source_column_when_no_dependency_has_sources():
+    console = Console(record=True, width=200)
+    render_table(_result(), console=console)
+    output = console.export_text()
+
+    assert "Source" not in output
 
 
 def test_render_table_note_shows_constraint_cap():

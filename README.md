@@ -12,7 +12,7 @@
 
 ---
 
-`requirements-check` scans a `requirements.txt` file and reports, per dependency, the best available patch, minor, and major update, and whether the pinned version has known vulnerabilities — directly from the [PyPI JSON API](https://warehouse.pypa.io/api-reference/json.html) and [OSV.dev](https://osv.dev), in parallel via `httpx`/`asyncio`, with nothing installed.
+`requirements-check` scans a `requirements.txt` file (or a [`pyproject.toml`](#pyprojecttoml)) and reports, per dependency, the best available patch, minor, and major update, and whether the pinned version has known vulnerabilities — directly from the [PyPI JSON API](https://warehouse.pypa.io/api-reference/json.html) and [OSV.dev](https://osv.dev), in parallel via `httpx`/`asyncio`, with nothing installed.
 
 Most tools cover only one half of this. `pip-check`-style tools show outdated versions but nothing about vulnerabilities, and need the packages installed. `pip-audit`/Safety show vulnerabilities but not update size. Dependabot does both, but only as a GitHub platform service (PRs), not a CLI you can run anywhere. `requirements-check` combines both **and** goes one step further: for every known vulnerability, it tells you whether a low-risk **patch** already fixes it or whether you're forced into a **minor**/**major** bump — from one command, against a plain `requirements.txt`. It also exports the same data as a [CycloneDX SBOM](#sbom-software-bill-of-materials) or [self-contained HTML report](#html-report), and is built to run unattended in [CI pipelines](#ci-integration).
 
@@ -60,7 +60,7 @@ requirements-check --list-vulnerabilities
 requirements-check [FILE] [OPTIONS]
 ```
 
-`FILE` — path to the `requirements.txt` file to check (default: `requirements.txt` in the current directory). A [CycloneDX SBOM](#sbom-software-bill-of-materials) is also accepted here and auto-detected.
+`FILE` — path to the `requirements.txt` file to check (default: `requirements.txt` in the current directory). A [CycloneDX SBOM](#sbom-software-bill-of-materials) or a [`pyproject.toml`](#pyprojecttoml) is also accepted here and auto-detected.
 
 | Option                      | Description                                                                          |
 | ---------------------------- | ------------------------------------------------------------------------------------- |
@@ -71,7 +71,8 @@ requirements-check [FILE] [OPTIONS]
 | `--list-vulnerabilities`     | List each known vulnerability individually instead of just a count                    |
 | `--no-security`               | Skip the OSV.dev vulnerability check                                                  |
 | `--no-transitive-check`        | Skip warning about dependencies declared by your pinned packages that aren't listed in this file |
-| `--constraints PATH`          | Loose, unresolved requirements file (e.g. a pip-compile `.in` source) to cross-check suggestions against; auto-detected as `FILE` with a `.in` extension if not given |
+| `--constraints PATH`          | Loose, unresolved requirements source (a pip-compile `.in` file, or a `pyproject.toml`) to cross-check suggestions against; auto-detected as `FILE` with a `.in` extension, or as `FILE` itself when `FILE` is a `pyproject.toml`, if not given |
+| `--extra NAME`                | Also check a `[project.optional-dependencies]` extra from a `pyproject.toml` `FILE` (repeatable) |
 | `--fail-on-vulnerability`     | Exit with status 1 if a known vulnerability is found (for CI)                         |
 | `--python-version VERSION`    | Target Python version (e.g. `3.11`) for `requires-python` compatibility filtering; defaults to the running interpreter |
 | `--proxy URL`                 | HTTP(S) proxy for PyPI/OSV requests (overrides `HTTP_PROXY`/`HTTPS_PROXY` env vars)   |
@@ -107,6 +108,13 @@ requirements-check --proxy http://proxy.example.com:3128 --ca-bundle /etc/ssl/ca
 
 # Cross-check against an explicit pip-compile source (auto-detected if named requirements.in)
 requirements-check requirements.txt --constraints requirements.in
+
+# Check a pyproject.toml directly, or cross-check a lock file against it
+requirements-check pyproject.toml
+requirements-check requirements.txt --constraints pyproject.toml
+
+# Also check optional-dependencies extras (repeatable)
+requirements-check pyproject.toml --extra docs --extra test
 ```
 
 ## SBOM (Software Bill of Materials)
@@ -163,6 +171,44 @@ requirements-check sbom.json --json
 ```
 
 Every `pkg:pypi/...` component becomes a pinned dependency (other ecosystems in the same SBOM are skipped); everything else — update checks, vulnerabilities, `--sbom`/`--html`/`--sarif` output — works exactly the same as with a `requirements.txt`. This is useful for re-validating an SBOM you didn't generate yourself (e.g. from a vendor, or from `syft`/`docker sbom` against a running container) against current data, and it sidesteps the whole "is this file fully resolved" question from [How it works](#how-it-works) — an SBOM already reflects what's actually installed. The `.in`-constraints cross-check doesn't apply to SBOM input (there's no associated loose source file).
+
+## pyproject.toml
+
+```sh
+requirements-check pyproject.toml
+```
+
+`requirements-check` reads a [PEP 621](https://peps.python.org/pep-0621/) `pyproject.toml`'s `[project.dependencies]` directly — the standard, backend-agnostic way of declaring direct dependencies, so this works the same for hatch, setuptools, PDM, or Poetry ≥2.0 projects. By default only the core direct dependencies are read; tool-specific tables (e.g. `[tool.hatch.envs.*]`) aren't included, and extras need `--extra` (below).
+
+Unlike a `requirements.txt`, `[project.dependencies]` entries are usually abstract ranges (`httpx>=0.25`), not exact pins — there's nothing for OSV to check a range against, so vulnerability checking only applies to the rare entry that *is* pinned (`==`). Update checking still works for every entry: it's reported the same way an unpinned line in a `requirements.txt` is (see [Update levels](#update-levels)). The transitive-completeness warning is skipped automatically for this input, since `[project.dependencies]` is intentionally not an exhaustive, fully-resolved list.
+
+**As a constraints source.** This is usually the more useful mode: cross-check a real, pinned lock file against the ranges your project actually declares, with full vulnerability checking on the pins that are actually installed:
+
+```sh
+requirements-check requirements.txt --constraints pyproject.toml
+```
+
+This is auto-detected too — a `pyproject.toml` sitting next to `requirements.txt` is picked up automatically, no `--constraints` needed, the same way a sibling `.in` file already is (`.in` wins if both are present). When `pyproject.toml` is given directly as `FILE` instead, it's automatically used as its own constraints source — so a bounded range like `flask<3.0` still shows a `capped by constraint` note if PyPI's true latest exceeds it.
+
+**Dynamic dependencies.** Some projects compute `dependencies` via a build-backend hook instead of listing them statically (`dynamic = ["dependencies"]`) — commonly via the [`hatch-requirements-txt`](https://github.com/repo-helper/hatch-requirements-txt) plugin, which points at an external requirements file via `[tool.hatch.metadata.hooks.requirements_txt]`. `requirements-check` recognizes that specific, well-documented convention and reads the referenced file(s) instead — without running hatch or any build hooks. Any other dynamic-dependency mechanism (a custom hook, `setuptools`' own dynamic tables, etc.) can't be resolved statically and produces a clear error instead of silently reporting zero dependencies.
+
+**Extras.** Add `--extra NAME` (repeatable) to also check a `[project.optional-dependencies]` extra alongside the core dependencies — dynamic extras declared via the same `hatch-requirements-txt` hook's `optional-dependencies` sub-table are resolved the same way as the main dependencies:
+
+```sh
+requirements-check pyproject.toml --extra docs --extra test
+```
+
+A package required by more than one group (core and/or several extras) is merged into a single row rather than listed twice. A `Source` column (shown only once any `--extra` is used) lists which groups required it — one per line — with that group's own range in parens whenever it adds real information beyond the Pinned column:
+
+```
+Source
+• dependencies (>=4.0,<6.0)
+• production
+```
+
+Here `paramiko` is pinned to an exact version via a `production` extra (e.g. one pointing at a fully resolved `requirements.txt`), while the core `dependencies` group only constrains it to a range — both are shown, since the range is genuinely more permissive than the pin. A group that contributes nothing beyond the resolved pin (e.g. `production` above, which is exactly the pinned version) is listed without a range, to avoid repeating the Pinned column.
+
+If the combined requirements can't actually be satisfied by any available release — say core wants `httpx>=0.25` but an extra pins `httpx==0.10.0` — that's reported as an error on the row rather than silently picking one side.
 
 ## HTML Report
 
@@ -309,6 +355,20 @@ Every dependency with a pinned version is queried against [OSV.dev](https://osv.
 
 For each vulnerability, the OSV record's affected-version range is used to find the lowest version that actually resolves it (`fixed_version`), which is then classified the same way as updates: does a **patch** already fix it, or is a **minor**/**major** bump required? If OSV lists no fix yet, it's flagged `no_fix`. A dependency's `vulnerability_fix_level` is the worst of all its vulnerabilities' fix levels — e.g. if one CVE is patch-fixable but another needs a major bump, the dependency shows `major`, since that's what's needed to be fully clean. This lets you tell at a glance whether you can resolve a CVE with a low-risk patch bump or are forced into a bigger jump.
 
+An unpinned dependency (an abstract `pyproject.toml` range, or a bare `requirements.txt` line without `==`) can't be checked at all — OSV needs an exact version, and there isn't one to query. The table says so explicitly (`not checked (no pinned version)`) rather than showing the same blank `-` a genuinely clean, checked dependency gets — an empty result and an unchecked one are different things, and conflating them would make the tool's "no known vulnerabilities" signal untrustworthy.
+
+### Sibling-locked dependencies
+
+A newer version existing on PyPI doesn't always mean it's actually reachable. Some packages are released in lockstep with another one they hard-pin via `requires_dist` — most commonly a pure-Python wrapper around a compiled extension, e.g. `pydantic` pinning an exact `pydantic-core` version. If `pydantic-core` has a newer release on PyPI but the `pydantic` version you have pinned still requires the older one, upgrading `pydantic-core` alone isn't possible — you'd need a newer `pydantic` release first, and one might not exist yet.
+
+`requirements-check` cross-references every checked dependency's declared requirements against every *other* checked, pinned dependency (no extra network calls — this reuses metadata already fetched for the transitive-dependency check) and flags it when this happens:
+
+```
+Note: locked to 2.46.4 by pydantic==2.13.4
+```
+
+The Patch/Minor/Major columns still show the true PyPI-wide latest, same as with a [version constraint](#direct-transitive-and-constrained-dependencies) — this is a note, not a change to what's reported as available. It only fires when the lock actually hides something (i.e. a newer version is being suggested that the lock rules out); if you're already at the locked version, there's nothing to flag.
+
 ### Direct, transitive, and constrained dependencies
 
 `requirements-check` only looks at what's actually written in the given file — it does not resolve dependencies itself.
@@ -324,7 +384,7 @@ To help catch it when you forget: `requirements-check` fetches each pinned packa
 
 Disable with `--no-transitive-check`. This is a heuristic based on declared metadata, not a real resolver — it can miss or over-flag edge cases (optional/platform-specific dependencies in particular).
 
-**Constraints.** If you *do* use pip-compile, its `.in` source has your actual version ceilings (e.g. `flask<2.0`), while the compiled `requirements.txt` only has the single resolved pin. `requirements-check` cross-checks against that `.in` file when present — auto-detected next to your requirements file (same name, `.in` extension), or given explicitly via `--constraints PATH`. If the true latest release on PyPI is blocked by your own constraint, the `Note` column says so instead of just suggesting an update `pip-compile --upgrade` can't actually deliver until you edit `requirements.in` yourself:
+**Constraints.** If you *do* use pip-compile, its `.in` source has your actual version ceilings (e.g. `flask<2.0`), while the compiled `requirements.txt` only has the single resolved pin. `requirements-check` cross-checks against that `.in` file (or a [`pyproject.toml`](#pyprojecttoml)) when present — auto-detected next to your requirements file (same name with a `.in` extension, or a sibling `pyproject.toml`), or given explicitly via `--constraints PATH`. If the true latest release on PyPI is blocked by your own constraint, the `Note` column says so instead of just suggesting an update `pip-compile --upgrade` can't actually deliver until you edit `requirements.in` yourself:
 
 ```
 Note: capped by constraint <2.0 (max: 1.1.4)
@@ -346,7 +406,10 @@ Two GET requests per pinned dependency to `pypi.org` (not one): PyPI's unversion
 
 ## Limitations
 
-- Only `requirements.txt`-format files are currently supported (pip's plain `name==version` / PEP 508 format) — not `pyproject.toml`, `Pipfile`/`Pipfile.lock`, `poetry.lock`, or `uv.lock` directly. Export or compile those to a `requirements.txt` first (e.g. `poetry export`, `uv export --format requirements-txt`).
+- Supported input formats: `requirements.txt` (pip's plain `name==version` / PEP 508 format), a [PEP 621 `pyproject.toml`](#pyprojecttoml)'s direct dependencies, and CycloneDX SBOMs — not `Pipfile`/`Pipfile.lock`, `poetry.lock`, or `uv.lock` directly. Export or compile those to a `requirements.txt` first (e.g. `poetry export`, `uv export --format requirements-txt`).
+- A `pyproject.toml` with `dynamic = ["dependencies"]` can only be read statically when it uses the [`hatch-requirements-txt`](https://github.com/repo-helper/hatch-requirements-txt) plugin's convention (see [pyproject.toml](#pyprojecttoml)) — any other dynamic-metadata hook (a custom one, `setuptools`' own dynamic tables, etc.) isn't resolved and produces an error rather than a silent empty result.
+- Sibling-lock detection (see [How it works](#how-it-works)) only catches locks where the locking package is *also* in the file being checked — a lock coming from a deeper transitive dependency that isn't listed stays invisible, same limitation as the transitive-coverage check.
+- `--extra` conflict detection checks whether *some* available PyPI release satisfies the combined requirements across groups — it isn't a full dependency resolver, so it won't catch conflicts that only emerge from *other* transitive constraints.
 - VCS and direct URL requirements (`git+https://...`, `name @ https://...`) can't be version-checked and are reported as `unsupported`.
 - The transitive-dependency warning and constraint cross-check are heuristics based on declared PyPI metadata, not a real dependency resolver — they can miss or over-flag edge cases (see [How it works](#how-it-works)).
 - SBOM export is CycloneDX JSON only — no SPDX, no XML (see [SBOM](#sbom-software-bill-of-materials)).
