@@ -15,7 +15,7 @@ from packaging.utils import canonicalize_name
 from packaging.version import InvalidVersion, Version
 
 from .models import AnalysisResult, Dependency, UpdateLevel, Vulnerability
-from .parser import parse_constraints, parse_requirements
+from .parser import parse_constraints, parse_dependencies
 from .pypi import fetch_versions
 from .security import check_vulnerabilities
 
@@ -213,7 +213,7 @@ class Analyzer:
 
     async def analyze(self) -> AnalysisResult:
         """Parse the requirements file and check it against PyPI and OSV.dev."""
-        dependencies: list[Dependency] = parse_requirements(self.requirements_path)
+        dependencies: list[Dependency] = parse_dependencies(self.requirements_path)
         constraints = self._load_constraints()
         checkable = [
             dep for dep in dependencies if dep.update_level != UpdateLevel.UNSUPPORTED

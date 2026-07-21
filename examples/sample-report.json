@@ -3,6 +3,7 @@
     {
       "name": "aiohttp",
       "pinned_version": "3.9.5",
+      "line_number": 7,
       "license": "Apache 2",
       "latest_patch": null,
       "latest_minor": "3.14.2",
@@ -360,6 +361,7 @@
     {
       "name": "aiosignal",
       "pinned_version": "1.4.0",
+      "line_number": 9,
       "license": "Apache 2.0",
       "latest_patch": null,
       "latest_minor": null,
@@ -375,6 +377,7 @@
     {
       "name": "attrs",
       "pinned_version": "26.1.0",
+      "line_number": 11,
       "license": null,
       "latest_patch": null,
       "latest_minor": null,
@@ -390,6 +393,7 @@
     {
       "name": "certifi",
       "pinned_version": "2026.6.17",
+      "line_number": 13,
       "license": "MPL-2.0",
       "latest_patch": null,
       "latest_minor": null,
@@ -405,6 +409,7 @@
     {
       "name": "chardet",
       "pinned_version": "4.0.0",
+      "line_number": 15,
       "license": "LGPL",
       "latest_patch": null,
       "latest_minor": null,
@@ -420,6 +425,7 @@
     {
       "name": "click",
       "pinned_version": "7.1.2",
+      "line_number": 17,
       "license": "BSD-3-Clause",
       "latest_patch": null,
       "latest_minor": null,
@@ -447,6 +453,7 @@
     {
       "name": "flask",
       "pinned_version": "1.1.4",
+      "line_number": 19,
       "license": "BSD-3-Clause",
       "latest_patch": null,
       "latest_minor": null,
@@ -485,6 +492,7 @@
     {
       "name": "frozenlist",
       "pinned_version": "1.8.0",
+      "line_number": 21,
       "license": "Apache-2.0",
       "latest_patch": null,
       "latest_minor": null,
@@ -500,6 +508,7 @@
     {
       "name": "idna",
       "pinned_version": "2.10",
+      "line_number": 25,
       "license": "BSD-like",
       "latest_patch": null,
       "latest_minor": null,
@@ -538,6 +547,7 @@
     {
       "name": "itsdangerous",
       "pinned_version": "1.1.0",
+      "line_number": 29,
       "license": "BSD",
       "latest_patch": null,
       "latest_minor": null,
@@ -553,6 +563,7 @@
     {
       "name": "jinja2",
       "pinned_version": "2.11.3",
+      "line_number": 31,
       "license": "BSD-3-Clause",
       "latest_patch": null,
       "latest_minor": null,
@@ -613,6 +624,7 @@
     {
       "name": "markupsafe",
       "pinned_version": "3.0.3",
+      "line_number": 33,
       "license": null,
       "latest_patch": null,
       "latest_minor": null,
@@ -628,6 +640,7 @@
     {
       "name": "multidict",
       "pinned_version": "6.7.1",
+      "line_number": 35,
       "license": "Apache License 2.0",
       "latest_patch": null,
       "latest_minor": null,
@@ -643,6 +656,7 @@
     {
       "name": "propcache",
       "pinned_version": "0.5.2",
+      "line_number": 39,
       "license": "Apache-2.0",
       "latest_patch": null,
       "latest_minor": null,
@@ -658,6 +672,7 @@
     {
       "name": "requests",
       "pinned_version": "2.25.1",
+      "line_number": 41,
       "license": "Apache 2.0",
       "latest_patch": null,
       "latest_minor": "2.34.2",
@@ -718,6 +733,7 @@
     {
       "name": "urllib3",
       "pinned_version": "1.26.20",
+      "line_number": 43,
       "license": "MIT",
       "latest_patch": null,
       "latest_minor": null,
@@ -789,6 +805,7 @@
     {
       "name": "werkzeug",
       "pinned_version": "1.0.1",
+      "line_number": 45,
       "license": "BSD-3-Clause",
       "latest_patch": null,
       "latest_minor": null,
@@ -903,6 +920,7 @@
     {
       "name": "yarl",
       "pinned_version": "1.24.5",
+      "line_number": 47,
       "license": "Apache-2.0",
       "latest_patch": null,
       "latest_minor": null,

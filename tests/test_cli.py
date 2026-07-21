@@ -152,6 +152,71 @@ def test_main_writes_json_to_output_file_instead_of_stdout(
     assert data["dependencies"][0]["name"] == "foo"
 
 
+def test_main_prints_sarif_output(tmp_path, httpx_mock, capsys):
+    path = _write(tmp_path, "foo==1.0.0\n")
+
+    _mock_pypi(
+        httpx_mock,
+        "foo",
+        {"releases": {"1.0.0": [{"yanked": False, "requires_python": None}]}},
+        pinned_version="1.0.0",
+    )
+    httpx_mock.add_response(
+        url="https://api.osv.dev/v1/querybatch",
+        json={"results": [{"vulns": [{"id": "GHSA-x"}]}]},
+    )
+    httpx_mock.add_response(
+        url="https://api.osv.dev/v1/vulns/GHSA-x",
+        json={"id": "GHSA-x", "summary": "bad"},
+    )
+
+    main([str(path), "--sarif"])
+
+    sarif = json.loads(capsys.readouterr().out)
+    assert sarif["version"] == "2.1.0"
+    assert sarif["runs"][0]["results"][0]["ruleId"] == "GHSA-x"
+    assert sarif["runs"][0]["results"][0]["locations"][0]["physicalLocation"][
+        "artifactLocation"
+    ]["uri"] == str(path)
+
+
+def test_main_reads_cyclonedx_sbom_as_input(tmp_path, httpx_mock, capsys):
+    sbom_path = tmp_path / "sbom.json"
+    sbom_path.write_text(
+        json.dumps(
+            {
+                "bomFormat": "CycloneDX",
+                "specVersion": "1.6",
+                "components": [
+                    {
+                        "type": "library",
+                        "purl": "pkg:pypi/foo@1.0.0",
+                        "name": "foo",
+                        "version": "1.0.0",
+                    },
+                ],
+            },
+        ),
+    )
+
+    _mock_pypi(
+        httpx_mock,
+        "foo",
+        {"releases": {"1.0.0": [{"yanked": False, "requires_python": None}]}},
+        pinned_version="1.0.0",
+    )
+    httpx_mock.add_response(
+        url="https://api.osv.dev/v1/querybatch",
+        json={"results": [{"vulns": []}]},
+    )
+
+    main([str(sbom_path), "--json"])
+
+    data = json.loads(capsys.readouterr().out)
+    assert data["dependencies"][0]["name"] == "foo"
+    assert data["dependencies"][0]["pinned_version"] == "1.0.0"
+
+
 def test_main_writes_table_to_output_file(tmp_path, httpx_mock, capsys):
     path = _write(tmp_path, "foo==1.0.0\n")
     out_file = tmp_path / "report.txt"

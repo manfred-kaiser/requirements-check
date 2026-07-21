@@ -1,0 +1,137 @@
+name: "requirements-check"
+description: "Check a requirements.txt (or CycloneDX SBOM) for outdated dependencies and known vulnerabilities."
+author: "Manfred Kaiser"
+branding:
+  icon: "shield"
+  color: "blue"
+
+inputs:
+  file:
+    description: "Path to the requirements.txt (or CycloneDX SBOM) to check."
+    required: false
+    default: "requirements.txt"
+  format:
+    description: "Output format: table, json, sbom, html, or sarif."
+    required: false
+    default: "sarif"
+  output:
+    description: "Path to write the report to."
+    required: false
+    default: "requirements-check-report"
+  fail-on-vulnerability:
+    description: "Fail the step if any known vulnerability is found (checked after the SARIF upload, so findings still show up in the Security tab even when this fails the job)."
+    required: false
+    default: "false"
+  no-security:
+    description: "Skip the OSV.dev vulnerability check."
+    required: false
+    default: "false"
+  no-transitive-check:
+    description: "Skip the transitive-dependency coverage warning."
+    required: false
+    default: "false"
+  constraints:
+    description: "Path to a loose, unresolved requirements file (e.g. a pip-compile .in source) to cross-check suggestions against."
+    required: false
+    default: ""
+  target-python-version:
+    description: "Target Python version (e.g. 3.11) for requires-python compatibility filtering. Defaults to setup-python-version."
+    required: false
+    default: ""
+  proxy:
+    description: "HTTP(S) proxy URL for PyPI/OSV requests."
+    required: false
+    default: ""
+  ca-bundle:
+    description: "Path to a custom CA bundle file for TLS verification."
+    required: false
+    default: ""
+  requirements-check-version:
+    description: "Version of the requirements-check PyPI package to install. Defaults to the latest release."
+    required: false
+    default: ""
+  setup-python-version:
+    description: "Python version used to run requirements-check itself."
+    required: false
+    default: "3.13"
+  upload-sarif:
+    description: "Automatically upload the report to GitHub code scanning. Only applies when format is sarif."
+    required: false
+    default: "true"
+
+outputs:
+  report-path:
+    description: "Path to the generated report file."
+    value: ${{ steps.run.outputs.report-path }}
+  exit-code:
+    description: "requirements-check's own exit code (0 success, 1 vulnerabilities found, 2 usage error)."
+    value: ${{ steps.run.outputs.exit-code }}
+
+runs:
+  using: composite
+  steps:
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: ${{ inputs.setup-python-version }}
+
+    - name: Install requirements-check
+      shell: bash
+      run: |
+        if [ -n "${{ inputs.requirements-check-version }}" ]; then
+          pip install "requirements-check==${{ inputs.requirements-check-version }}"
+        else
+          pip install requirements-check
+        fi
+
+    - name: Run requirements-check
+      id: run
+      shell: bash
+      run: |
+        args=("${{ inputs.file }}" "--output" "${{ inputs.output }}")
+
+        case "${{ inputs.format }}" in
+          table) ;;
+          json) args+=("--json") ;;
+          sbom) args+=("--sbom") ;;
+          html) args+=("--html") ;;
+          sarif) args+=("--sarif") ;;
+          *)
+            echo "::error::Unknown format '${{ inputs.format }}' (expected table, json, sbom, html, or sarif)"
+            exit 1
+            ;;
+        esac
+
+        [ "${{ inputs.no-security }}" = "true" ] && args+=("--no-security")
+        [ "${{ inputs.no-transitive-check }}" = "true" ] && args+=("--no-transitive-check")
+        [ "${{ inputs.fail-on-vulnerability }}" = "true" ] && args+=("--fail-on-vulnerability")
+        [ -n "${{ inputs.constraints }}" ] && args+=("--constraints" "${{ inputs.constraints }}")
+        [ -n "${{ inputs.target-python-version }}" ] && args+=("--python-version" "${{ inputs.target-python-version }}")
+        [ -n "${{ inputs.proxy }}" ] && args+=("--proxy" "${{ inputs.proxy }}")
+        [ -n "${{ inputs.ca-bundle }}" ] && args+=("--ca-bundle" "${{ inputs.ca-bundle }}")
+
+        set +e
+        requirements-check "${args[@]}"
+        echo "exit-code=$?" >> "$GITHUB_OUTPUT"
+        set -e
+
+        echo "report-path=${{ inputs.output }}" >> "$GITHUB_OUTPUT"
+
+    - name: Upload SARIF to code scanning
+      if: inputs.format == 'sarif' && inputs.upload-sarif == 'true'
+      uses: github/codeql-action/upload-sarif@v3
+      with:
+        sarif_file: ${{ inputs.output }}
+
+    - name: Enforce result
+      shell: bash
+      run: |
+        code="${{ steps.run.outputs.exit-code }}"
+        if [ "$code" = "2" ]; then
+          echo "::error::requirements-check reported a usage error (exit 2) — check the file path."
+          exit 1
+        fi
+        if [ "$code" = "1" ] && [ "${{ inputs.fail-on-vulnerability }}" = "true" ]; then
+          echo "::error::requirements-check found known vulnerabilities (see the report/Security tab)."
+          exit 1
+        fi

@@ -1,7 +1,15 @@
 """Unit tests for requirements_check.parser."""
 
+import json
+
 from requirements_check.models import UpdateLevel
-from requirements_check.parser import parse_constraints, parse_requirements
+from requirements_check.parser import (
+    is_cyclonedx_sbom,
+    parse_constraints,
+    parse_cyclonedx_sbom,
+    parse_dependencies,
+    parse_requirements,
+)
 
 
 def _write(tmp_path, content):
@@ -94,3 +102,91 @@ def test_parse_constraints_skips_urls_and_options(tmp_path):
 
     assert "foo" not in constraints
     assert "bar" in constraints
+
+
+def test_line_numbers_are_tracked(tmp_path):
+    path = _write(
+        tmp_path,
+        "# comment\n\nfoo==1.0.0\nbar>=2.0\ngit+https://example.com/baz.git#egg=baz\n",
+    )
+    deps = parse_requirements(path)
+
+    by_name = {dep.name: dep for dep in deps}
+    assert by_name["foo"].line_number == 3
+    assert by_name["bar"].line_number == 4
+    assert deps[2].line_number == 5  # the unsupported VCS line
+
+
+def _write_sbom(tmp_path, components):
+    path = tmp_path / "sbom.json"
+    path.write_text(
+        json.dumps(
+            {
+                "bomFormat": "CycloneDX",
+                "specVersion": "1.6",
+                "components": components,
+            },
+        ),
+    )
+    return path
+
+
+def test_is_cyclonedx_sbom_detects_valid_sbom(tmp_path):
+    path = _write_sbom(tmp_path, [])
+    assert is_cyclonedx_sbom(path) is True
+
+
+def test_is_cyclonedx_sbom_rejects_plain_requirements_txt(tmp_path):
+    path = _write(tmp_path, "foo==1.0.0\n")
+    assert is_cyclonedx_sbom(path) is False
+
+
+def test_parse_cyclonedx_sbom_extracts_pypi_components(tmp_path):
+    path = _write_sbom(
+        tmp_path,
+        [
+            {
+                "type": "library",
+                "purl": "pkg:pypi/foo@1.0.0",
+                "name": "foo",
+                "version": "1.0.0",
+            },
+            {
+                "type": "library",
+                "purl": "pkg:npm/not-python@2.0.0",
+                "name": "not-python",
+                "version": "2.0.0",
+            },
+            {
+                "type": "library",
+                "purl": "pkg:pypi/bar@2.5.0",
+                "name": "bar",
+                "version": "2.5.0",
+            },
+        ],
+    )
+
+    deps = parse_cyclonedx_sbom(path)
+
+    assert {dep.name for dep in deps} == {"foo", "bar"}
+    foo = next(dep for dep in deps if dep.name == "foo")
+    assert foo.pinned_version == "1.0.0"
+    assert foo.line_number is None
+
+
+def test_parse_dependencies_auto_detects_sbom_vs_requirements(tmp_path):
+    sbom_path = _write_sbom(
+        tmp_path,
+        [
+            {
+                "type": "library",
+                "purl": "pkg:pypi/foo@1.0.0",
+                "name": "foo",
+                "version": "1.0.0",
+            }
+        ],
+    )
+    txt_path = _write(tmp_path, "bar==2.0.0\n")
+
+    assert [dep.name for dep in parse_dependencies(sbom_path)] == ["foo"]
+    assert [dep.name for dep in parse_dependencies(txt_path)] == ["bar"]

@@ -1,0 +1,1874 @@
+{
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "requirements-check",
+          "informationUri": "https://github.com/manfred-kaiser/requirements-check",
+          "version": "0.1.0",
+          "rules": [
+            {
+              "id": "GHSA-2fqr-mr3j-6wp8",
+              "shortDescription": {
+                "text": "aiohttp: Host-Only Cookies Become Domain Cookies After CookieJar Persistence"
+              },
+              "helpUri": "https://osv.dev/vulnerability/GHSA-2fqr-mr3j-6wp8",
+              "properties": {
+                "aliases": [
+                  "CVE-2026-54279",
+                  "PYSEC-2026-2112"
+                ]
+              }
+            },
+            {
+              "id": "GHSA-2vrm-gr82-f7m5",
+              "shortDescription": {
+                "text": "AIOHTTP has CRLF injection through multipart part content type header construction"
+              },
+              "helpUri": "https://osv.dev/vulnerability/GHSA-2vrm-gr82-f7m5",
+              "properties": {
+                "aliases": [
+                  "CVE-2026-34514",
+                  "PYSEC-2026-2096"
+                ]
+              }
+            },
+            {
+              "id": "GHSA-3wq7-rqq7-wx6j",
+              "shortDescription": {
+                "text": "AIOHTTP has late size enforcement for non-file multipart fields causes memory DoS"
+              },
+              "helpUri": "https://osv.dev/vulnerability/GHSA-3wq7-rqq7-wx6j",
+              "properties": {
+                "aliases": [
+                  "CVE-2026-34517",
+                  "PYSEC-2026-2099"
+                ]
+              }
+            },
+            {
+              "id": "GHSA-4fvr-rgm6-gqmc",
+              "shortDescription": {
+                "text": "aiohttp: HTTP/1 Pipelined Requests Queue Without Limit"
+              },
+              "helpUri": "https://osv.dev/vulnerability/GHSA-4fvr-rgm6-gqmc",
+              "properties": {
+                "aliases": [
+                  "CVE-2026-54273",
+                  "PYSEC-2026-2107"
+                ]
+              }
+            },
+            {
+              "id": "GHSA-4m7w-qmgq-4wj5",
+              "shortDescription": {
+                "text": "aiohttp: TLS Server Hostname Override Is Ignored When Reusing HTTPS Connections"
+              },
+              "helpUri": "https://osv.dev/vulnerability/GHSA-4m7w-qmgq-4wj5",
+              "properties": {
+                "aliases": [
+                  "CVE-2026-54275",
+                  "PYSEC-2026-237"
+                ]
+              }
+            },
+            {
+              "id": "GHSA-54jq-c3m8-4m76",
+              "shortDescription": {
+                "text": "AIOHTTP vulnerable to brute-force leak of internal static \ufb01le path components"
+              },
+              "helpUri": "https://osv.dev/vulnerability/GHSA-54jq-c3m8-4m76",
+              "properties": {
+                "aliases": [
+                  "CVE-2025-69226",
+                  "PYSEC-2026-1097"
+                ]
+              }
+            },
+            {
+              "id": "GHSA-63hf-3vf5-4wqf",
+              "shortDescription": {
+                "text": "AIOHTTP's C parser (llhttp) accepts null bytes and control characters in response header values - header injection/security bypass"
+              },
+              "helpUri": "https://osv.dev/vulnerability/GHSA-63hf-3vf5-4wqf",
+              "properties": {
+                "aliases": [
+                  "CVE-2026-34520",
+                  "PYSEC-2026-2102"
+                ]
+              }
+            },
+            {
+              "id": "GHSA-63hw-fmq6-xxg2",
+              "shortDescription": {
+                "text": "aiohttp: C HTTP Parser Bypasses max_line_size for Fragmented Lines"
+              },
+              "helpUri": "https://osv.dev/vulnerability/GHSA-63hw-fmq6-xxg2",
+              "properties": {
+                "aliases": [
+                  "CVE-2026-54277",
+                  "PYSEC-2026-2110"
+                ]
+              }
+            },
+            {
+              "id": "GHSA-69f9-5gxw-wvc2",
+              "shortDescription": {
+                "text": "AIOHTTP's unicode processing of header values could cause parsing discrepancies"
+              },
+              "helpUri": "https://osv.dev/vulnerability/GHSA-69f9-5gxw-wvc2",
+              "properties": {
+                "aliases": [
+                  "CVE-2025-69224",
+                  "PYSEC-2026-1099"
+                ]
+              }
+            },
+            {
+              "id": "GHSA-6jhg-hg63-jvvf",
+              "shortDescription": {
+                "text": "AIOHTTP vulnerable to  denial of service through large payloads"
+              },
+              "helpUri": "https://osv.dev/vulnerability/GHSA-6jhg-hg63-jvvf",
+              "properties": {
+                "aliases": [
+                  "CVE-2025-69228",
+                  "PYSEC-2026-1100"
+                ]
+              }
+            },
+            {
+              "id": "GHSA-6mq8-rvhq-8wgg",
+              "shortDescription": {
+                "text": "AIOHTTP's HTTP Parser auto_decompress feature is vulnerable to zip bomb"
+              },
+              "helpUri": "https://osv.dev/vulnerability/GHSA-6mq8-rvhq-8wgg",
+              "properties": {
+                "aliases": [
+                  "CVE-2025-69223",
+                  "PYSEC-2026-1101"
+                ]
+              }
+            },
+            {
+              "id": "GHSA-8495-4g3g-x7pr",
+              "shortDescription": {
+                "text": "aiohttp allows request smuggling due to incorrect parsing of chunk extensions"
+              },
+              "helpUri": "https://osv.dev/vulnerability/GHSA-8495-4g3g-x7pr",
+              "properties": {
+                "aliases": [
+                  "CVE-2024-52304",
+                  "PYSEC-2026-1103"
+                ]
+              }
+            },
+            {
+              "id": "GHSA-9548-qrrj-x5pj",
+              "shortDescription": {
+                "text": " AIOHTTP is vulnerable to HTTP Request/Response Smuggling through incorrect parsing of chunked trailer sections"
+              },
+              "helpUri": "https://osv.dev/vulnerability/GHSA-9548-qrrj-x5pj",
+              "properties": {
+                "aliases": [
+                  "CVE-2025-53643",
+                  "PYSEC-2026-1104"
+                ]
+              }
+            },
+            {
+              "id": "GHSA-966j-vmvw-g2g9",
+              "shortDescription": {
+                "text": "AIOHTTP leaks Cookie and Proxy-Authorization headers on cross-origin redirect"
+              },
+              "helpUri": "https://osv.dev/vulnerability/GHSA-966j-vmvw-g2g9",
+              "properties": {
+                "aliases": [
+                  "CVE-2026-34518",
+                  "PYSEC-2026-2100"
+                ]
+              }
+            },
+            {
+              "id": "GHSA-9x8q-7h8h-wcw9",
+              "shortDescription": {
+                "text": "aiohttp: Payload Response Resources Are Not Closed After Mid-Body Disconnect"
+              },
+              "helpUri": "https://osv.dev/vulnerability/GHSA-9x8q-7h8h-wcw9",
+              "properties": {
+                "aliases": [
+                  "CVE-2026-54280",
+                  "PYSEC-2026-2113"
+                ]
+              }
+            },
+            {
+              "id": "GHSA-c427-h43c-vf67",
+              "shortDescription": {
+                "text": "AIOHTTP accepts duplicate Host headers"
+              },
+              "helpUri": "https://osv.dev/vulnerability/GHSA-c427-h43c-vf67",
+              "properties": {
+                "aliases": [
+                  "CVE-2026-34525",
+                  "PYSEC-2026-2103"
+                ]
+              }
+            },
+            {
+              "id": "GHSA-fh55-r93g-j68g",
+              "shortDescription": {
+                "text": "AIOHTTP Vulnerable to Cookie Parser Warning Storm"
+              },
+              "helpUri": "https://osv.dev/vulnerability/GHSA-fh55-r93g-j68g",
+              "properties": {
+                "aliases": [
+                  "CVE-2025-69230",
+                  "PYSEC-2026-1105"
+                ]
+              }
+            },
+            {
+              "id": "GHSA-g3cq-j2xw-wf74",
+              "shortDescription": {
+                "text": "aiohttp: Unread Compressed Request Bodies Bypass client_max_size During Cleanup"
+              },
+              "helpUri": "https://osv.dev/vulnerability/GHSA-g3cq-j2xw-wf74",
+              "properties": {
+                "aliases": [
+                  "CVE-2026-54278",
+                  "PYSEC-2026-2111"
+                ]
+              }
+            },
+            {
+              "id": "GHSA-g84x-mcqj-x9qq",
+              "shortDescription": {
+                "text": "AIOHTTP vulnerable to DoS through chunked messages"
+              },
+              "helpUri": "https://osv.dev/vulnerability/GHSA-g84x-mcqj-x9qq",
+              "properties": {
+                "aliases": [
+                  "CVE-2025-69229",
+                  "PYSEC-2026-1106"
+                ]
+              }
+            },
+            {
+              "id": "GHSA-hcc4-c3v8-rx92",
+              "shortDescription": {
+                "text": "AIOHTTP Affected by Denial of Service (DoS) via Unbounded DNS Cache in TCPConnector"
+              },
+              "helpUri": "https://osv.dev/vulnerability/GHSA-hcc4-c3v8-rx92",
+              "properties": {
+                "aliases": [
+                  "CVE-2026-34513",
+                  "PYSEC-2026-2095"
+                ]
+              }
+            },
+            {
+              "id": "GHSA-hg6j-4rv6-33pg",
+              "shortDescription": {
+                "text": "AIOHTTP is vulnerable to cross-origin redirect with per-request cookies"
+              },
+              "helpUri": "https://osv.dev/vulnerability/GHSA-hg6j-4rv6-33pg",
+              "properties": {
+                "aliases": [
+                  "CVE-2026-47265",
+                  "PYSEC-2026-2105"
+                ]
+              }
+            },
+            {
+              "id": "GHSA-hpj7-wq8m-9hgp",
+              "shortDescription": {
+                "text": "aiohttp: DigestAuthMiddleware Applies Credentials to Cross-Origin Redirect Challenges"
+              },
+              "helpUri": "https://osv.dev/vulnerability/GHSA-hpj7-wq8m-9hgp",
+              "properties": {
+                "aliases": [
+                  "CVE-2026-54276",
+                  "PYSEC-2026-2109"
+                ]
+              }
+            },
+            {
+              "id": "GHSA-jg22-mg44-37j8",
+              "shortDescription": {
+                "text": "AIOHTTP is Vulnerable to Deserialization of Untrusted Data"
+              },
+              "helpUri": "https://osv.dev/vulnerability/GHSA-jg22-mg44-37j8",
+              "properties": {
+                "aliases": [
+                  "CVE-2026-34993",
+                  "PYSEC-2026-2104"
+                ]
+              }
+            },
+            {
+              "id": "GHSA-jj3x-wxrx-4x23",
+              "shortDescription": {
+                "text": "AIOHTTP vulnerable to DoS when bypassing asserts"
+              },
+              "helpUri": "https://osv.dev/vulnerability/GHSA-jj3x-wxrx-4x23",
+              "properties": {
+                "aliases": [
+                  "CVE-2025-69227",
+                  "PYSEC-2026-1107"
+                ]
+              }
+            },
+            {
+              "id": "GHSA-m5qp-6w8w-w647",
+              "shortDescription": {
+                "text": "AIOHTTP has a Multipart Header Size Bypass"
+              },
+              "helpUri": "https://osv.dev/vulnerability/GHSA-m5qp-6w8w-w647",
+              "properties": {
+                "aliases": [
+                  "CVE-2026-34516",
+                  "PYSEC-2026-2098"
+                ]
+              }
+            },
+            {
+              "id": "GHSA-m6qw-4cw2-hm4m",
+              "shortDescription": {
+                "text": "aiohttp: CRLF injection in multipart headers"
+              },
+              "helpUri": "https://osv.dev/vulnerability/GHSA-m6qw-4cw2-hm4m",
+              "properties": {
+                "aliases": [
+                  "CVE-2026-50269",
+                  "PYSEC-2026-2106"
+                ]
+              }
+            },
+            {
+              "id": "GHSA-mqqc-3gqh-h2x8",
+              "shortDescription": {
+                "text": "AIOHTTP has unicode match groups in regexes for ASCII protocol elements"
+              },
+              "helpUri": "https://osv.dev/vulnerability/GHSA-mqqc-3gqh-h2x8",
+              "properties": {
+                "aliases": [
+                  "CVE-2025-69225",
+                  "PYSEC-2026-1109"
+                ]
+              }
+            },
+            {
+              "id": "GHSA-mwh4-6h8g-pg8w",
+              "shortDescription": {
+                "text": "AIOHTTP has HTTP response splitting via \\r in reason phrase"
+              },
+              "helpUri": "https://osv.dev/vulnerability/GHSA-mwh4-6h8g-pg8w",
+              "properties": {
+                "aliases": [
+                  "CVE-2026-34519",
+                  "PYSEC-2026-2101"
+                ]
+              }
+            },
+            {
+              "id": "GHSA-p998-jp59-783m",
+              "shortDescription": {
+                "text": "AIOHTTP affected by UNC SSRF/NTLMv2 Credential Theft/Local File Read in static resource handler on Windows"
+              },
+              "helpUri": "https://osv.dev/vulnerability/GHSA-p998-jp59-783m",
+              "properties": {
+                "aliases": [
+                  "CVE-2026-34515",
+                  "PYSEC-2026-2097"
+                ]
+              }
+            },
+            {
+              "id": "GHSA-w2fm-2cpv-w7v5",
+              "shortDescription": {
+                "text": "aiohttp allows unlimited trailer headers, leading to possible uncapped memory usage"
+              },
+              "helpUri": "https://osv.dev/vulnerability/GHSA-w2fm-2cpv-w7v5",
+              "properties": {
+                "aliases": [
+                  "CVE-2026-22815",
+                  "PYSEC-2026-2094"
+                ]
+              }
+            },
+            {
+              "id": "GHSA-xcgm-r5h9-7989",
+              "shortDescription": {
+                "text": "aiohttp: Incomplete websocket frame payloads bypass memory limits"
+              },
+              "helpUri": "https://osv.dev/vulnerability/GHSA-xcgm-r5h9-7989",
+              "properties": {
+                "aliases": [
+                  "CVE-2026-54274",
+                  "PYSEC-2026-2108"
+                ]
+              }
+            },
+            {
+              "id": "PYSEC-2026-2132",
+              "shortDescription": {
+                "text": "Pallets Click, versions 8.3.2 and below, contain a command injection vulnerability in the click.edit() function, allowing attackers to pass arbitrary OS commands from an unprivileged account."
+              },
+              "helpUri": "https://osv.dev/vulnerability/PYSEC-2026-2132",
+              "properties": {
+                "aliases": [
+                  "CVE-2026-7246",
+                  "GHSA-47fr-3ffg-hgmw"
+                ]
+              }
+            },
+            {
+              "id": "GHSA-68rp-wp8r-4726",
+              "shortDescription": {
+                "text": "Flask session does not add `Vary: Cookie` header when accessed in some ways"
+              },
+              "helpUri": "https://osv.dev/vulnerability/GHSA-68rp-wp8r-4726",
+              "properties": {
+                "aliases": [
+                  "CVE-2026-27205",
+                  "PYSEC-2026-2151"
+                ]
+              }
+            },
+            {
+              "id": "GHSA-m2qf-hxjv-5gpq",
+              "shortDescription": {
+                "text": "Flask vulnerable to possible disclosure of permanent session cookie due to missing Vary: Cookie header"
+              },
+              "helpUri": "https://osv.dev/vulnerability/GHSA-m2qf-hxjv-5gpq",
+              "properties": {
+                "aliases": [
+                  "CVE-2023-30861",
+                  "PYSEC-2023-62"
+                ]
+              }
+            },
+            {
+              "id": "GHSA-65pc-fj4g-8rjx",
+              "shortDescription": {
+                "text": "Internationalized Domain Names in Applications (IDNA): Specially crafted inputs to idna.encode() can bypass CVE-2024-3651 fix"
+              },
+              "helpUri": "https://osv.dev/vulnerability/GHSA-65pc-fj4g-8rjx",
+              "properties": {
+                "aliases": [
+                  "CVE-2026-45409",
+                  "PYSEC-2026-215"
+                ]
+              }
+            },
+            {
+              "id": "GHSA-jjg7-2v4v-x38h",
+              "shortDescription": {
+                "text": "Internationalized Domain Names in Applications (IDNA) vulnerable to denial of service from specially crafted inputs to idna.encode"
+              },
+              "helpUri": "https://osv.dev/vulnerability/GHSA-jjg7-2v4v-x38h",
+              "properties": {
+                "aliases": [
+                  "CVE-2024-3651",
+                  "PYSEC-2024-60"
+                ]
+              }
+            },
+            {
+              "id": "GHSA-cpwx-vrp4-4pq7",
+              "shortDescription": {
+                "text": "Jinja2 vulnerable to sandbox breakout through attr filter selecting format method"
+              },
+              "helpUri": "https://osv.dev/vulnerability/GHSA-cpwx-vrp4-4pq7",
+              "properties": {
+                "aliases": [
+                  "CVE-2025-27516",
+                  "PYSEC-2026-1471"
+                ]
+              }
+            },
+            {
+              "id": "GHSA-h5c8-rqwp-cp95",
+              "shortDescription": {
+                "text": "Jinja vulnerable to HTML attribute injection when passing user input as keys to xmlattr filter"
+              },
+              "helpUri": "https://osv.dev/vulnerability/GHSA-h5c8-rqwp-cp95",
+              "properties": {
+                "aliases": [
+                  "CVE-2024-22195",
+                  "PYSEC-2026-1473"
+                ]
+              }
+            },
+            {
+              "id": "GHSA-h75v-3vvj-5mfj",
+              "shortDescription": {
+                "text": "Jinja vulnerable to HTML attribute injection when passing user input as keys to xmlattr filter"
+              },
+              "helpUri": "https://osv.dev/vulnerability/GHSA-h75v-3vvj-5mfj",
+              "properties": {
+                "aliases": [
+                  "CVE-2024-34064",
+                  "PYSEC-2026-1474"
+                ]
+              }
+            },
+            {
+              "id": "GHSA-q2x7-8rv6-6q7h",
+              "shortDescription": {
+                "text": "Jinja has a sandbox breakout through indirect reference to format method"
+              },
+              "helpUri": "https://osv.dev/vulnerability/GHSA-q2x7-8rv6-6q7h",
+              "properties": {
+                "aliases": [
+                  "CVE-2024-56326",
+                  "PYSEC-2026-1475"
+                ]
+              }
+            },
+            {
+              "id": "GHSA-9hjg-9r4m-mvj7",
+              "shortDescription": {
+                "text": "Requests vulnerable to .netrc credentials leak via malicious URLs"
+              },
+              "helpUri": "https://osv.dev/vulnerability/GHSA-9hjg-9r4m-mvj7",
+              "properties": {
+                "aliases": [
+                  "CVE-2024-47081",
+                  "PYSEC-2026-1872"
+                ]
+              }
+            },
+            {
+              "id": "GHSA-9wx4-h78v-vm56",
+              "shortDescription": {
+                "text": "Requests `Session` object does not verify requests after making first request with verify=False"
+              },
+              "helpUri": "https://osv.dev/vulnerability/GHSA-9wx4-h78v-vm56",
+              "properties": {
+                "aliases": [
+                  "CVE-2024-35195",
+                  "PYSEC-2026-1873"
+                ]
+              }
+            },
+            {
+              "id": "GHSA-gc5v-m9x4-r6x2",
+              "shortDescription": {
+                "text": "Requests has Insecure Temp File Reuse in its extract_zipped_paths() utility function"
+              },
+              "helpUri": "https://osv.dev/vulnerability/GHSA-gc5v-m9x4-r6x2",
+              "properties": {
+                "aliases": [
+                  "CVE-2026-25645",
+                  "PYSEC-2026-2275"
+                ]
+              }
+            },
+            {
+              "id": "GHSA-j8r2-6x86-q33q",
+              "shortDescription": {
+                "text": "Unintended leak of Proxy-Authorization header in requests"
+              },
+              "helpUri": "https://osv.dev/vulnerability/GHSA-j8r2-6x86-q33q",
+              "properties": {
+                "aliases": [
+                  "CVE-2023-32681",
+                  "PYSEC-2023-74"
+                ]
+              }
+            },
+            {
+              "id": "GHSA-2xpw-w6gg-jr37",
+              "shortDescription": {
+                "text": "urllib3 streaming API improperly handles highly compressed data"
+              },
+              "helpUri": "https://osv.dev/vulnerability/GHSA-2xpw-w6gg-jr37",
+              "properties": {
+                "aliases": [
+                  "CVE-2025-66471",
+                  "PYSEC-2026-1994"
+                ]
+              }
+            },
+            {
+              "id": "GHSA-38jv-5279-wg99",
+              "shortDescription": {
+                "text": "Decompression-bomb safeguards bypassed when following HTTP redirects (streaming API)"
+              },
+              "helpUri": "https://osv.dev/vulnerability/GHSA-38jv-5279-wg99",
+              "properties": {
+                "aliases": [
+                  "CVE-2026-21441",
+                  "PYSEC-2026-1996"
+                ]
+              }
+            },
+            {
+              "id": "GHSA-gm62-xv2j-4w53",
+              "shortDescription": {
+                "text": "urllib3 allows an unbounded number of links in the decompression chain"
+              },
+              "helpUri": "https://osv.dev/vulnerability/GHSA-gm62-xv2j-4w53",
+              "properties": {
+                "aliases": [
+                  "CVE-2025-66418",
+                  "PYSEC-2026-1998"
+                ]
+              }
+            },
+            {
+              "id": "GHSA-pq67-6m6q-mj2v",
+              "shortDescription": {
+                "text": "urllib3 redirects are not disabled when retries are disabled on PoolManager instantiation"
+              },
+              "helpUri": "https://osv.dev/vulnerability/GHSA-pq67-6m6q-mj2v",
+              "properties": {
+                "aliases": [
+                  "CVE-2025-50181",
+                  "PYSEC-2026-1999"
+                ]
+              }
+            },
+            {
+              "id": "GHSA-qccp-gfcp-xxvc",
+              "shortDescription": {
+                "text": "urllib3: Sensitive headers forwarded across origins in proxied low-level redirects"
+              },
+              "helpUri": "https://osv.dev/vulnerability/GHSA-qccp-gfcp-xxvc",
+              "properties": {
+                "aliases": [
+                  "CVE-2026-44431",
+                  "PYSEC-2026-141"
+                ]
+              }
+            },
+            {
+              "id": "GHSA-29vq-49wr-vm6x",
+              "shortDescription": {
+                "text": " Werkzeug safe_join() allows Windows special device names"
+              },
+              "helpUri": "https://osv.dev/vulnerability/GHSA-29vq-49wr-vm6x",
+              "properties": {
+                "aliases": [
+                  "CVE-2026-27199",
+                  "PYSEC-2026-2320"
+                ]
+              }
+            },
+            {
+              "id": "GHSA-2g68-c3qc-8985",
+              "shortDescription": {
+                "text": "Werkzeug debugger vulnerable to remote execution when interacting with attacker controlled domain"
+              },
+              "helpUri": "https://osv.dev/vulnerability/GHSA-2g68-c3qc-8985",
+              "properties": {
+                "aliases": [
+                  "CVE-2024-34069",
+                  "PYSEC-2026-2043"
+                ]
+              }
+            },
+            {
+              "id": "GHSA-87hc-h4r5-73f7",
+              "shortDescription": {
+                "text": " Werkzeug safe_join() allows Windows special device names with compound extensions"
+              },
+              "helpUri": "https://osv.dev/vulnerability/GHSA-87hc-h4r5-73f7",
+              "properties": {
+                "aliases": [
+                  "CVE-2026-21860",
+                  "PYSEC-2026-2044"
+                ]
+              }
+            },
+            {
+              "id": "GHSA-f9vj-2wh5-fj8j",
+              "shortDescription": {
+                "text": "Werkzeug safe_join not safe on Windows"
+              },
+              "helpUri": "https://osv.dev/vulnerability/GHSA-f9vj-2wh5-fj8j",
+              "properties": {
+                "aliases": [
+                  "CVE-2024-49766",
+                  "PYSEC-2026-2045"
+                ]
+              }
+            },
+            {
+              "id": "GHSA-hgf8-39gv-g3f2",
+              "shortDescription": {
+                "text": "Werkzeug safe_join() allows Windows special device names"
+              },
+              "helpUri": "https://osv.dev/vulnerability/GHSA-hgf8-39gv-g3f2",
+              "properties": {
+                "aliases": [
+                  "CVE-2025-66221",
+                  "PYSEC-2026-2046"
+                ]
+              }
+            },
+            {
+              "id": "GHSA-px8h-6qxv-m22q",
+              "shortDescription": {
+                "text": "Incorrect parsing of nameless cookies leads to __Host- cookies bypass"
+              },
+              "helpUri": "https://osv.dev/vulnerability/GHSA-px8h-6qxv-m22q",
+              "properties": {
+                "aliases": [
+                  "CVE-2023-23934",
+                  "PYSEC-2023-57"
+                ]
+              }
+            },
+            {
+              "id": "GHSA-xg9f-g7g7-2323",
+              "shortDescription": {
+                "text": "High resource usage when parsing multipart form data with many fields"
+              },
+              "helpUri": "https://osv.dev/vulnerability/GHSA-xg9f-g7g7-2323",
+              "properties": {
+                "aliases": [
+                  "CVE-2023-25577",
+                  "PYSEC-2023-58"
+                ]
+              }
+            },
+            {
+              "id": "PYSEC-2022-203",
+              "shortDescription": {
+                "text": "** DISPUTED ** Improper parsing of HTTP requests in Pallets Werkzeug v2.1.0 and below allows attackers to perform HTTP Request Smuggling using a crafted HTTP request with multiple requests included in"
+              },
+              "helpUri": "https://osv.dev/vulnerability/PYSEC-2022-203",
+              "properties": {
+                "aliases": [
+                  "CVE-2022-29361"
+                ]
+              }
+            },
+            {
+              "id": "PYSEC-2023-221",
+              "shortDescription": {
+                "text": "Werkzeug is a comprehensive WSGI web application library. If an upload of a file that starts with CR or LF and then is followed by megabytes of data without these characters: all of these bytes are ap"
+              },
+              "helpUri": "https://osv.dev/vulnerability/PYSEC-2023-221",
+              "properties": {
+                "aliases": [
+                  "CVE-2023-46136",
+                  "GHSA-hrfv-mqp8-q5rw"
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "results": [
+        {
+          "ruleId": "GHSA-2fqr-mr3j-6wp8",
+          "level": "warning",
+          "message": {
+            "text": "aiohttp 3.9.5: aiohttp: Host-Only Cookies Become Domain Cookies After CookieJar Persistence (fixed in 3.14.1)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/requirements.txt"
+                },
+                "region": {
+                  "startLine": 7
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "GHSA-2vrm-gr82-f7m5",
+          "level": "warning",
+          "message": {
+            "text": "aiohttp 3.9.5: AIOHTTP has CRLF injection through multipart part content type header construction (fixed in 3.13.4)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/requirements.txt"
+                },
+                "region": {
+                  "startLine": 7
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "GHSA-3wq7-rqq7-wx6j",
+          "level": "warning",
+          "message": {
+            "text": "aiohttp 3.9.5: AIOHTTP has late size enforcement for non-file multipart fields causes memory DoS (fixed in 3.13.4)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/requirements.txt"
+                },
+                "region": {
+                  "startLine": 7
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "GHSA-4fvr-rgm6-gqmc",
+          "level": "warning",
+          "message": {
+            "text": "aiohttp 3.9.5: aiohttp: HTTP/1 Pipelined Requests Queue Without Limit (fixed in 3.14.1)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/requirements.txt"
+                },
+                "region": {
+                  "startLine": 7
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "GHSA-4m7w-qmgq-4wj5",
+          "level": "warning",
+          "message": {
+            "text": "aiohttp 3.9.5: aiohttp: TLS Server Hostname Override Is Ignored When Reusing HTTPS Connections (fixed in 3.14.1)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/requirements.txt"
+                },
+                "region": {
+                  "startLine": 7
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "GHSA-54jq-c3m8-4m76",
+          "level": "warning",
+          "message": {
+            "text": "aiohttp 3.9.5: AIOHTTP vulnerable to brute-force leak of internal static \ufb01le path components (fixed in 3.13.3)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/requirements.txt"
+                },
+                "region": {
+                  "startLine": 7
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "GHSA-63hf-3vf5-4wqf",
+          "level": "warning",
+          "message": {
+            "text": "aiohttp 3.9.5: AIOHTTP's C parser (llhttp) accepts null bytes and control characters in response header values - header injection/security bypass (fixed in 3.13.4)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/requirements.txt"
+                },
+                "region": {
+                  "startLine": 7
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "GHSA-63hw-fmq6-xxg2",
+          "level": "warning",
+          "message": {
+            "text": "aiohttp 3.9.5: aiohttp: C HTTP Parser Bypasses max_line_size for Fragmented Lines (fixed in 3.14.1)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/requirements.txt"
+                },
+                "region": {
+                  "startLine": 7
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "GHSA-69f9-5gxw-wvc2",
+          "level": "warning",
+          "message": {
+            "text": "aiohttp 3.9.5: AIOHTTP's unicode processing of header values could cause parsing discrepancies (fixed in 3.13.3)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/requirements.txt"
+                },
+                "region": {
+                  "startLine": 7
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "GHSA-6jhg-hg63-jvvf",
+          "level": "warning",
+          "message": {
+            "text": "aiohttp 3.9.5: AIOHTTP vulnerable to  denial of service through large payloads (fixed in 3.13.3)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/requirements.txt"
+                },
+                "region": {
+                  "startLine": 7
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "GHSA-6mq8-rvhq-8wgg",
+          "level": "warning",
+          "message": {
+            "text": "aiohttp 3.9.5: AIOHTTP's HTTP Parser auto_decompress feature is vulnerable to zip bomb (fixed in 3.13.3)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/requirements.txt"
+                },
+                "region": {
+                  "startLine": 7
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "GHSA-8495-4g3g-x7pr",
+          "level": "warning",
+          "message": {
+            "text": "aiohttp 3.9.5: aiohttp allows request smuggling due to incorrect parsing of chunk extensions (fixed in 3.10.11)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/requirements.txt"
+                },
+                "region": {
+                  "startLine": 7
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "GHSA-9548-qrrj-x5pj",
+          "level": "warning",
+          "message": {
+            "text": "aiohttp 3.9.5:  AIOHTTP is vulnerable to HTTP Request/Response Smuggling through incorrect parsing of chunked trailer sections (fixed in 3.12.14)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/requirements.txt"
+                },
+                "region": {
+                  "startLine": 7
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "GHSA-966j-vmvw-g2g9",
+          "level": "warning",
+          "message": {
+            "text": "aiohttp 3.9.5: AIOHTTP leaks Cookie and Proxy-Authorization headers on cross-origin redirect (fixed in 3.13.4)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/requirements.txt"
+                },
+                "region": {
+                  "startLine": 7
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "GHSA-9x8q-7h8h-wcw9",
+          "level": "warning",
+          "message": {
+            "text": "aiohttp 3.9.5: aiohttp: Payload Response Resources Are Not Closed After Mid-Body Disconnect (fixed in 3.14.1)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/requirements.txt"
+                },
+                "region": {
+                  "startLine": 7
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "GHSA-c427-h43c-vf67",
+          "level": "warning",
+          "message": {
+            "text": "aiohttp 3.9.5: AIOHTTP accepts duplicate Host headers (fixed in 3.13.4)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/requirements.txt"
+                },
+                "region": {
+                  "startLine": 7
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "GHSA-fh55-r93g-j68g",
+          "level": "warning",
+          "message": {
+            "text": "aiohttp 3.9.5: AIOHTTP Vulnerable to Cookie Parser Warning Storm (fixed in 3.13.3)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/requirements.txt"
+                },
+                "region": {
+                  "startLine": 7
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "GHSA-g3cq-j2xw-wf74",
+          "level": "warning",
+          "message": {
+            "text": "aiohttp 3.9.5: aiohttp: Unread Compressed Request Bodies Bypass client_max_size During Cleanup (fixed in 3.14.1)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/requirements.txt"
+                },
+                "region": {
+                  "startLine": 7
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "GHSA-g84x-mcqj-x9qq",
+          "level": "warning",
+          "message": {
+            "text": "aiohttp 3.9.5: AIOHTTP vulnerable to DoS through chunked messages (fixed in 3.13.3)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/requirements.txt"
+                },
+                "region": {
+                  "startLine": 7
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "GHSA-hcc4-c3v8-rx92",
+          "level": "warning",
+          "message": {
+            "text": "aiohttp 3.9.5: AIOHTTP Affected by Denial of Service (DoS) via Unbounded DNS Cache in TCPConnector (fixed in 3.13.4)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/requirements.txt"
+                },
+                "region": {
+                  "startLine": 7
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "GHSA-hg6j-4rv6-33pg",
+          "level": "warning",
+          "message": {
+            "text": "aiohttp 3.9.5: AIOHTTP is vulnerable to cross-origin redirect with per-request cookies (fixed in 3.14.0)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/requirements.txt"
+                },
+                "region": {
+                  "startLine": 7
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "GHSA-hpj7-wq8m-9hgp",
+          "level": "warning",
+          "message": {
+            "text": "aiohttp 3.9.5: aiohttp: DigestAuthMiddleware Applies Credentials to Cross-Origin Redirect Challenges (fixed in 3.14.1)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/requirements.txt"
+                },
+                "region": {
+                  "startLine": 7
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "GHSA-jg22-mg44-37j8",
+          "level": "warning",
+          "message": {
+            "text": "aiohttp 3.9.5: AIOHTTP is Vulnerable to Deserialization of Untrusted Data (fixed in 3.14.0)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/requirements.txt"
+                },
+                "region": {
+                  "startLine": 7
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "GHSA-jj3x-wxrx-4x23",
+          "level": "warning",
+          "message": {
+            "text": "aiohttp 3.9.5: AIOHTTP vulnerable to DoS when bypassing asserts (fixed in 3.13.3)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/requirements.txt"
+                },
+                "region": {
+                  "startLine": 7
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "GHSA-m5qp-6w8w-w647",
+          "level": "warning",
+          "message": {
+            "text": "aiohttp 3.9.5: AIOHTTP has a Multipart Header Size Bypass (fixed in 3.13.4)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/requirements.txt"
+                },
+                "region": {
+                  "startLine": 7
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "GHSA-m6qw-4cw2-hm4m",
+          "level": "warning",
+          "message": {
+            "text": "aiohttp 3.9.5: aiohttp: CRLF injection in multipart headers (fixed in 3.14.0)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/requirements.txt"
+                },
+                "region": {
+                  "startLine": 7
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "GHSA-mqqc-3gqh-h2x8",
+          "level": "warning",
+          "message": {
+            "text": "aiohttp 3.9.5: AIOHTTP has unicode match groups in regexes for ASCII protocol elements (fixed in 3.13.3)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/requirements.txt"
+                },
+                "region": {
+                  "startLine": 7
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "GHSA-mwh4-6h8g-pg8w",
+          "level": "warning",
+          "message": {
+            "text": "aiohttp 3.9.5: AIOHTTP has HTTP response splitting via \\r in reason phrase (fixed in 3.13.4)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/requirements.txt"
+                },
+                "region": {
+                  "startLine": 7
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "GHSA-p998-jp59-783m",
+          "level": "warning",
+          "message": {
+            "text": "aiohttp 3.9.5: AIOHTTP affected by UNC SSRF/NTLMv2 Credential Theft/Local File Read in static resource handler on Windows (fixed in 3.13.4)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/requirements.txt"
+                },
+                "region": {
+                  "startLine": 7
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "GHSA-w2fm-2cpv-w7v5",
+          "level": "warning",
+          "message": {
+            "text": "aiohttp 3.9.5: aiohttp allows unlimited trailer headers, leading to possible uncapped memory usage (fixed in 3.13.4)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/requirements.txt"
+                },
+                "region": {
+                  "startLine": 7
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "GHSA-xcgm-r5h9-7989",
+          "level": "warning",
+          "message": {
+            "text": "aiohttp 3.9.5: aiohttp: Incomplete websocket frame payloads bypass memory limits (fixed in 3.14.1)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/requirements.txt"
+                },
+                "region": {
+                  "startLine": 7
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "PYSEC-2026-2132",
+          "level": "error",
+          "message": {
+            "text": "click 7.1.2: Pallets Click, versions 8.3.2 and below, contain a command injection vulnerability in the click.edit() function, allowing attackers to pass arbitrary OS commands from an unprivileged account. (fixed in 8.3.3)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/requirements.txt"
+                },
+                "region": {
+                  "startLine": 17
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "GHSA-68rp-wp8r-4726",
+          "level": "error",
+          "message": {
+            "text": "flask 1.1.4: Flask session does not add `Vary: Cookie` header when accessed in some ways (fixed in 3.1.3)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/requirements.txt"
+                },
+                "region": {
+                  "startLine": 19
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "GHSA-m2qf-hxjv-5gpq",
+          "level": "error",
+          "message": {
+            "text": "flask 1.1.4: Flask vulnerable to possible disclosure of permanent session cookie due to missing Vary: Cookie header (fixed in 2.2.5)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/requirements.txt"
+                },
+                "region": {
+                  "startLine": 19
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "GHSA-65pc-fj4g-8rjx",
+          "level": "error",
+          "message": {
+            "text": "idna 2.10: Internationalized Domain Names in Applications (IDNA): Specially crafted inputs to idna.encode() can bypass CVE-2024-3651 fix (fixed in 3.15)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/requirements.txt"
+                },
+                "region": {
+                  "startLine": 25
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "GHSA-jjg7-2v4v-x38h",
+          "level": "error",
+          "message": {
+            "text": "idna 2.10: Internationalized Domain Names in Applications (IDNA) vulnerable to denial of service from specially crafted inputs to idna.encode (fixed in 3.7)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/requirements.txt"
+                },
+                "region": {
+                  "startLine": 25
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "GHSA-cpwx-vrp4-4pq7",
+          "level": "error",
+          "message": {
+            "text": "jinja2 2.11.3: Jinja2 vulnerable to sandbox breakout through attr filter selecting format method (fixed in 3.1.6)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/requirements.txt"
+                },
+                "region": {
+                  "startLine": 31
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "GHSA-h5c8-rqwp-cp95",
+          "level": "error",
+          "message": {
+            "text": "jinja2 2.11.3: Jinja vulnerable to HTML attribute injection when passing user input as keys to xmlattr filter (fixed in 3.1.3)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/requirements.txt"
+                },
+                "region": {
+                  "startLine": 31
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "GHSA-h75v-3vvj-5mfj",
+          "level": "error",
+          "message": {
+            "text": "jinja2 2.11.3: Jinja vulnerable to HTML attribute injection when passing user input as keys to xmlattr filter (fixed in 3.1.4)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/requirements.txt"
+                },
+                "region": {
+                  "startLine": 31
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "GHSA-q2x7-8rv6-6q7h",
+          "level": "error",
+          "message": {
+            "text": "jinja2 2.11.3: Jinja has a sandbox breakout through indirect reference to format method (fixed in 3.1.5)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/requirements.txt"
+                },
+                "region": {
+                  "startLine": 31
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "GHSA-9hjg-9r4m-mvj7",
+          "level": "warning",
+          "message": {
+            "text": "requests 2.25.1: Requests vulnerable to .netrc credentials leak via malicious URLs (fixed in 2.32.4)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/requirements.txt"
+                },
+                "region": {
+                  "startLine": 41
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "GHSA-9wx4-h78v-vm56",
+          "level": "warning",
+          "message": {
+            "text": "requests 2.25.1: Requests `Session` object does not verify requests after making first request with verify=False (fixed in 2.32.0)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/requirements.txt"
+                },
+                "region": {
+                  "startLine": 41
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "GHSA-gc5v-m9x4-r6x2",
+          "level": "warning",
+          "message": {
+            "text": "requests 2.25.1: Requests has Insecure Temp File Reuse in its extract_zipped_paths() utility function (fixed in 2.33.0)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/requirements.txt"
+                },
+                "region": {
+                  "startLine": 41
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "GHSA-j8r2-6x86-q33q",
+          "level": "warning",
+          "message": {
+            "text": "requests 2.25.1: Unintended leak of Proxy-Authorization header in requests (fixed in 2.31.0)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/requirements.txt"
+                },
+                "region": {
+                  "startLine": 41
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "GHSA-2xpw-w6gg-jr37",
+          "level": "error",
+          "message": {
+            "text": "urllib3 1.26.20: urllib3 streaming API improperly handles highly compressed data (fixed in 2.6.0)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/requirements.txt"
+                },
+                "region": {
+                  "startLine": 43
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "GHSA-38jv-5279-wg99",
+          "level": "error",
+          "message": {
+            "text": "urllib3 1.26.20: Decompression-bomb safeguards bypassed when following HTTP redirects (streaming API) (fixed in 2.6.3)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/requirements.txt"
+                },
+                "region": {
+                  "startLine": 43
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "GHSA-gm62-xv2j-4w53",
+          "level": "error",
+          "message": {
+            "text": "urllib3 1.26.20: urllib3 allows an unbounded number of links in the decompression chain (fixed in 2.6.0)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/requirements.txt"
+                },
+                "region": {
+                  "startLine": 43
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "GHSA-pq67-6m6q-mj2v",
+          "level": "error",
+          "message": {
+            "text": "urllib3 1.26.20: urllib3 redirects are not disabled when retries are disabled on PoolManager instantiation (fixed in 2.5.0)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/requirements.txt"
+                },
+                "region": {
+                  "startLine": 43
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "GHSA-qccp-gfcp-xxvc",
+          "level": "error",
+          "message": {
+            "text": "urllib3 1.26.20: urllib3: Sensitive headers forwarded across origins in proxied low-level redirects (fixed in 2.7.0)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/requirements.txt"
+                },
+                "region": {
+                  "startLine": 43
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "GHSA-29vq-49wr-vm6x",
+          "level": "error",
+          "message": {
+            "text": "werkzeug 1.0.1:  Werkzeug safe_join() allows Windows special device names (fixed in 3.1.6)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/requirements.txt"
+                },
+                "region": {
+                  "startLine": 45
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "GHSA-2g68-c3qc-8985",
+          "level": "error",
+          "message": {
+            "text": "werkzeug 1.0.1: Werkzeug debugger vulnerable to remote execution when interacting with attacker controlled domain (fixed in 3.0.3)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/requirements.txt"
+                },
+                "region": {
+                  "startLine": 45
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "GHSA-87hc-h4r5-73f7",
+          "level": "error",
+          "message": {
+            "text": "werkzeug 1.0.1:  Werkzeug safe_join() allows Windows special device names with compound extensions (fixed in 3.1.5)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/requirements.txt"
+                },
+                "region": {
+                  "startLine": 45
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "GHSA-f9vj-2wh5-fj8j",
+          "level": "error",
+          "message": {
+            "text": "werkzeug 1.0.1: Werkzeug safe_join not safe on Windows (fixed in 3.0.6)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/requirements.txt"
+                },
+                "region": {
+                  "startLine": 45
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "GHSA-hgf8-39gv-g3f2",
+          "level": "error",
+          "message": {
+            "text": "werkzeug 1.0.1: Werkzeug safe_join() allows Windows special device names (fixed in 3.1.4)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/requirements.txt"
+                },
+                "region": {
+                  "startLine": 45
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "GHSA-px8h-6qxv-m22q",
+          "level": "error",
+          "message": {
+            "text": "werkzeug 1.0.1: Incorrect parsing of nameless cookies leads to __Host- cookies bypass (fixed in 2.2.3)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/requirements.txt"
+                },
+                "region": {
+                  "startLine": 45
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "GHSA-xg9f-g7g7-2323",
+          "level": "error",
+          "message": {
+            "text": "werkzeug 1.0.1: High resource usage when parsing multipart form data with many fields (fixed in 2.2.3)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/requirements.txt"
+                },
+                "region": {
+                  "startLine": 45
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "PYSEC-2022-203",
+          "level": "error",
+          "message": {
+            "text": "werkzeug 1.0.1: ** DISPUTED ** Improper parsing of HTTP requests in Pallets Werkzeug v2.1.0 and below allows attackers to perform HTTP Request Smuggling using a crafted HTTP request with multiple requests included in (fixed in 2.1.1)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/requirements.txt"
+                },
+                "region": {
+                  "startLine": 45
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "PYSEC-2023-221",
+          "level": "error",
+          "message": {
+            "text": "werkzeug 1.0.1: Werkzeug is a comprehensive WSGI web application library. If an upload of a file that starts with CR or LF and then is followed by megabytes of data without these characters: all of these bytes are ap (no fix available yet)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/requirements.txt"
+                },
+                "region": {
+                  "startLine": 45
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

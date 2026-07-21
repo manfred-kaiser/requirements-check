@@ -39,6 +39,7 @@ class Dependency:
     name: str
     raw_line: str
     pinned_version: str | None
+    line_number: int | None = None
     license: str | None = None
     latest_patch: str | None = None
     latest_minor: str | None = None
@@ -56,6 +57,7 @@ class Dependency:
         return {
             "name": self.name,
             "pinned_version": self.pinned_version,
+            "line_number": self.line_number,
             "license": self.license,
             "latest_patch": self.latest_patch,
             "latest_minor": self.latest_minor,

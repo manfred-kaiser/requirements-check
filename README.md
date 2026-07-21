@@ -60,13 +60,14 @@ requirements-check --list-vulnerabilities
 requirements-check [FILE] [OPTIONS]
 ```
 
-`FILE` — path to the `requirements.txt` file to check (default: `requirements.txt` in the current directory).
+`FILE` — path to the `requirements.txt` file to check (default: `requirements.txt` in the current directory). A [CycloneDX SBOM](#sbom-software-bill-of-materials) is also accepted here and auto-detected.
 
 | Option                      | Description                                                                          |
 | ---------------------------- | ------------------------------------------------------------------------------------- |
 | `--json`                     | Machine-readable JSON output instead of a table                                       |
 | `--sbom`                     | CycloneDX 1.6 JSON SBOM instead of a table                                            |
 | `--html`                     | Self-contained HTML report instead of a table                                         |
+| `--sarif`                     | SARIF 2.1.0 log of known vulnerabilities, for GitHub/Azure code scanning              |
 | `--list-vulnerabilities`     | List each known vulnerability individually instead of just a count                    |
 | `--no-security`               | Skip the OSV.dev vulnerability check                                                  |
 | `--no-transitive-check`        | Skip warning about dependencies declared by your pinned packages that aren't listed in this file |
@@ -76,9 +77,9 @@ requirements-check [FILE] [OPTIONS]
 | `--proxy URL`                 | HTTP(S) proxy for PyPI/OSV requests (overrides `HTTP_PROXY`/`HTTPS_PROXY` env vars)   |
 | `--ca-bundle PATH`            | Custom CA bundle file, e.g. for corporate TLS-intercepting proxies                    |
 | `--no-color`                  | Disable colored/styled table output (also honors the `NO_COLOR` env var)              |
-| `--output PATH`, `-o PATH`    | Write the report to this file instead of stdout (works with the table, `--json`, `--sbom`, and `--html`) |
+| `--output PATH`, `-o PATH`    | Write the report to this file instead of stdout (works with every format) |
 
-`--json`, `--sbom`, and `--html` are mutually exclusive — pick one output format.
+`--json`, `--sbom`, `--html`, and `--sarif` are mutually exclusive — pick one output format.
 
 Exit codes: `0` success, `1` vulnerabilities found (only with `--fail-on-vulnerability`), `2` usage error (e.g. file not found).
 
@@ -91,6 +92,12 @@ requirements-check --sbom --output sbom.json
 
 # Self-contained HTML report
 requirements-check --html --output report.html
+
+# SARIF for GitHub code scanning
+requirements-check --sarif --output results.sarif
+
+# Re-check an existing CycloneDX SBOM instead of a requirements.txt (auto-detected)
+requirements-check sbom.json --json
 
 # CI usage: fail the build on known vulnerabilities
 requirements-check --fail-on-vulnerability
@@ -149,6 +156,14 @@ An SBOM is typically most useful uploaded to a tracking system like [OWASP Depen
 
 Full example: [`examples/sample-sbom.json`](examples/sample-sbom.json), generated from [`examples/requirements.txt`](examples/requirements.txt) (see [How it works](#how-it-works) for how that file was produced).
 
+**SBOM as input.** `requirements-check` also reads a CycloneDX SBOM back in as `FILE`, auto-detected by content (`"bomFormat": "CycloneDX"`), no flag needed:
+
+```sh
+requirements-check sbom.json --json
+```
+
+Every `pkg:pypi/...` component becomes a pinned dependency (other ecosystems in the same SBOM are skipped); everything else — update checks, vulnerabilities, `--sbom`/`--html`/`--sarif` output — works exactly the same as with a `requirements.txt`. This is useful for re-validating an SBOM you didn't generate yourself (e.g. from a vendor, or from `syft`/`docker sbom` against a running container) against current data, and it sidesteps the whole "is this file fully resolved" question from [How it works](#how-it-works) — an SBOM already reflects what's actually installed. The `.in`-constraints cross-check doesn't apply to SBOM input (there's no associated loose source file).
+
 ## HTML Report
 
 ```sh
@@ -169,9 +184,58 @@ requirements-check examples/requirements.txt --html --output examples/sample-rep
 
 A plain, non-HTML JSON equivalent is at [`examples/sample-report.json`](examples/sample-report.json) for comparison.
 
+## SARIF
+
+```sh
+requirements-check --sarif --output results.sarif
+```
+
+[SARIF](https://sarifweb.azurewebsites.net/) (Static Analysis Results Interchange Format) is the standard result format for GitHub/Azure DevOps **code scanning**. Uploading it via `github/codeql-action/upload-sarif` makes every known vulnerability show up in the repo's **Security → Code scanning** tab — with an inline annotation on the exact line in `requirements.txt` where the affected package is pinned, and persistent tracking across commits (open/fixed state), instead of only being visible in a workflow log or artifact download.
+
+Only vulnerabilities are represented (one SARIF `result` per CVE/GHSA/PYSEC finding) — SARIF is for actionable findings, not a full inventory; use `--json` or `--sbom` for that. Severity mapping: `note` if a patch already fixes it, `warning` if minor/major is needed, `error` if no fix is known yet.
+
+Full example: [`examples/sample-report.sarif`](examples/sample-report.sarif) (validated against the official SARIF 2.1.0 schema), generated the same way as the other example reports. See [CI Integration](#ci-integration) below for the upload step.
+
 ## CI Integration
 
 `requirements-check` is designed to run unattended: no prompts, stable exit codes, `--no-color` to keep log output free of ANSI codes, and `--output` to write a report straight to a file (no shell redirection required).
+
+### GitHub Action
+
+The simplest way to wire this into GitHub: this repo is itself a [composite action](action.yml).
+
+```yaml
+# .github/workflows/requirements-check.yml
+name: requirements-check
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "0 6 * * 1"  # weekly
+
+permissions:
+  contents: read
+  security-events: write   # required to upload SARIF to the Security tab
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: manfred-kaiser/requirements-check@v1
+        with:
+          file: requirements.txt
+          format: sarif                 # table, json, sbom, html, or sarif
+          fail-on-vulnerability: true
+```
+
+Findings show up directly in **Security → Code scanning alerts**, with inline annotations on the affected `requirements.txt` line — see [SARIF](#sarif) above. `fail-on-vulnerability` still fails the job, but only *after* the SARIF upload, so findings are never hidden by a red job. See [`action.yml`](action.yml) for all inputs (`no-security`, `constraints`, `proxy`, `ca-bundle`, `requirements-check-version`, etc.) and outputs (`report-path`, `exit-code`).
+
+### Without the action
+
+Equivalent manual steps, useful if you want more control or aren't on GitHub:
 
 ```yaml
 # .github/workflows/requirements-check.yml

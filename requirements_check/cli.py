@@ -11,6 +11,7 @@ from rich.console import Console
 
 from .analyzer import Analyzer
 from .report import render_html, render_json, render_table, render_vulnerability_details
+from .sarif import render_sarif
 from .sbom import render_cyclonedx
 
 if TYPE_CHECKING:
@@ -46,6 +47,11 @@ def _build_parser() -> argparse.ArgumentParser:
         "--html",
         action="store_true",
         help="Output a self-contained HTML report instead of a table",
+    )
+    output_format.add_argument(
+        "--sarif",
+        action="store_true",
+        help="Output a SARIF 2.1.0 log of known vulnerabilities, for GitHub/Azure code scanning",
     )
     parser.add_argument(
         "--no-security",
@@ -103,13 +109,15 @@ def _build_parser() -> argparse.ArgumentParser:
 
 
 def _render_content(result: AnalysisResult, args: argparse.Namespace) -> str | None:
-    """Render json/sbom/html to a string, or None if the table format applies."""
+    """Render json/sbom/html/sarif to a string, or None if the table format applies."""
     if args.json:
         return render_json(result)
     if args.sbom:
         return render_cyclonedx(result)
     if args.html:
         return render_html(result, list_vulnerabilities=args.list_vulnerabilities)
+    if args.sarif:
+        return render_sarif(result, args.file)
     return None
 
 
