@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+
+body {
+    color: #000000;
+    background-color: #ffffff;
+}
+</style>
+</head>
+<body>
+    <pre style="font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><code style="font-family:inherit"><span style="font-style: italic">                                                   requirements-check                                                   </span>
+┏━━━━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━┳━━━━━━━━┳━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃<span style="font-weight: bold"> Package      </span>┃<span style="font-weight: bold"> Pinned    </span>┃<span style="font-weight: bold"> Patch </span>┃<span style="font-weight: bold"> Minor  </span>┃<span style="font-weight: bold"> Major  </span>┃<span style="font-weight: bold"> Note                                  </span>┃<span style="font-weight: bold"> Vulnerabilities         </span>┃
+┡━━━━━━━━━━━━━━╇━━━━━━━━━━━╇━━━━━━━╇━━━━━━━━╇━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│ aiohttp      │ 3.9.5     │ -     │ 3.14.2 │ 3.14.2 │ <span style="color: #808000; text-decoration-color: #808000">capped by constraint &lt;3.10 (max: </span>     │ <span style="color: #800000; text-decoration-color: #800000">31 known</span> <span style="color: #808000; text-decoration-color: #808000">(minor needed)</span> │
+│              │           │       │        │        │ <span style="color: #808000; text-decoration-color: #808000">3.9.5)</span>                                │                         │
+├──────────────┼───────────┼───────┼────────┼────────┼───────────────────────────────────────┼─────────────────────────┤
+│ aiosignal    │ 1.4.0     │ -     │ -      │ -      │ -                                     │ -                       │
+├──────────────┼───────────┼───────┼────────┼────────┼───────────────────────────────────────┼─────────────────────────┤
+│ attrs        │ 26.1.0    │ -     │ -      │ -      │ -                                     │ -                       │
+├──────────────┼───────────┼───────┼────────┼────────┼───────────────────────────────────────┼─────────────────────────┤
+│ certifi      │ 2026.6.17 │ -     │ -      │ -      │ -                                     │ -                       │
+├──────────────┼───────────┼───────┼────────┼────────┼───────────────────────────────────────┼─────────────────────────┤
+│ chardet      │ 4.0.0     │ -     │ -      │ 7.4.3  │ <span style="color: #800000; text-decoration-color: #800000">-</span>                                     │ -                       │
+├──────────────┼───────────┼───────┼────────┼────────┼───────────────────────────────────────┼─────────────────────────┤
+│ click        │ 7.1.2     │ -     │ -      │ 8.4.2  │ <span style="color: #800000; text-decoration-color: #800000">-</span>                                     │ <span style="color: #800000; text-decoration-color: #800000">1 known</span> <span style="color: #800000; text-decoration-color: #800000">(major needed)</span>  │
+├──────────────┼───────────┼───────┼────────┼────────┼───────────────────────────────────────┼─────────────────────────┤
+│ flask        │ 1.1.4     │ -     │ -      │ 3.1.3  │ <span style="color: #800000; text-decoration-color: #800000">capped by constraint &lt;2.0 (max: </span>      │ <span style="color: #800000; text-decoration-color: #800000">2 known</span> <span style="color: #800000; text-decoration-color: #800000">(major needed)</span>  │
+│              │           │       │        │        │ <span style="color: #800000; text-decoration-color: #800000">1.1.4)</span>                                │                         │
+├──────────────┼───────────┼───────┼────────┼────────┼───────────────────────────────────────┼─────────────────────────┤
+│ frozenlist   │ 1.8.0     │ -     │ -      │ -      │ -                                     │ -                       │
+├──────────────┼───────────┼───────┼────────┼────────┼───────────────────────────────────────┼─────────────────────────┤
+│ idna         │ 2.10      │ -     │ -      │ 3.18   │ <span style="color: #800000; text-decoration-color: #800000">-</span>                                     │ <span style="color: #800000; text-decoration-color: #800000">2 known</span> <span style="color: #800000; text-decoration-color: #800000">(major needed)</span>  │
+├──────────────┼───────────┼───────┼────────┼────────┼───────────────────────────────────────┼─────────────────────────┤
+│ itsdangerous │ 1.1.0     │ -     │ -      │ 2.2.0  │ <span style="color: #800000; text-decoration-color: #800000">-</span>                                     │ -                       │
+├──────────────┼───────────┼───────┼────────┼────────┼───────────────────────────────────────┼─────────────────────────┤
+│ jinja2       │ 2.11.3    │ -     │ -      │ 3.1.6  │ <span style="color: #800000; text-decoration-color: #800000">-</span>                                     │ <span style="color: #800000; text-decoration-color: #800000">4 known</span> <span style="color: #800000; text-decoration-color: #800000">(major needed)</span>  │
+├──────────────┼───────────┼───────┼────────┼────────┼───────────────────────────────────────┼─────────────────────────┤
+│ markupsafe   │ 3.0.3     │ -     │ -      │ -      │ -                                     │ -                       │
+├──────────────┼───────────┼───────┼────────┼────────┼───────────────────────────────────────┼─────────────────────────┤
+│ multidict    │ 6.7.1     │ -     │ -      │ -      │ -                                     │ -                       │
+├──────────────┼───────────┼───────┼────────┼────────┼───────────────────────────────────────┼─────────────────────────┤
+│ propcache    │ 0.5.2     │ -     │ -      │ -      │ -                                     │ -                       │
+├──────────────┼───────────┼───────┼────────┼────────┼───────────────────────────────────────┼─────────────────────────┤
+│ requests     │ 2.25.1    │ -     │ 2.34.2 │ 2.34.2 │ <span style="color: #808000; text-decoration-color: #808000">capped by constraint &lt;2.26 (max: </span>     │ <span style="color: #800000; text-decoration-color: #800000">4 known</span> <span style="color: #808000; text-decoration-color: #808000">(minor needed)</span>  │
+│              │           │       │        │        │ <span style="color: #808000; text-decoration-color: #808000">2.25.1)</span>                               │                         │
+├──────────────┼───────────┼───────┼────────┼────────┼───────────────────────────────────────┼─────────────────────────┤
+│ urllib3      │ 1.26.20   │ -     │ -      │ 2.7.0  │ <span style="color: #800000; text-decoration-color: #800000">-</span>                                     │ <span style="color: #800000; text-decoration-color: #800000">5 known</span> <span style="color: #800000; text-decoration-color: #800000">(major needed)</span>  │
+├──────────────┼───────────┼───────┼────────┼────────┼───────────────────────────────────────┼─────────────────────────┤
+│ werkzeug     │ 1.0.1     │ -     │ -      │ 3.1.8  │ <span style="color: #800000; text-decoration-color: #800000">-</span>                                     │ <span style="color: #800000; text-decoration-color: #800000">9 known</span> <span style="color: #800000; text-decoration-color: #800000">(no fix yet)</span>    │
+├──────────────┼───────────┼───────┼────────┼────────┼───────────────────────────────────────┼─────────────────────────┤
+│ yarl         │ 1.24.5    │ -     │ -      │ -      │ -                                     │ -                       │
+└──────────────┴───────────┴───────┴────────┴────────┴───────────────────────────────────────┴─────────────────────────┘
+<span style="font-style: italic">                                                 Vulnerability details                                                  </span>
+┏━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━┓
+┃<span style="font-weight: bold"> Package  </span>┃<span style="font-weight: bold"> ID                  </span>┃<span style="font-weight: bold"> Severity            </span>┃<span style="font-weight: bold"> Fix                </span>┃<span style="font-weight: bold"> Summary             </span>┃<span style="font-weight: bold"> Aliases            </span>┃
+┡━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━┩
+│ aiohttp  │ GHSA-2fqr-mr3j-6wp8 │ CVSS:4.0/AV:N/AC:L… │ <span style="color: #808000; text-decoration-color: #808000">minor needed</span>       │ aiohttp: Host-Only  │ CVE-2026-54279,    │
+│          │                     │                     │ (3.14.1)           │ Cookies Become      │ PYSEC-2026-2112    │
+│          │                     │                     │                    │ Domain Cookies      │                    │
+│          │                     │                     │                    │ After CookieJar     │                    │
+│          │                     │                     │                    │ Persistence         │                    │
+├──────────┼─────────────────────┼─────────────────────┼────────────────────┼─────────────────────┼────────────────────┤
+│ aiohttp  │ GHSA-2vrm-gr82-f7m5 │ CVSS:4.0/AV:N/AC:L… │ <span style="color: #808000; text-decoration-color: #808000">minor needed</span>       │ AIOHTTP has CRLF    │ CVE-2026-34514,    │
+│          │                     │                     │ (3.13.4)           │ injection through   │ PYSEC-2026-2096    │
+│          │                     │                     │                    │ multipart part      │                    │
+│          │                     │                     │                    │ content type header │                    │
+│          │                     │                     │                    │ construction        │                    │
+├──────────┼─────────────────────┼─────────────────────┼────────────────────┼─────────────────────┼────────────────────┤
+│ aiohttp  │ GHSA-3wq7-rqq7-wx6j │ CVSS:4.0/AV:N/AC:L… │ <span style="color: #808000; text-decoration-color: #808000">minor needed</span>       │ AIOHTTP has late    │ CVE-2026-34517,    │
+│          │                     │                     │ (3.13.4)           │ size enforcement    │ PYSEC-2026-2099    │
+│          │                     │                     │                    │ for non-file        │                    │
+│          │                     │                     │                    │ multipart fields    │                    │
+│          │                     │                     │                    │ causes memory DoS   │                    │
+├──────────┼─────────────────────┼─────────────────────┼────────────────────┼─────────────────────┼────────────────────┤
+│ aiohttp  │ GHSA-4fvr-rgm6-gqmc │ CVSS:4.0/AV:N/AC:L… │ <span style="color: #808000; text-decoration-color: #808000">minor needed</span>       │ aiohttp: HTTP/1     │ CVE-2026-54273,    │
+│          │                     │                     │ (3.14.1)           │ Pipelined Requests  │ PYSEC-2026-2107    │
+│          │                     │                     │                    │ Queue Without Limit │                    │
+├──────────┼─────────────────────┼─────────────────────┼────────────────────┼─────────────────────┼────────────────────┤
+│ aiohttp  │ GHSA-4m7w-qmgq-4wj5 │ CVSS:4.0/AV:N/AC:L… │ <span style="color: #808000; text-decoration-color: #808000">minor needed</span>       │ aiohttp: TLS Server │ CVE-2026-54275,    │
+│          │                     │                     │ (3.14.1)           │ Hostname Override   │ PYSEC-2026-237     │
+│          │                     │                     │                    │ Is Ignored When     │                    │
+│          │                     │                     │                    │ Reusing HTTPS       │                    │
+│          │                     │                     │                    │ Connections         │                    │
+├──────────┼─────────────────────┼─────────────────────┼────────────────────┼─────────────────────┼────────────────────┤
+│ aiohttp  │ GHSA-54jq-c3m8-4m76 │ CVSS:4.0/AV:N/AC:L… │ <span style="color: #808000; text-decoration-color: #808000">minor needed</span>       │ AIOHTTP vulnerable  │ CVE-2025-69226,    │
+│          │                     │                     │ (3.13.3)           │ to brute-force leak │ PYSEC-2026-1097    │
+│          │                     │                     │                    │ of internal static  │                    │
+│          │                     │                     │                    │ ﬁle path components │                    │
+├──────────┼─────────────────────┼─────────────────────┼────────────────────┼─────────────────────┼────────────────────┤
+│ aiohttp  │ GHSA-63hf-3vf5-4wqf │ CVSS:3.1/AV:N/AC:L… │ <span style="color: #808000; text-decoration-color: #808000">minor needed</span>       │ AIOHTTP&#x27;s C parser  │ CVE-2026-34520,    │
+│          │                     │                     │ (3.13.4)           │ (llhttp) accepts    │ PYSEC-2026-2102    │
+│          │                     │                     │                    │ null bytes and      │                    │
+│          │                     │                     │                    │ control characters  │                    │
+│          │                     │                     │                    │ in response header  │                    │
+│          │                     │                     │                    │ values - header     │                    │
+│          │                     │                     │                    │ injection/security  │                    │
+│          │                     │                     │                    │ bypass              │                    │
+├──────────┼─────────────────────┼─────────────────────┼────────────────────┼─────────────────────┼────────────────────┤
+│ aiohttp  │ GHSA-63hw-fmq6-xxg2 │ CVSS:4.0/AV:N/AC:L… │ <span style="color: #808000; text-decoration-color: #808000">minor needed</span>       │ aiohttp: C HTTP     │ CVE-2026-54277,    │
+│          │                     │                     │ (3.14.1)           │ Parser Bypasses     │ PYSEC-2026-2110    │
+│          │                     │                     │                    │ max_line_size for   │                    │
+│          │                     │                     │                    │ Fragmented Lines    │                    │
+├──────────┼─────────────────────┼─────────────────────┼────────────────────┼─────────────────────┼────────────────────┤
+│ aiohttp  │ GHSA-69f9-5gxw-wvc2 │ CVSS:4.0/AV:N/AC:L… │ <span style="color: #808000; text-decoration-color: #808000">minor needed</span>       │ AIOHTTP&#x27;s unicode   │ CVE-2025-69224,    │
+│          │                     │                     │ (3.13.3)           │ processing of       │ PYSEC-2026-1099    │
+│          │                     │                     │                    │ header values could │                    │
+│          │                     │                     │                    │ cause parsing       │                    │
+│          │                     │                     │                    │ discrepancies       │                    │
+├──────────┼─────────────────────┼─────────────────────┼────────────────────┼─────────────────────┼────────────────────┤
+│ aiohttp  │ GHSA-6jhg-hg63-jvvf │ CVSS:4.0/AV:N/AC:L… │ <span style="color: #808000; text-decoration-color: #808000">minor needed</span>       │ AIOHTTP vulnerable  │ CVE-2025-69228,    │
+│          │                     │                     │ (3.13.3)           │ to  denial of       │ PYSEC-2026-1100    │
+│          │                     │                     │                    │ service through     │                    │
+│          │                     │                     │                    │ large payloads      │                    │
+├──────────┼─────────────────────┼─────────────────────┼────────────────────┼─────────────────────┼────────────────────┤
+│ aiohttp  │ GHSA-6mq8-rvhq-8wgg │ CVSS:3.1/AV:N/AC:L… │ <span style="color: #808000; text-decoration-color: #808000">minor needed</span>       │ AIOHTTP&#x27;s HTTP      │ CVE-2025-69223,    │
+│          │                     │                     │ (3.13.3)           │ Parser              │ PYSEC-2026-1101    │
+│          │                     │                     │                    │ auto_decompress     │                    │
+│          │                     │                     │                    │ feature is          │                    │
+│          │                     │                     │                    │ vulnerable to zip   │                    │
+│          │                     │                     │                    │ bomb                │                    │
+├──────────┼─────────────────────┼─────────────────────┼────────────────────┼─────────────────────┼────────────────────┤
+│ aiohttp  │ GHSA-8495-4g3g-x7pr │ CVSS:4.0/AV:N/AC:L… │ <span style="color: #808000; text-decoration-color: #808000">minor needed</span>       │ aiohttp allows      │ CVE-2024-52304,    │
+│          │                     │                     │ (3.10.11)          │ request smuggling   │ PYSEC-2026-1103    │
+│          │                     │                     │                    │ due to incorrect    │                    │
+│          │                     │                     │                    │ parsing of chunk    │                    │
+│          │                     │                     │                    │ extensions          │                    │
+├──────────┼─────────────────────┼─────────────────────┼────────────────────┼─────────────────────┼────────────────────┤
+│ aiohttp  │ GHSA-9548-qrrj-x5pj │ CVSS:4.0/AV:N/AC:L… │ <span style="color: #808000; text-decoration-color: #808000">minor needed</span>       │  AIOHTTP is         │ CVE-2025-53643,    │
+│          │                     │                     │ (3.12.14)          │ vulnerable to HTTP  │ PYSEC-2026-1104    │
+│          │                     │                     │                    │ Request/Response    │                    │
+│          │                     │                     │                    │ Smuggling through   │                    │
+│          │                     │                     │                    │ incorrect parsing   │                    │
+│          │                     │                     │                    │ of chunked trailer  │                    │
+│          │                     │                     │                    │ sections            │                    │
+├──────────┼─────────────────────┼─────────────────────┼────────────────────┼─────────────────────┼────────────────────┤
+│ aiohttp  │ GHSA-966j-vmvw-g2g9 │ CVSS:3.1/AV:N/AC:L… │ <span style="color: #808000; text-decoration-color: #808000">minor needed</span>       │ AIOHTTP leaks       │ CVE-2026-34518,    │
+│          │                     │                     │ (3.13.4)           │ Cookie and          │ PYSEC-2026-2100    │
+│          │                     │                     │                    │ Proxy-Authorization │                    │
+│          │                     │                     │                    │ headers on          │                    │
+│          │                     │                     │                    │ cross-origin        │                    │
+│          │                     │                     │                    │ redirect            │                    │
+├──────────┼─────────────────────┼─────────────────────┼────────────────────┼─────────────────────┼────────────────────┤
+│ aiohttp  │ GHSA-9x8q-7h8h-wcw9 │ CVSS:4.0/AV:N/AC:H… │ <span style="color: #808000; text-decoration-color: #808000">minor needed</span>       │ aiohttp: Payload    │ CVE-2026-54280,    │
+│          │                     │                     │ (3.14.1)           │ Response Resources  │ PYSEC-2026-2113    │
+│          │                     │                     │                    │ Are Not Closed      │                    │
+│          │                     │                     │                    │ After Mid-Body      │                    │
+│          │                     │                     │                    │ Disconnect          │                    │
+├──────────┼─────────────────────┼─────────────────────┼────────────────────┼─────────────────────┼────────────────────┤
+│ aiohttp  │ GHSA-c427-h43c-vf67 │ CVSS:4.0/AV:N/AC:H… │ <span style="color: #808000; text-decoration-color: #808000">minor needed</span>       │ AIOHTTP accepts     │ CVE-2026-34525,    │
+│          │                     │                     │ (3.13.4)           │ duplicate Host      │ PYSEC-2026-2103    │
+│          │                     │                     │                    │ headers             │                    │
+├──────────┼─────────────────────┼─────────────────────┼────────────────────┼─────────────────────┼────────────────────┤
+│ aiohttp  │ GHSA-fh55-r93g-j68g │ CVSS:4.0/AV:N/AC:L… │ <span style="color: #808000; text-decoration-color: #808000">minor needed</span>       │ AIOHTTP Vulnerable  │ CVE-2025-69230,    │
+│          │                     │                     │ (3.13.3)           │ to Cookie Parser    │ PYSEC-2026-1105    │
+│          │                     │                     │                    │ Warning Storm       │                    │
+├──────────┼─────────────────────┼─────────────────────┼────────────────────┼─────────────────────┼────────────────────┤
+│ aiohttp  │ GHSA-g3cq-j2xw-wf74 │ CVSS:4.0/AV:N/AC:L… │ <span style="color: #808000; text-decoration-color: #808000">minor needed</span>       │ aiohttp: Unread     │ CVE-2026-54278,    │
+│          │                     │                     │ (3.14.1)           │ Compressed Request  │ PYSEC-2026-2111    │
+│          │                     │                     │                    │ Bodies Bypass       │                    │
+│          │                     │                     │                    │ client_max_size     │                    │
+│          │                     │                     │                    │ During Cleanup      │                    │
+├──────────┼─────────────────────┼─────────────────────┼────────────────────┼─────────────────────┼────────────────────┤
+│ aiohttp  │ GHSA-g84x-mcqj-x9qq │ CVSS:4.0/AV:N/AC:L… │ <span style="color: #808000; text-decoration-color: #808000">minor needed</span>       │ AIOHTTP vulnerable  │ CVE-2025-69229,    │
+│          │                     │                     │ (3.13.3)           │ to DoS through      │ PYSEC-2026-1106    │
+│          │                     │                     │                    │ chunked messages    │                    │
+├──────────┼─────────────────────┼─────────────────────┼────────────────────┼─────────────────────┼────────────────────┤
+│ aiohttp  │ GHSA-hcc4-c3v8-rx92 │ CVSS:4.0/AV:N/AC:L… │ <span style="color: #808000; text-decoration-color: #808000">minor needed</span>       │ AIOHTTP Affected by │ CVE-2026-34513,    │
+│          │                     │                     │ (3.13.4)           │ Denial of Service   │ PYSEC-2026-2095    │
+│          │                     │                     │                    │ (DoS) via Unbounded │                    │
+│          │                     │                     │                    │ DNS Cache in        │                    │
+│          │                     │                     │                    │ TCPConnector        │                    │
+├──────────┼─────────────────────┼─────────────────────┼────────────────────┼─────────────────────┼────────────────────┤
+│ aiohttp  │ GHSA-hg6j-4rv6-33pg │ CVSS:4.0/AV:N/AC:L… │ <span style="color: #808000; text-decoration-color: #808000">minor needed</span>       │ AIOHTTP is          │ CVE-2026-47265,    │
+│          │                     │                     │ (3.14.0)           │ vulnerable to       │ PYSEC-2026-2105    │
+│          │                     │                     │                    │ cross-origin        │                    │
+│          │                     │                     │                    │ redirect with       │                    │
+│          │                     │                     │                    │ per-request cookies │                    │
+├──────────┼─────────────────────┼─────────────────────┼────────────────────┼─────────────────────┼────────────────────┤
+│ aiohttp  │ GHSA-hpj7-wq8m-9hgp │ CVSS:4.0/AV:N/AC:L… │ <span style="color: #808000; text-decoration-color: #808000">minor needed</span>       │ aiohttp:            │ CVE-2026-54276,    │
+│          │                     │                     │ (3.14.1)           │ DigestAuthMiddlewa… │ PYSEC-2026-2109    │
+│          │                     │                     │                    │ Applies Credentials │                    │
+│          │                     │                     │                    │ to Cross-Origin     │                    │
+│          │                     │                     │                    │ Redirect Challenges │                    │
+├──────────┼─────────────────────┼─────────────────────┼────────────────────┼─────────────────────┼────────────────────┤
+│ aiohttp  │ GHSA-jg22-mg44-37j8 │ CVSS:3.1/AV:L/AC:H… │ <span style="color: #808000; text-decoration-color: #808000">minor needed</span>       │ AIOHTTP is          │ CVE-2026-34993,    │
+│          │                     │                     │ (3.14.0)           │ Vulnerable to       │ PYSEC-2026-2104    │
+│          │                     │                     │                    │ Deserialization of  │                    │
+│          │                     │                     │                    │ Untrusted Data      │                    │
+├──────────┼─────────────────────┼─────────────────────┼────────────────────┼─────────────────────┼────────────────────┤
+│ aiohttp  │ GHSA-jj3x-wxrx-4x23 │ CVSS:4.0/AV:N/AC:L… │ <span style="color: #808000; text-decoration-color: #808000">minor needed</span>       │ AIOHTTP vulnerable  │ CVE-2025-69227,    │
+│          │                     │                     │ (3.13.3)           │ to DoS when         │ PYSEC-2026-1107    │
+│          │                     │                     │                    │ bypassing asserts   │                    │
+├──────────┼─────────────────────┼─────────────────────┼────────────────────┼─────────────────────┼────────────────────┤
+│ aiohttp  │ GHSA-m5qp-6w8w-w647 │ CVSS:3.1/AV:N/AC:L… │ <span style="color: #808000; text-decoration-color: #808000">minor needed</span>       │ AIOHTTP has a       │ CVE-2026-34516,    │
+│          │                     │                     │ (3.13.4)           │ Multipart Header    │ PYSEC-2026-2098    │
+│          │                     │                     │                    │ Size Bypass         │                    │
+├──────────┼─────────────────────┼─────────────────────┼────────────────────┼─────────────────────┼────────────────────┤
+│ aiohttp  │ GHSA-m6qw-4cw2-hm4m │ CVSS:4.0/AV:N/AC:L… │ <span style="color: #808000; text-decoration-color: #808000">minor needed</span>       │ aiohttp: CRLF       │ CVE-2026-50269,    │
+│          │                     │                     │ (3.14.0)           │ injection in        │ PYSEC-2026-2106    │
+│          │                     │                     │                    │ multipart headers   │                    │
+├──────────┼─────────────────────┼─────────────────────┼────────────────────┼─────────────────────┼────────────────────┤
+│ aiohttp  │ GHSA-mqqc-3gqh-h2x8 │ CVSS:4.0/AV:N/AC:L… │ <span style="color: #808000; text-decoration-color: #808000">minor needed</span>       │ AIOHTTP has unicode │ CVE-2025-69225,    │
+│          │                     │                     │ (3.13.3)           │ match groups in     │ PYSEC-2026-1109    │
+│          │                     │                     │                    │ regexes for ASCII   │                    │
+│          │                     │                     │                    │ protocol elements   │                    │
+├──────────┼─────────────────────┼─────────────────────┼────────────────────┼─────────────────────┼────────────────────┤
+│ aiohttp  │ GHSA-mwh4-6h8g-pg8w │ CVSS:4.0/AV:N/AC:L… │ <span style="color: #808000; text-decoration-color: #808000">minor needed</span>       │ AIOHTTP has HTTP    │ CVE-2026-34519,    │
+│          │                     │                     │ (3.13.4)           │ response splitting  │ PYSEC-2026-2101    │
+│          │                     │                     │                    │ via \r in reason    │                    │
+│          │                     │                     │                    │ phrase              │                    │
+├──────────┼─────────────────────┼─────────────────────┼────────────────────┼─────────────────────┼────────────────────┤
+│ aiohttp  │ GHSA-p998-jp59-783m │ CVSS:4.0/AV:N/AC:L… │ <span style="color: #808000; text-decoration-color: #808000">minor needed</span>       │ AIOHTTP affected by │ CVE-2026-34515,    │
+│          │                     │                     │ (3.13.4)           │ UNC SSRF/NTLMv2     │ PYSEC-2026-2097    │
+│          │                     │                     │                    │ Credential          │                    │
+│          │                     │                     │                    │ Theft/Local File    │                    │
+│          │                     │                     │                    │ Read in static      │                    │
+│          │                     │                     │                    │ resource handler on │                    │
+│          │                     │                     │                    │ Windows             │                    │
+├──────────┼─────────────────────┼─────────────────────┼────────────────────┼─────────────────────┼────────────────────┤
+│ aiohttp  │ GHSA-w2fm-2cpv-w7v5 │ CVSS:4.0/AV:N/AC:L… │ <span style="color: #808000; text-decoration-color: #808000">minor needed</span>       │ aiohttp allows      │ CVE-2026-22815,    │
+│          │                     │                     │ (3.13.4)           │ unlimited trailer   │ PYSEC-2026-2094    │
+│          │                     │                     │                    │ headers, leading to │                    │
+│          │                     │                     │                    │ possible uncapped   │                    │
+│          │                     │                     │                    │ memory usage        │                    │
+├──────────┼─────────────────────┼─────────────────────┼────────────────────┼─────────────────────┼────────────────────┤
+│ aiohttp  │ GHSA-xcgm-r5h9-7989 │ CVSS:4.0/AV:N/AC:L… │ <span style="color: #808000; text-decoration-color: #808000">minor needed</span>       │ aiohttp: Incomplete │ CVE-2026-54274,    │
+│          │                     │                     │ (3.14.1)           │ websocket frame     │ PYSEC-2026-2108    │
+│          │                     │                     │                    │ payloads bypass     │                    │
+│          │                     │                     │                    │ memory limits       │                    │
+├──────────┼─────────────────────┼─────────────────────┼────────────────────┼─────────────────────┼────────────────────┤
+│ click    │ PYSEC-2026-2132     │ CVSS:3.1/AV:L/AC:H… │ <span style="color: #800000; text-decoration-color: #800000">major needed</span>       │ Pallets Click,      │ CVE-2026-7246,     │
+│          │                     │                     │ (8.3.3)            │ versions 8.3.2 and  │ GHSA-47fr-3ffg-hg… │
+│          │                     │                     │                    │ below, contain a    │                    │
+│          │                     │                     │                    │ command injection   │                    │
+│          │                     │                     │                    │ vulnerability in    │                    │
+│          │                     │                     │                    │ the click.edit()    │                    │
+│          │                     │                     │                    │ function, allowing  │                    │
+│          │                     │                     │                    │ attackers to pass   │                    │
+│          │                     │                     │                    │ arbitrary OS        │                    │
+│          │                     │                     │                    │ commands from an    │                    │
+│          │                     │                     │                    │ unprivileged        │                    │
+│          │                     │                     │                    │ account.            │                    │
+├──────────┼─────────────────────┼─────────────────────┼────────────────────┼─────────────────────┼────────────────────┤
+│ flask    │ GHSA-68rp-wp8r-4726 │ CVSS:4.0/AV:N/AC:L… │ <span style="color: #800000; text-decoration-color: #800000">major needed</span>       │ Flask session does  │ CVE-2026-27205,    │
+│          │                     │                     │ (3.1.3)            │ not add `Vary:      │ PYSEC-2026-2151    │
+│          │                     │                     │                    │ Cookie` header when │                    │
+│          │                     │                     │                    │ accessed in some    │                    │
+│          │                     │                     │                    │ ways                │                    │
+├──────────┼─────────────────────┼─────────────────────┼────────────────────┼─────────────────────┼────────────────────┤
+│ flask    │ GHSA-m2qf-hxjv-5gpq │ CVSS:3.1/AV:N/AC:L… │ <span style="color: #800000; text-decoration-color: #800000">major needed</span>       │ Flask vulnerable to │ CVE-2023-30861,    │
+│          │                     │                     │ (2.2.5)            │ possible disclosure │ PYSEC-2023-62      │
+│          │                     │                     │                    │ of permanent        │                    │
+│          │                     │                     │                    │ session cookie due  │                    │
+│          │                     │                     │                    │ to missing Vary:    │                    │
+│          │                     │                     │                    │ Cookie header       │                    │
+├──────────┼─────────────────────┼─────────────────────┼────────────────────┼─────────────────────┼────────────────────┤
+│ idna     │ GHSA-65pc-fj4g-8rjx │ CVSS:3.1/AV:N/AC:L… │ <span style="color: #800000; text-decoration-color: #800000">major needed</span>       │ Internationalized   │ CVE-2026-45409,    │
+│          │                     │                     │ (3.15)             │ Domain Names in     │ PYSEC-2026-215     │
+│          │                     │                     │                    │ Applications        │                    │
+│          │                     │                     │                    │ (IDNA): Specially   │                    │
+│          │                     │                     │                    │ crafted inputs to   │                    │
+│          │                     │                     │                    │ idna.encode() can   │                    │
+│          │                     │                     │                    │ bypass              │                    │
+│          │                     │                     │                    │ CVE-2024-3651 fix   │                    │
+├──────────┼─────────────────────┼─────────────────────┼────────────────────┼─────────────────────┼────────────────────┤
+│ idna     │ GHSA-jjg7-2v4v-x38h │ CVSS:3.1/AV:L/AC:L… │ <span style="color: #800000; text-decoration-color: #800000">major needed</span> (3.7) │ Internationalized   │ CVE-2024-3651,     │
+│          │                     │                     │                    │ Domain Names in     │ PYSEC-2024-60      │
+│          │                     │                     │                    │ Applications (IDNA) │                    │
+│          │                     │                     │                    │ vulnerable to       │                    │
+│          │                     │                     │                    │ denial of service   │                    │
+│          │                     │                     │                    │ from specially      │                    │
+│          │                     │                     │                    │ crafted inputs to   │                    │
+│          │                     │                     │                    │ idna.encode         │                    │
+├──────────┼─────────────────────┼─────────────────────┼────────────────────┼─────────────────────┼────────────────────┤
+│ jinja2   │ GHSA-cpwx-vrp4-4pq7 │ CVSS:4.0/AV:L/AC:L… │ <span style="color: #800000; text-decoration-color: #800000">major needed</span>       │ Jinja2 vulnerable   │ CVE-2025-27516,    │
+│          │                     │                     │ (3.1.6)            │ to sandbox breakout │ PYSEC-2026-1471    │
+│          │                     │                     │                    │ through attr filter │                    │
+│          │                     │                     │                    │ selecting format    │                    │
+│          │                     │                     │                    │ method              │                    │
+├──────────┼─────────────────────┼─────────────────────┼────────────────────┼─────────────────────┼────────────────────┤
+│ jinja2   │ GHSA-h5c8-rqwp-cp95 │ CVSS:3.1/AV:N/AC:L… │ <span style="color: #800000; text-decoration-color: #800000">major needed</span>       │ Jinja vulnerable to │ CVE-2024-22195,    │
+│          │                     │                     │ (3.1.3)            │ HTML attribute      │ PYSEC-2026-1473    │
+│          │                     │                     │                    │ injection when      │                    │
+│          │                     │                     │                    │ passing user input  │                    │
+│          │                     │                     │                    │ as keys to xmlattr  │                    │
+│          │                     │                     │                    │ filter              │                    │
+├──────────┼─────────────────────┼─────────────────────┼────────────────────┼─────────────────────┼────────────────────┤
+│ jinja2   │ GHSA-h75v-3vvj-5mfj │ CVSS:3.1/AV:N/AC:L… │ <span style="color: #800000; text-decoration-color: #800000">major needed</span>       │ Jinja vulnerable to │ CVE-2024-34064,    │
+│          │                     │                     │ (3.1.4)            │ HTML attribute      │ PYSEC-2026-1474    │
+│          │                     │                     │                    │ injection when      │                    │
+│          │                     │                     │                    │ passing user input  │                    │
+│          │                     │                     │                    │ as keys to xmlattr  │                    │
+│          │                     │                     │                    │ filter              │                    │
+├──────────┼─────────────────────┼─────────────────────┼────────────────────┼─────────────────────┼────────────────────┤
+│ jinja2   │ GHSA-q2x7-8rv6-6q7h │ CVSS:3.1/AV:L/AC:L… │ <span style="color: #800000; text-decoration-color: #800000">major needed</span>       │ Jinja has a sandbox │ CVE-2024-56326,    │
+│          │                     │                     │ (3.1.5)            │ breakout through    │ PYSEC-2026-1475    │
+│          │                     │                     │                    │ indirect reference  │                    │
+│          │                     │                     │                    │ to format method    │                    │
+├──────────┼─────────────────────┼─────────────────────┼────────────────────┼─────────────────────┼────────────────────┤
+│ requests │ GHSA-9hjg-9r4m-mvj7 │ CVSS:3.1/AV:N/AC:H… │ <span style="color: #808000; text-decoration-color: #808000">minor needed</span>       │ Requests vulnerable │ CVE-2024-47081,    │
+│          │                     │                     │ (2.32.4)           │ to .netrc           │ PYSEC-2026-1872    │
+│          │                     │                     │                    │ credentials leak    │                    │
+│          │                     │                     │                    │ via malicious URLs  │                    │
+├──────────┼─────────────────────┼─────────────────────┼────────────────────┼─────────────────────┼────────────────────┤
+│ requests │ GHSA-9wx4-h78v-vm56 │ CVSS:3.1/AV:L/AC:H… │ <span style="color: #808000; text-decoration-color: #808000">minor needed</span>       │ Requests `Session`  │ CVE-2024-35195,    │
+│          │                     │                     │ (2.32.0)           │ object does not     │ PYSEC-2026-1873    │
+│          │                     │                     │                    │ verify requests     │                    │
+│          │                     │                     │                    │ after making first  │                    │
+│          │                     │                     │                    │ request with        │                    │
+│          │                     │                     │                    │ verify=False        │                    │
+├──────────┼─────────────────────┼─────────────────────┼────────────────────┼─────────────────────┼────────────────────┤
+│ requests │ GHSA-gc5v-m9x4-r6x2 │ CVSS:3.1/AV:L/AC:H… │ <span style="color: #808000; text-decoration-color: #808000">minor needed</span>       │ Requests has        │ CVE-2026-25645,    │
+│          │                     │                     │ (2.33.0)           │ Insecure Temp File  │ PYSEC-2026-2275    │
+│          │                     │                     │                    │ Reuse in its        │                    │
+│          │                     │                     │                    │ extract_zipped_pat… │                    │
+│          │                     │                     │                    │ utility function    │                    │
+├──────────┼─────────────────────┼─────────────────────┼────────────────────┼─────────────────────┼────────────────────┤
+│ requests │ GHSA-j8r2-6x86-q33q │ CVSS:3.1/AV:N/AC:H… │ <span style="color: #808000; text-decoration-color: #808000">minor needed</span>       │ Unintended leak of  │ CVE-2023-32681,    │
+│          │                     │                     │ (2.31.0)           │ Proxy-Authorization │ PYSEC-2023-74      │
+│          │                     │                     │                    │ header in requests  │                    │
+├──────────┼─────────────────────┼─────────────────────┼────────────────────┼─────────────────────┼────────────────────┤
+│ urllib3  │ GHSA-2xpw-w6gg-jr37 │ CVSS:4.0/AV:N/AC:L… │ <span style="color: #800000; text-decoration-color: #800000">major needed</span>       │ urllib3 streaming   │ CVE-2025-66471,    │
+│          │                     │                     │ (2.6.0)            │ API improperly      │ PYSEC-2026-1994    │
+│          │                     │                     │                    │ handles highly      │                    │
+│          │                     │                     │                    │ compressed data     │                    │
+├──────────┼─────────────────────┼─────────────────────┼────────────────────┼─────────────────────┼────────────────────┤
+│ urllib3  │ GHSA-38jv-5279-wg99 │ CVSS:3.1/AV:N/AC:L… │ <span style="color: #800000; text-decoration-color: #800000">major needed</span>       │ Decompression-bomb  │ CVE-2026-21441,    │
+│          │                     │                     │ (2.6.3)            │ safeguards bypassed │ PYSEC-2026-1996    │
+│          │                     │                     │                    │ when following HTTP │                    │
+│          │                     │                     │                    │ redirects           │                    │
+│          │                     │                     │                    │ (streaming API)     │                    │
+├──────────┼─────────────────────┼─────────────────────┼────────────────────┼─────────────────────┼────────────────────┤
+│ urllib3  │ GHSA-gm62-xv2j-4w53 │ CVSS:4.0/AV:N/AC:L… │ <span style="color: #800000; text-decoration-color: #800000">major needed</span>       │ urllib3 allows an   │ CVE-2025-66418,    │
+│          │                     │                     │ (2.6.0)            │ unbounded number of │ PYSEC-2026-1998    │
+│          │                     │                     │                    │ links in the        │                    │
+│          │                     │                     │                    │ decompression chain │                    │
+├──────────┼─────────────────────┼─────────────────────┼────────────────────┼─────────────────────┼────────────────────┤
+│ urllib3  │ GHSA-pq67-6m6q-mj2v │ CVSS:3.1/AV:N/AC:H… │ <span style="color: #800000; text-decoration-color: #800000">major needed</span>       │ urllib3 redirects   │ CVE-2025-50181,    │
+│          │                     │                     │ (2.5.0)            │ are not disabled    │ PYSEC-2026-1999    │
+│          │                     │                     │                    │ when retries are    │                    │
+│          │                     │                     │                    │ disabled on         │                    │
+│          │                     │                     │                    │ PoolManager         │                    │
+│          │                     │                     │                    │ instantiation       │                    │
+├──────────┼─────────────────────┼─────────────────────┼────────────────────┼─────────────────────┼────────────────────┤
+│ urllib3  │ GHSA-qccp-gfcp-xxvc │ CVSS:3.1/AV:N/AC:L… │ <span style="color: #800000; text-decoration-color: #800000">major needed</span>       │ urllib3: Sensitive  │ CVE-2026-44431,    │
+│          │                     │                     │ (2.7.0)            │ headers forwarded   │ PYSEC-2026-141     │
+│          │                     │                     │                    │ across origins in   │                    │
+│          │                     │                     │                    │ proxied low-level   │                    │
+│          │                     │                     │                    │ redirects           │                    │
+├──────────┼─────────────────────┼─────────────────────┼────────────────────┼─────────────────────┼────────────────────┤
+│ werkzeug │ GHSA-29vq-49wr-vm6x │ CVSS:4.0/AV:N/AC:L… │ <span style="color: #800000; text-decoration-color: #800000">major needed</span>       │  Werkzeug           │ CVE-2026-27199,    │
+│          │                     │                     │ (3.1.6)            │ safe_join() allows  │ PYSEC-2026-2320    │
+│          │                     │                     │                    │ Windows special     │                    │
+│          │                     │                     │                    │ device names        │                    │
+├──────────┼─────────────────────┼─────────────────────┼────────────────────┼─────────────────────┼────────────────────┤
+│ werkzeug │ GHSA-2g68-c3qc-8985 │ CVSS:3.1/AV:N/AC:H… │ <span style="color: #800000; text-decoration-color: #800000">major needed</span>       │ Werkzeug debugger   │ CVE-2024-34069,    │
+│          │                     │                     │ (3.0.3)            │ vulnerable to       │ PYSEC-2026-2043    │
+│          │                     │                     │                    │ remote execution    │                    │
+│          │                     │                     │                    │ when interacting    │                    │
+│          │                     │                     │                    │ with attacker       │                    │
+│          │                     │                     │                    │ controlled domain   │                    │
+├──────────┼─────────────────────┼─────────────────────┼────────────────────┼─────────────────────┼────────────────────┤
+│ werkzeug │ GHSA-87hc-h4r5-73f7 │ CVSS:3.1/AV:N/AC:L… │ <span style="color: #800000; text-decoration-color: #800000">major needed</span>       │  Werkzeug           │ CVE-2026-21860,    │
+│          │                     │                     │ (3.1.5)            │ safe_join() allows  │ PYSEC-2026-2044    │
+│          │                     │                     │                    │ Windows special     │                    │
+│          │                     │                     │                    │ device names with   │                    │
+│          │                     │                     │                    │ compound extensions │                    │
+├──────────┼─────────────────────┼─────────────────────┼────────────────────┼─────────────────────┼────────────────────┤
+│ werkzeug │ GHSA-f9vj-2wh5-fj8j │ CVSS:4.0/AV:N/AC:H… │ <span style="color: #800000; text-decoration-color: #800000">major needed</span>       │ Werkzeug safe_join  │ CVE-2024-49766,    │
+│          │                     │                     │ (3.0.6)            │ not safe on Windows │ PYSEC-2026-2045    │
+├──────────┼─────────────────────┼─────────────────────┼────────────────────┼─────────────────────┼────────────────────┤
+│ werkzeug │ GHSA-hgf8-39gv-g3f2 │ CVSS:4.0/AV:N/AC:L… │ <span style="color: #800000; text-decoration-color: #800000">major needed</span>       │ Werkzeug            │ CVE-2025-66221,    │
+│          │                     │                     │ (3.1.4)            │ safe_join() allows  │ PYSEC-2026-2046    │
+│          │                     │                     │                    │ Windows special     │                    │
+│          │                     │                     │                    │ device names        │                    │
+├──────────┼─────────────────────┼─────────────────────┼────────────────────┼─────────────────────┼────────────────────┤
+│ werkzeug │ GHSA-px8h-6qxv-m22q │ CVSS:3.1/AV:A/AC:H… │ <span style="color: #800000; text-decoration-color: #800000">major needed</span>       │ Incorrect parsing   │ CVE-2023-23934,    │
+│          │                     │                     │ (2.2.3)            │ of nameless cookies │ PYSEC-2023-57      │
+│          │                     │                     │                    │ leads to __Host-    │                    │
+│          │                     │                     │                    │ cookies bypass      │                    │
+├──────────┼─────────────────────┼─────────────────────┼────────────────────┼─────────────────────┼────────────────────┤
+│ werkzeug │ GHSA-xg9f-g7g7-2323 │ CVSS:3.1/AV:N/AC:L… │ <span style="color: #800000; text-decoration-color: #800000">major needed</span>       │ High resource usage │ CVE-2023-25577,    │
+│          │                     │                     │ (2.2.3)            │ when parsing        │ PYSEC-2023-58      │
+│          │                     │                     │                    │ multipart form data │                    │
+│          │                     │                     │                    │ with many fields    │                    │
+├──────────┼─────────────────────┼─────────────────────┼────────────────────┼─────────────────────┼────────────────────┤
+│ werkzeug │ PYSEC-2022-203      │ -                   │ <span style="color: #800000; text-decoration-color: #800000">major needed</span>       │ ** DISPUTED **      │ CVE-2022-29361     │
+│          │                     │                     │ (2.1.1)            │ Improper parsing of │                    │
+│          │                     │                     │                    │ HTTP requests in    │                    │
+│          │                     │                     │                    │ Pallets Werkzeug    │                    │
+│          │                     │                     │                    │ v2.1.0 and below    │                    │
+│          │                     │                     │                    │ allows attackers to │                    │
+│          │                     │                     │                    │ perform HTTP        │                    │
+│          │                     │                     │                    │ Request Smuggling   │                    │
+│          │                     │                     │                    │ using a crafted     │                    │
+│          │                     │                     │                    │ HTTP request with   │                    │
+│          │                     │                     │                    │ multiple requests   │                    │
+│          │                     │                     │                    │ included in         │                    │
+├──────────┼─────────────────────┼─────────────────────┼────────────────────┼─────────────────────┼────────────────────┤
+│ werkzeug │ PYSEC-2023-221      │ CVSS:3.1/AV:N/AC:L… │ <span style="color: #800000; text-decoration-color: #800000">no fix yet</span>         │ Werkzeug is a       │ CVE-2023-46136,    │
+│          │                     │                     │                    │ comprehensive WSGI  │ GHSA-hrfv-mqp8-q5… │
+│          │                     │                     │                    │ web application     │                    │
+│          │                     │                     │                    │ library. If an      │                    │
+│          │                     │                     │                    │ upload of a file    │                    │
+│          │                     │                     │                    │ that starts with CR │                    │
+│          │                     │                     │                    │ or LF and then is   │                    │
+│          │                     │                     │                    │ followed by         │                    │
+│          │                     │                     │                    │ megabytes of data   │                    │
+│          │                     │                     │                    │ without these       │                    │
+│          │                     │                     │                    │ characters: all of  │                    │
+│          │                     │                     │                    │ these bytes are ap  │                    │
+└──────────┴─────────────────────┴─────────────────────┴────────────────────┴─────────────────────┴────────────────────┘
+</code></pre>
+</body>
+</html>

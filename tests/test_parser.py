@@ -1,7 +1,7 @@
 """Unit tests for requirements_check.parser."""
 
 from requirements_check.models import UpdateLevel
-from requirements_check.parser import parse_requirements
+from requirements_check.parser import parse_constraints, parse_requirements
 
 
 def _write(tmp_path, content):
@@ -71,3 +71,26 @@ def test_vcs_requirement_is_unsupported(tmp_path):
     path = _write(tmp_path, "git+https://github.com/example/foo.git#egg=foo\n")
     deps = parse_requirements(path)
     assert deps[0].update_level == UpdateLevel.UNSUPPORTED
+
+
+def test_parse_constraints_captures_version_ranges(tmp_path):
+    path = tmp_path / "requirements.in"
+    path.write_text("flask<3.0,>=2.0\nrequests\n# comment\nclick~=8.0\n")
+
+    constraints = parse_constraints(path)
+
+    assert str(constraints["flask"]) == "<3.0,>=2.0" or ">=2.0" in str(
+        constraints["flask"],
+    )
+    assert "requests" not in constraints  # unconstrained, no specifier
+    assert "click" in constraints
+
+
+def test_parse_constraints_skips_urls_and_options(tmp_path):
+    path = tmp_path / "requirements.in"
+    path.write_text("-r base.in\nfoo @ https://example.com/foo.whl\nbar<2.0\n")
+
+    constraints = parse_constraints(path)
+
+    assert "foo" not in constraints
+    assert "bar" in constraints

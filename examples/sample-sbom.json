@@ -1,0 +1,2392 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "serialNumber": "urn:uuid:11bc74d6-bab0-499a-b201-a534bff5e37f",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-07-21T09:13:24.847860+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "name": "requirements-check",
+          "version": "0.1.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "library",
+      "bom-ref": "pkg:pypi/aiohttp@3.9.5",
+      "purl": "pkg:pypi/aiohttp@3.9.5",
+      "name": "aiohttp",
+      "version": "3.9.5",
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache 2"
+          }
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:pypi/aiosignal@1.4.0",
+      "purl": "pkg:pypi/aiosignal@1.4.0",
+      "name": "aiosignal",
+      "version": "1.4.0",
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache 2.0"
+          }
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:pypi/attrs@26.1.0",
+      "purl": "pkg:pypi/attrs@26.1.0",
+      "name": "attrs",
+      "version": "26.1.0"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:pypi/certifi@2026.6.17",
+      "purl": "pkg:pypi/certifi@2026.6.17",
+      "name": "certifi",
+      "version": "2026.6.17",
+      "licenses": [
+        {
+          "license": {
+            "name": "MPL-2.0"
+          }
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:pypi/chardet@4.0.0",
+      "purl": "pkg:pypi/chardet@4.0.0",
+      "name": "chardet",
+      "version": "4.0.0",
+      "licenses": [
+        {
+          "license": {
+            "name": "LGPL"
+          }
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:pypi/click@7.1.2",
+      "purl": "pkg:pypi/click@7.1.2",
+      "name": "click",
+      "version": "7.1.2",
+      "licenses": [
+        {
+          "license": {
+            "name": "BSD-3-Clause"
+          }
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:pypi/flask@1.1.4",
+      "purl": "pkg:pypi/flask@1.1.4",
+      "name": "flask",
+      "version": "1.1.4",
+      "licenses": [
+        {
+          "license": {
+            "name": "BSD-3-Clause"
+          }
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:pypi/frozenlist@1.8.0",
+      "purl": "pkg:pypi/frozenlist@1.8.0",
+      "name": "frozenlist",
+      "version": "1.8.0",
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache-2.0"
+          }
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:pypi/idna@2.10",
+      "purl": "pkg:pypi/idna@2.10",
+      "name": "idna",
+      "version": "2.10",
+      "licenses": [
+        {
+          "license": {
+            "name": "BSD-like"
+          }
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:pypi/itsdangerous@1.1.0",
+      "purl": "pkg:pypi/itsdangerous@1.1.0",
+      "name": "itsdangerous",
+      "version": "1.1.0",
+      "licenses": [
+        {
+          "license": {
+            "name": "BSD"
+          }
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:pypi/jinja2@2.11.3",
+      "purl": "pkg:pypi/jinja2@2.11.3",
+      "name": "jinja2",
+      "version": "2.11.3",
+      "licenses": [
+        {
+          "license": {
+            "name": "BSD-3-Clause"
+          }
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:pypi/markupsafe@3.0.3",
+      "purl": "pkg:pypi/markupsafe@3.0.3",
+      "name": "markupsafe",
+      "version": "3.0.3"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:pypi/multidict@6.7.1",
+      "purl": "pkg:pypi/multidict@6.7.1",
+      "name": "multidict",
+      "version": "6.7.1",
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache License 2.0"
+          }
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:pypi/propcache@0.5.2",
+      "purl": "pkg:pypi/propcache@0.5.2",
+      "name": "propcache",
+      "version": "0.5.2",
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache-2.0"
+          }
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:pypi/requests@2.25.1",
+      "purl": "pkg:pypi/requests@2.25.1",
+      "name": "requests",
+      "version": "2.25.1",
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache 2.0"
+          }
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:pypi/urllib3@1.26.20",
+      "purl": "pkg:pypi/urllib3@1.26.20",
+      "name": "urllib3",
+      "version": "1.26.20",
+      "licenses": [
+        {
+          "license": {
+            "name": "MIT"
+          }
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:pypi/werkzeug@1.0.1",
+      "purl": "pkg:pypi/werkzeug@1.0.1",
+      "name": "werkzeug",
+      "version": "1.0.1",
+      "licenses": [
+        {
+          "license": {
+            "name": "BSD-3-Clause"
+          }
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:pypi/yarl@1.24.5",
+      "purl": "pkg:pypi/yarl@1.24.5",
+      "name": "yarl",
+      "version": "1.24.5",
+      "licenses": [
+        {
+          "license": {
+            "name": "Apache-2.0"
+          }
+        }
+      ]
+    }
+  ],
+  "vulnerabilities": [
+    {
+      "id": "GHSA-2fqr-mr3j-6wp8",
+      "source": {
+        "name": "OSV",
+        "url": "https://osv.dev/vulnerability/GHSA-2fqr-mr3j-6wp8"
+      },
+      "description": "aiohttp: Host-Only Cookies Become Domain Cookies After CookieJar Persistence",
+      "affects": [
+        {
+          "ref": "pkg:pypi/aiohttp@3.9.5"
+        }
+      ],
+      "references": [
+        {
+          "id": "CVE-2026-54279",
+          "source": {
+            "name": "OSV"
+          }
+        },
+        {
+          "id": "PYSEC-2026-2112",
+          "source": {
+            "name": "OSV"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "requirements-check:osv_severity",
+          "value": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:P/VC:N/VI:N/VA:N/SC:L/SI:N/SA:N/E:U"
+        },
+        {
+          "name": "requirements-check:fixed_version",
+          "value": "3.14.1"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-2vrm-gr82-f7m5",
+      "source": {
+        "name": "OSV",
+        "url": "https://osv.dev/vulnerability/GHSA-2vrm-gr82-f7m5"
+      },
+      "description": "AIOHTTP has CRLF injection through multipart part content type header construction",
+      "affects": [
+        {
+          "ref": "pkg:pypi/aiohttp@3.9.5"
+        }
+      ],
+      "references": [
+        {
+          "id": "CVE-2026-34514",
+          "source": {
+            "name": "OSV"
+          }
+        },
+        {
+          "id": "PYSEC-2026-2096",
+          "source": {
+            "name": "OSV"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "requirements-check:osv_severity",
+          "value": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:L/VA:N/SC:N/SI:N/SA:N/E:U"
+        },
+        {
+          "name": "requirements-check:fixed_version",
+          "value": "3.13.4"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-3wq7-rqq7-wx6j",
+      "source": {
+        "name": "OSV",
+        "url": "https://osv.dev/vulnerability/GHSA-3wq7-rqq7-wx6j"
+      },
+      "description": "AIOHTTP has late size enforcement for non-file multipart fields causes memory DoS",
+      "affects": [
+        {
+          "ref": "pkg:pypi/aiohttp@3.9.5"
+        }
+      ],
+      "references": [
+        {
+          "id": "CVE-2026-34517",
+          "source": {
+            "name": "OSV"
+          }
+        },
+        {
+          "id": "PYSEC-2026-2099",
+          "source": {
+            "name": "OSV"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "requirements-check:osv_severity",
+          "value": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:L/SC:N/SI:N/SA:N/E:U"
+        },
+        {
+          "name": "requirements-check:fixed_version",
+          "value": "3.13.4"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-4fvr-rgm6-gqmc",
+      "source": {
+        "name": "OSV",
+        "url": "https://osv.dev/vulnerability/GHSA-4fvr-rgm6-gqmc"
+      },
+      "description": "aiohttp: HTTP/1 Pipelined Requests Queue Without Limit",
+      "affects": [
+        {
+          "ref": "pkg:pypi/aiohttp@3.9.5"
+        }
+      ],
+      "references": [
+        {
+          "id": "CVE-2026-54273",
+          "source": {
+            "name": "OSV"
+          }
+        },
+        {
+          "id": "PYSEC-2026-2107",
+          "source": {
+            "name": "OSV"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "requirements-check:osv_severity",
+          "value": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:H/SC:N/SI:N/SA:N/E:U"
+        },
+        {
+          "name": "requirements-check:fixed_version",
+          "value": "3.14.1"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-4m7w-qmgq-4wj5",
+      "source": {
+        "name": "OSV",
+        "url": "https://osv.dev/vulnerability/GHSA-4m7w-qmgq-4wj5"
+      },
+      "description": "aiohttp: TLS Server Hostname Override Is Ignored When Reusing HTTPS Connections",
+      "affects": [
+        {
+          "ref": "pkg:pypi/aiohttp@3.9.5"
+        }
+      ],
+      "references": [
+        {
+          "id": "CVE-2026-54275",
+          "source": {
+            "name": "OSV"
+          }
+        },
+        {
+          "id": "PYSEC-2026-237",
+          "source": {
+            "name": "OSV"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "requirements-check:osv_severity",
+          "value": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:L/VI:L/VA:N/SC:N/SI:N/SA:N/E:U"
+        },
+        {
+          "name": "requirements-check:fixed_version",
+          "value": "3.14.1"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-54jq-c3m8-4m76",
+      "source": {
+        "name": "OSV",
+        "url": "https://osv.dev/vulnerability/GHSA-54jq-c3m8-4m76"
+      },
+      "description": "AIOHTTP vulnerable to brute-force leak of internal static \ufb01le path components",
+      "affects": [
+        {
+          "ref": "pkg:pypi/aiohttp@3.9.5"
+        }
+      ],
+      "references": [
+        {
+          "id": "CVE-2025-69226",
+          "source": {
+            "name": "OSV"
+          }
+        },
+        {
+          "id": "PYSEC-2026-1097",
+          "source": {
+            "name": "OSV"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "requirements-check:osv_severity",
+          "value": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:L/VI:N/VA:N/SC:N/SI:N/SA:N/E:U"
+        },
+        {
+          "name": "requirements-check:fixed_version",
+          "value": "3.13.3"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-63hf-3vf5-4wqf",
+      "source": {
+        "name": "OSV",
+        "url": "https://osv.dev/vulnerability/GHSA-63hf-3vf5-4wqf"
+      },
+      "description": "AIOHTTP's C parser (llhttp) accepts null bytes and control characters in response header values - header injection/security bypass",
+      "affects": [
+        {
+          "ref": "pkg:pypi/aiohttp@3.9.5"
+        }
+      ],
+      "references": [
+        {
+          "id": "CVE-2026-34520",
+          "source": {
+            "name": "OSV"
+          }
+        },
+        {
+          "id": "PYSEC-2026-2102",
+          "source": {
+            "name": "OSV"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "requirements-check:osv_severity",
+          "value": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:H"
+        },
+        {
+          "name": "requirements-check:fixed_version",
+          "value": "3.13.4"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-63hw-fmq6-xxg2",
+      "source": {
+        "name": "OSV",
+        "url": "https://osv.dev/vulnerability/GHSA-63hw-fmq6-xxg2"
+      },
+      "description": "aiohttp: C HTTP Parser Bypasses max_line_size for Fragmented Lines",
+      "affects": [
+        {
+          "ref": "pkg:pypi/aiohttp@3.9.5"
+        }
+      ],
+      "references": [
+        {
+          "id": "CVE-2026-54277",
+          "source": {
+            "name": "OSV"
+          }
+        },
+        {
+          "id": "PYSEC-2026-2110",
+          "source": {
+            "name": "OSV"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "requirements-check:osv_severity",
+          "value": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:H/SC:N/SI:N/SA:N/E:U"
+        },
+        {
+          "name": "requirements-check:fixed_version",
+          "value": "3.14.1"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-69f9-5gxw-wvc2",
+      "source": {
+        "name": "OSV",
+        "url": "https://osv.dev/vulnerability/GHSA-69f9-5gxw-wvc2"
+      },
+      "description": "AIOHTTP's unicode processing of header values could cause parsing discrepancies",
+      "affects": [
+        {
+          "ref": "pkg:pypi/aiohttp@3.9.5"
+        }
+      ],
+      "references": [
+        {
+          "id": "CVE-2025-69224",
+          "source": {
+            "name": "OSV"
+          }
+        },
+        {
+          "id": "PYSEC-2026-1099",
+          "source": {
+            "name": "OSV"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "requirements-check:osv_severity",
+          "value": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:L/VA:N/SC:N/SI:N/SA:N/E:U"
+        },
+        {
+          "name": "requirements-check:fixed_version",
+          "value": "3.13.3"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-6jhg-hg63-jvvf",
+      "source": {
+        "name": "OSV",
+        "url": "https://osv.dev/vulnerability/GHSA-6jhg-hg63-jvvf"
+      },
+      "description": "AIOHTTP vulnerable to  denial of service through large payloads",
+      "affects": [
+        {
+          "ref": "pkg:pypi/aiohttp@3.9.5"
+        }
+      ],
+      "references": [
+        {
+          "id": "CVE-2025-69228",
+          "source": {
+            "name": "OSV"
+          }
+        },
+        {
+          "id": "PYSEC-2026-1100",
+          "source": {
+            "name": "OSV"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "requirements-check:osv_severity",
+          "value": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:H/SC:N/SI:N/SA:N/E:U"
+        },
+        {
+          "name": "requirements-check:fixed_version",
+          "value": "3.13.3"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-6mq8-rvhq-8wgg",
+      "source": {
+        "name": "OSV",
+        "url": "https://osv.dev/vulnerability/GHSA-6mq8-rvhq-8wgg"
+      },
+      "description": "AIOHTTP's HTTP Parser auto_decompress feature is vulnerable to zip bomb",
+      "affects": [
+        {
+          "ref": "pkg:pypi/aiohttp@3.9.5"
+        }
+      ],
+      "references": [
+        {
+          "id": "CVE-2025-69223",
+          "source": {
+            "name": "OSV"
+          }
+        },
+        {
+          "id": "PYSEC-2026-1101",
+          "source": {
+            "name": "OSV"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "requirements-check:osv_severity",
+          "value": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+        },
+        {
+          "name": "requirements-check:fixed_version",
+          "value": "3.13.3"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-8495-4g3g-x7pr",
+      "source": {
+        "name": "OSV",
+        "url": "https://osv.dev/vulnerability/GHSA-8495-4g3g-x7pr"
+      },
+      "description": "aiohttp allows request smuggling due to incorrect parsing of chunk extensions",
+      "affects": [
+        {
+          "ref": "pkg:pypi/aiohttp@3.9.5"
+        }
+      ],
+      "references": [
+        {
+          "id": "CVE-2024-52304",
+          "source": {
+            "name": "OSV"
+          }
+        },
+        {
+          "id": "PYSEC-2026-1103",
+          "source": {
+            "name": "OSV"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "requirements-check:osv_severity",
+          "value": "CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:N/VC:N/VI:L/VA:N/SC:N/SI:N/SA:N/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X"
+        },
+        {
+          "name": "requirements-check:fixed_version",
+          "value": "3.10.11"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-9548-qrrj-x5pj",
+      "source": {
+        "name": "OSV",
+        "url": "https://osv.dev/vulnerability/GHSA-9548-qrrj-x5pj"
+      },
+      "description": " AIOHTTP is vulnerable to HTTP Request/Response Smuggling through incorrect parsing of chunked trailer sections",
+      "affects": [
+        {
+          "ref": "pkg:pypi/aiohttp@3.9.5"
+        }
+      ],
+      "references": [
+        {
+          "id": "CVE-2025-53643",
+          "source": {
+            "name": "OSV"
+          }
+        },
+        {
+          "id": "PYSEC-2026-1104",
+          "source": {
+            "name": "OSV"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "requirements-check:osv_severity",
+          "value": "CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:N/VC:N/VI:L/VA:N/SC:N/SI:N/SA:N/E:U"
+        },
+        {
+          "name": "requirements-check:fixed_version",
+          "value": "3.12.14"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-966j-vmvw-g2g9",
+      "source": {
+        "name": "OSV",
+        "url": "https://osv.dev/vulnerability/GHSA-966j-vmvw-g2g9"
+      },
+      "description": "AIOHTTP leaks Cookie and Proxy-Authorization headers on cross-origin redirect",
+      "affects": [
+        {
+          "ref": "pkg:pypi/aiohttp@3.9.5"
+        }
+      ],
+      "references": [
+        {
+          "id": "CVE-2026-34518",
+          "source": {
+            "name": "OSV"
+          }
+        },
+        {
+          "id": "PYSEC-2026-2100",
+          "source": {
+            "name": "OSV"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "requirements-check:osv_severity",
+          "value": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N"
+        },
+        {
+          "name": "requirements-check:fixed_version",
+          "value": "3.13.4"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-9x8q-7h8h-wcw9",
+      "source": {
+        "name": "OSV",
+        "url": "https://osv.dev/vulnerability/GHSA-9x8q-7h8h-wcw9"
+      },
+      "description": "aiohttp: Payload Response Resources Are Not Closed After Mid-Body Disconnect",
+      "affects": [
+        {
+          "ref": "pkg:pypi/aiohttp@3.9.5"
+        }
+      ],
+      "references": [
+        {
+          "id": "CVE-2026-54280",
+          "source": {
+            "name": "OSV"
+          }
+        },
+        {
+          "id": "PYSEC-2026-2113",
+          "source": {
+            "name": "OSV"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "requirements-check:osv_severity",
+          "value": "CVSS:4.0/AV:N/AC:H/AT:N/PR:N/UI:N/VC:N/VI:N/VA:L/SC:N/SI:N/SA:N/E:U"
+        },
+        {
+          "name": "requirements-check:fixed_version",
+          "value": "3.14.1"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-c427-h43c-vf67",
+      "source": {
+        "name": "OSV",
+        "url": "https://osv.dev/vulnerability/GHSA-c427-h43c-vf67"
+      },
+      "description": "AIOHTTP accepts duplicate Host headers",
+      "affects": [
+        {
+          "ref": "pkg:pypi/aiohttp@3.9.5"
+        }
+      ],
+      "references": [
+        {
+          "id": "CVE-2026-34525",
+          "source": {
+            "name": "OSV"
+          }
+        },
+        {
+          "id": "PYSEC-2026-2103",
+          "source": {
+            "name": "OSV"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "requirements-check:osv_severity",
+          "value": "CVSS:4.0/AV:N/AC:H/AT:P/PR:N/UI:N/VC:N/VI:L/VA:N/SC:L/SI:L/SA:N"
+        },
+        {
+          "name": "requirements-check:fixed_version",
+          "value": "3.13.4"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-fh55-r93g-j68g",
+      "source": {
+        "name": "OSV",
+        "url": "https://osv.dev/vulnerability/GHSA-fh55-r93g-j68g"
+      },
+      "description": "AIOHTTP Vulnerable to Cookie Parser Warning Storm",
+      "affects": [
+        {
+          "ref": "pkg:pypi/aiohttp@3.9.5"
+        }
+      ],
+      "references": [
+        {
+          "id": "CVE-2025-69230",
+          "source": {
+            "name": "OSV"
+          }
+        },
+        {
+          "id": "PYSEC-2026-1105",
+          "source": {
+            "name": "OSV"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "requirements-check:osv_severity",
+          "value": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:L/VA:L/SC:N/SI:N/SA:N/E:U"
+        },
+        {
+          "name": "requirements-check:fixed_version",
+          "value": "3.13.3"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-g3cq-j2xw-wf74",
+      "source": {
+        "name": "OSV",
+        "url": "https://osv.dev/vulnerability/GHSA-g3cq-j2xw-wf74"
+      },
+      "description": "aiohttp: Unread Compressed Request Bodies Bypass client_max_size During Cleanup",
+      "affects": [
+        {
+          "ref": "pkg:pypi/aiohttp@3.9.5"
+        }
+      ],
+      "references": [
+        {
+          "id": "CVE-2026-54278",
+          "source": {
+            "name": "OSV"
+          }
+        },
+        {
+          "id": "PYSEC-2026-2111",
+          "source": {
+            "name": "OSV"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "requirements-check:osv_severity",
+          "value": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:H/SC:N/SI:N/SA:N/E:U"
+        },
+        {
+          "name": "requirements-check:fixed_version",
+          "value": "3.14.1"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-g84x-mcqj-x9qq",
+      "source": {
+        "name": "OSV",
+        "url": "https://osv.dev/vulnerability/GHSA-g84x-mcqj-x9qq"
+      },
+      "description": "AIOHTTP vulnerable to DoS through chunked messages",
+      "affects": [
+        {
+          "ref": "pkg:pypi/aiohttp@3.9.5"
+        }
+      ],
+      "references": [
+        {
+          "id": "CVE-2025-69229",
+          "source": {
+            "name": "OSV"
+          }
+        },
+        {
+          "id": "PYSEC-2026-1106",
+          "source": {
+            "name": "OSV"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "requirements-check:osv_severity",
+          "value": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:H/SC:N/SI:N/SA:N/E:U"
+        },
+        {
+          "name": "requirements-check:fixed_version",
+          "value": "3.13.3"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-hcc4-c3v8-rx92",
+      "source": {
+        "name": "OSV",
+        "url": "https://osv.dev/vulnerability/GHSA-hcc4-c3v8-rx92"
+      },
+      "description": "AIOHTTP Affected by Denial of Service (DoS) via Unbounded DNS Cache in TCPConnector",
+      "affects": [
+        {
+          "ref": "pkg:pypi/aiohttp@3.9.5"
+        }
+      ],
+      "references": [
+        {
+          "id": "CVE-2026-34513",
+          "source": {
+            "name": "OSV"
+          }
+        },
+        {
+          "id": "PYSEC-2026-2095",
+          "source": {
+            "name": "OSV"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "requirements-check:osv_severity",
+          "value": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:L/SC:N/SI:N/SA:N/E:U"
+        },
+        {
+          "name": "requirements-check:fixed_version",
+          "value": "3.13.4"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-hg6j-4rv6-33pg",
+      "source": {
+        "name": "OSV",
+        "url": "https://osv.dev/vulnerability/GHSA-hg6j-4rv6-33pg"
+      },
+      "description": "AIOHTTP is vulnerable to cross-origin redirect with per-request cookies",
+      "affects": [
+        {
+          "ref": "pkg:pypi/aiohttp@3.9.5"
+        }
+      ],
+      "references": [
+        {
+          "id": "CVE-2026-47265",
+          "source": {
+            "name": "OSV"
+          }
+        },
+        {
+          "id": "PYSEC-2026-2105",
+          "source": {
+            "name": "OSV"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "requirements-check:osv_severity",
+          "value": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:N/VA:N/SC:N/SI:N/SA:N/E:U"
+        },
+        {
+          "name": "requirements-check:fixed_version",
+          "value": "3.14.0"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-hpj7-wq8m-9hgp",
+      "source": {
+        "name": "OSV",
+        "url": "https://osv.dev/vulnerability/GHSA-hpj7-wq8m-9hgp"
+      },
+      "description": "aiohttp: DigestAuthMiddleware Applies Credentials to Cross-Origin Redirect Challenges",
+      "affects": [
+        {
+          "ref": "pkg:pypi/aiohttp@3.9.5"
+        }
+      ],
+      "references": [
+        {
+          "id": "CVE-2026-54276",
+          "source": {
+            "name": "OSV"
+          }
+        },
+        {
+          "id": "PYSEC-2026-2109",
+          "source": {
+            "name": "OSV"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "requirements-check:osv_severity",
+          "value": "CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:N/VC:L/VI:N/VA:N/SC:N/SI:N/SA:N"
+        },
+        {
+          "name": "requirements-check:fixed_version",
+          "value": "3.14.1"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-jg22-mg44-37j8",
+      "source": {
+        "name": "OSV",
+        "url": "https://osv.dev/vulnerability/GHSA-jg22-mg44-37j8"
+      },
+      "description": "AIOHTTP is Vulnerable to Deserialization of Untrusted Data",
+      "affects": [
+        {
+          "ref": "pkg:pypi/aiohttp@3.9.5"
+        }
+      ],
+      "references": [
+        {
+          "id": "CVE-2026-34993",
+          "source": {
+            "name": "OSV"
+          }
+        },
+        {
+          "id": "PYSEC-2026-2104",
+          "source": {
+            "name": "OSV"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "requirements-check:osv_severity",
+          "value": "CVSS:3.1/AV:L/AC:H/PR:H/UI:R/S:C/C:L/I:H/A:L"
+        },
+        {
+          "name": "requirements-check:fixed_version",
+          "value": "3.14.0"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-jj3x-wxrx-4x23",
+      "source": {
+        "name": "OSV",
+        "url": "https://osv.dev/vulnerability/GHSA-jj3x-wxrx-4x23"
+      },
+      "description": "AIOHTTP vulnerable to DoS when bypassing asserts",
+      "affects": [
+        {
+          "ref": "pkg:pypi/aiohttp@3.9.5"
+        }
+      ],
+      "references": [
+        {
+          "id": "CVE-2025-69227",
+          "source": {
+            "name": "OSV"
+          }
+        },
+        {
+          "id": "PYSEC-2026-1107",
+          "source": {
+            "name": "OSV"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "requirements-check:osv_severity",
+          "value": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:H/SC:N/SI:N/SA:N/E:U"
+        },
+        {
+          "name": "requirements-check:fixed_version",
+          "value": "3.13.3"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-m5qp-6w8w-w647",
+      "source": {
+        "name": "OSV",
+        "url": "https://osv.dev/vulnerability/GHSA-m5qp-6w8w-w647"
+      },
+      "description": "AIOHTTP has a Multipart Header Size Bypass",
+      "affects": [
+        {
+          "ref": "pkg:pypi/aiohttp@3.9.5"
+        }
+      ],
+      "references": [
+        {
+          "id": "CVE-2026-34516",
+          "source": {
+            "name": "OSV"
+          }
+        },
+        {
+          "id": "PYSEC-2026-2098",
+          "source": {
+            "name": "OSV"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "requirements-check:osv_severity",
+          "value": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+        },
+        {
+          "name": "requirements-check:fixed_version",
+          "value": "3.13.4"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-m6qw-4cw2-hm4m",
+      "source": {
+        "name": "OSV",
+        "url": "https://osv.dev/vulnerability/GHSA-m6qw-4cw2-hm4m"
+      },
+      "description": "aiohttp: CRLF injection in multipart headers",
+      "affects": [
+        {
+          "ref": "pkg:pypi/aiohttp@3.9.5"
+        }
+      ],
+      "references": [
+        {
+          "id": "CVE-2026-50269",
+          "source": {
+            "name": "OSV"
+          }
+        },
+        {
+          "id": "PYSEC-2026-2106",
+          "source": {
+            "name": "OSV"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "requirements-check:osv_severity",
+          "value": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:L/VA:N/SC:N/SI:N/SA:N/E:U"
+        },
+        {
+          "name": "requirements-check:fixed_version",
+          "value": "3.14.0"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-mqqc-3gqh-h2x8",
+      "source": {
+        "name": "OSV",
+        "url": "https://osv.dev/vulnerability/GHSA-mqqc-3gqh-h2x8"
+      },
+      "description": "AIOHTTP has unicode match groups in regexes for ASCII protocol elements",
+      "affects": [
+        {
+          "ref": "pkg:pypi/aiohttp@3.9.5"
+        }
+      ],
+      "references": [
+        {
+          "id": "CVE-2025-69225",
+          "source": {
+            "name": "OSV"
+          }
+        },
+        {
+          "id": "PYSEC-2026-1109",
+          "source": {
+            "name": "OSV"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "requirements-check:osv_severity",
+          "value": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:L/VA:N/SC:N/SI:N/SA:N/E:U"
+        },
+        {
+          "name": "requirements-check:fixed_version",
+          "value": "3.13.3"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-mwh4-6h8g-pg8w",
+      "source": {
+        "name": "OSV",
+        "url": "https://osv.dev/vulnerability/GHSA-mwh4-6h8g-pg8w"
+      },
+      "description": "AIOHTTP has HTTP response splitting via \\r in reason phrase",
+      "affects": [
+        {
+          "ref": "pkg:pypi/aiohttp@3.9.5"
+        }
+      ],
+      "references": [
+        {
+          "id": "CVE-2026-34519",
+          "source": {
+            "name": "OSV"
+          }
+        },
+        {
+          "id": "PYSEC-2026-2101",
+          "source": {
+            "name": "OSV"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "requirements-check:osv_severity",
+          "value": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:L/VA:N/SC:N/SI:N/SA:N/E:U"
+        },
+        {
+          "name": "requirements-check:fixed_version",
+          "value": "3.13.4"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-p998-jp59-783m",
+      "source": {
+        "name": "OSV",
+        "url": "https://osv.dev/vulnerability/GHSA-p998-jp59-783m"
+      },
+      "description": "AIOHTTP affected by UNC SSRF/NTLMv2 Credential Theft/Local File Read in static resource handler on Windows",
+      "affects": [
+        {
+          "ref": "pkg:pypi/aiohttp@3.9.5"
+        }
+      ],
+      "references": [
+        {
+          "id": "CVE-2026-34515",
+          "source": {
+            "name": "OSV"
+          }
+        },
+        {
+          "id": "PYSEC-2026-2097",
+          "source": {
+            "name": "OSV"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "requirements-check:osv_severity",
+          "value": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:N/VA:N/SC:N/SI:N/SA:N/E:U"
+        },
+        {
+          "name": "requirements-check:fixed_version",
+          "value": "3.13.4"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-w2fm-2cpv-w7v5",
+      "source": {
+        "name": "OSV",
+        "url": "https://osv.dev/vulnerability/GHSA-w2fm-2cpv-w7v5"
+      },
+      "description": "aiohttp allows unlimited trailer headers, leading to possible uncapped memory usage",
+      "affects": [
+        {
+          "ref": "pkg:pypi/aiohttp@3.9.5"
+        }
+      ],
+      "references": [
+        {
+          "id": "CVE-2026-22815",
+          "source": {
+            "name": "OSV"
+          }
+        },
+        {
+          "id": "PYSEC-2026-2094",
+          "source": {
+            "name": "OSV"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "requirements-check:osv_severity",
+          "value": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:L/SC:N/SI:N/SA:N"
+        },
+        {
+          "name": "requirements-check:fixed_version",
+          "value": "3.13.4"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-xcgm-r5h9-7989",
+      "source": {
+        "name": "OSV",
+        "url": "https://osv.dev/vulnerability/GHSA-xcgm-r5h9-7989"
+      },
+      "description": "aiohttp: Incomplete websocket frame payloads bypass memory limits",
+      "affects": [
+        {
+          "ref": "pkg:pypi/aiohttp@3.9.5"
+        }
+      ],
+      "references": [
+        {
+          "id": "CVE-2026-54274",
+          "source": {
+            "name": "OSV"
+          }
+        },
+        {
+          "id": "PYSEC-2026-2108",
+          "source": {
+            "name": "OSV"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "requirements-check:osv_severity",
+          "value": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:H/SC:N/SI:N/SA:N/E:U"
+        },
+        {
+          "name": "requirements-check:fixed_version",
+          "value": "3.14.1"
+        }
+      ]
+    },
+    {
+      "id": "PYSEC-2026-2132",
+      "source": {
+        "name": "OSV",
+        "url": "https://osv.dev/vulnerability/PYSEC-2026-2132"
+      },
+      "description": "Pallets Click, versions 8.3.2 and below, contain a command injection vulnerability in the click.edit() function, allowing attackers to pass arbitrary OS commands from an unprivileged account.",
+      "affects": [
+        {
+          "ref": "pkg:pypi/click@7.1.2"
+        }
+      ],
+      "references": [
+        {
+          "id": "CVE-2026-7246",
+          "source": {
+            "name": "OSV"
+          }
+        },
+        {
+          "id": "GHSA-47fr-3ffg-hgmw",
+          "source": {
+            "name": "OSV"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "requirements-check:osv_severity",
+          "value": "CVSS:3.1/AV:L/AC:H/PR:H/UI:R/S:C/C:H/I:H/A:H"
+        },
+        {
+          "name": "requirements-check:fixed_version",
+          "value": "8.3.3"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-68rp-wp8r-4726",
+      "source": {
+        "name": "OSV",
+        "url": "https://osv.dev/vulnerability/GHSA-68rp-wp8r-4726"
+      },
+      "description": "Flask session does not add `Vary: Cookie` header when accessed in some ways",
+      "affects": [
+        {
+          "ref": "pkg:pypi/flask@1.1.4"
+        }
+      ],
+      "references": [
+        {
+          "id": "CVE-2026-27205",
+          "source": {
+            "name": "OSV"
+          }
+        },
+        {
+          "id": "PYSEC-2026-2151",
+          "source": {
+            "name": "OSV"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "requirements-check:osv_severity",
+          "value": "CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:P/VC:L/VI:N/VA:N/SC:N/SI:N/SA:N"
+        },
+        {
+          "name": "requirements-check:fixed_version",
+          "value": "3.1.3"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-m2qf-hxjv-5gpq",
+      "source": {
+        "name": "OSV",
+        "url": "https://osv.dev/vulnerability/GHSA-m2qf-hxjv-5gpq"
+      },
+      "description": "Flask vulnerable to possible disclosure of permanent session cookie due to missing Vary: Cookie header",
+      "affects": [
+        {
+          "ref": "pkg:pypi/flask@1.1.4"
+        }
+      ],
+      "references": [
+        {
+          "id": "CVE-2023-30861",
+          "source": {
+            "name": "OSV"
+          }
+        },
+        {
+          "id": "PYSEC-2023-62",
+          "source": {
+            "name": "OSV"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "requirements-check:osv_severity",
+          "value": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N"
+        },
+        {
+          "name": "requirements-check:fixed_version",
+          "value": "2.2.5"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-65pc-fj4g-8rjx",
+      "source": {
+        "name": "OSV",
+        "url": "https://osv.dev/vulnerability/GHSA-65pc-fj4g-8rjx"
+      },
+      "description": "Internationalized Domain Names in Applications (IDNA): Specially crafted inputs to idna.encode() can bypass CVE-2024-3651 fix",
+      "affects": [
+        {
+          "ref": "pkg:pypi/idna@2.10"
+        }
+      ],
+      "references": [
+        {
+          "id": "CVE-2026-45409",
+          "source": {
+            "name": "OSV"
+          }
+        },
+        {
+          "id": "PYSEC-2026-215",
+          "source": {
+            "name": "OSV"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "requirements-check:osv_severity",
+          "value": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L"
+        },
+        {
+          "name": "requirements-check:fixed_version",
+          "value": "3.15"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-jjg7-2v4v-x38h",
+      "source": {
+        "name": "OSV",
+        "url": "https://osv.dev/vulnerability/GHSA-jjg7-2v4v-x38h"
+      },
+      "description": "Internationalized Domain Names in Applications (IDNA) vulnerable to denial of service from specially crafted inputs to idna.encode",
+      "affects": [
+        {
+          "ref": "pkg:pypi/idna@2.10"
+        }
+      ],
+      "references": [
+        {
+          "id": "CVE-2024-3651",
+          "source": {
+            "name": "OSV"
+          }
+        },
+        {
+          "id": "PYSEC-2024-60",
+          "source": {
+            "name": "OSV"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "requirements-check:osv_severity",
+          "value": "CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+        },
+        {
+          "name": "requirements-check:fixed_version",
+          "value": "3.7"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-cpwx-vrp4-4pq7",
+      "source": {
+        "name": "OSV",
+        "url": "https://osv.dev/vulnerability/GHSA-cpwx-vrp4-4pq7"
+      },
+      "description": "Jinja2 vulnerable to sandbox breakout through attr filter selecting format method",
+      "affects": [
+        {
+          "ref": "pkg:pypi/jinja2@2.11.3"
+        }
+      ],
+      "references": [
+        {
+          "id": "CVE-2025-27516",
+          "source": {
+            "name": "OSV"
+          }
+        },
+        {
+          "id": "PYSEC-2026-1471",
+          "source": {
+            "name": "OSV"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "requirements-check:osv_severity",
+          "value": "CVSS:4.0/AV:L/AC:L/AT:P/PR:L/UI:P/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N"
+        },
+        {
+          "name": "requirements-check:fixed_version",
+          "value": "3.1.6"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-h5c8-rqwp-cp95",
+      "source": {
+        "name": "OSV",
+        "url": "https://osv.dev/vulnerability/GHSA-h5c8-rqwp-cp95"
+      },
+      "description": "Jinja vulnerable to HTML attribute injection when passing user input as keys to xmlattr filter",
+      "affects": [
+        {
+          "ref": "pkg:pypi/jinja2@2.11.3"
+        }
+      ],
+      "references": [
+        {
+          "id": "CVE-2024-22195",
+          "source": {
+            "name": "OSV"
+          }
+        },
+        {
+          "id": "PYSEC-2026-1473",
+          "source": {
+            "name": "OSV"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "requirements-check:osv_severity",
+          "value": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:L/I:L/A:N"
+        },
+        {
+          "name": "requirements-check:fixed_version",
+          "value": "3.1.3"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-h75v-3vvj-5mfj",
+      "source": {
+        "name": "OSV",
+        "url": "https://osv.dev/vulnerability/GHSA-h75v-3vvj-5mfj"
+      },
+      "description": "Jinja vulnerable to HTML attribute injection when passing user input as keys to xmlattr filter",
+      "affects": [
+        {
+          "ref": "pkg:pypi/jinja2@2.11.3"
+        }
+      ],
+      "references": [
+        {
+          "id": "CVE-2024-34064",
+          "source": {
+            "name": "OSV"
+          }
+        },
+        {
+          "id": "PYSEC-2026-1474",
+          "source": {
+            "name": "OSV"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "requirements-check:osv_severity",
+          "value": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:L/I:L/A:N"
+        },
+        {
+          "name": "requirements-check:fixed_version",
+          "value": "3.1.4"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-q2x7-8rv6-6q7h",
+      "source": {
+        "name": "OSV",
+        "url": "https://osv.dev/vulnerability/GHSA-q2x7-8rv6-6q7h"
+      },
+      "description": "Jinja has a sandbox breakout through indirect reference to format method",
+      "affects": [
+        {
+          "ref": "pkg:pypi/jinja2@2.11.3"
+        }
+      ],
+      "references": [
+        {
+          "id": "CVE-2024-56326",
+          "source": {
+            "name": "OSV"
+          }
+        },
+        {
+          "id": "PYSEC-2026-1475",
+          "source": {
+            "name": "OSV"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "requirements-check:osv_severity",
+          "value": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H"
+        },
+        {
+          "name": "requirements-check:fixed_version",
+          "value": "3.1.5"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-9hjg-9r4m-mvj7",
+      "source": {
+        "name": "OSV",
+        "url": "https://osv.dev/vulnerability/GHSA-9hjg-9r4m-mvj7"
+      },
+      "description": "Requests vulnerable to .netrc credentials leak via malicious URLs",
+      "affects": [
+        {
+          "ref": "pkg:pypi/requests@2.25.1"
+        }
+      ],
+      "references": [
+        {
+          "id": "CVE-2024-47081",
+          "source": {
+            "name": "OSV"
+          }
+        },
+        {
+          "id": "PYSEC-2026-1872",
+          "source": {
+            "name": "OSV"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "requirements-check:osv_severity",
+          "value": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:N/A:N"
+        },
+        {
+          "name": "requirements-check:fixed_version",
+          "value": "2.32.4"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-9wx4-h78v-vm56",
+      "source": {
+        "name": "OSV",
+        "url": "https://osv.dev/vulnerability/GHSA-9wx4-h78v-vm56"
+      },
+      "description": "Requests `Session` object does not verify requests after making first request with verify=False",
+      "affects": [
+        {
+          "ref": "pkg:pypi/requests@2.25.1"
+        }
+      ],
+      "references": [
+        {
+          "id": "CVE-2024-35195",
+          "source": {
+            "name": "OSV"
+          }
+        },
+        {
+          "id": "PYSEC-2026-1873",
+          "source": {
+            "name": "OSV"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "requirements-check:osv_severity",
+          "value": "CVSS:3.1/AV:L/AC:H/PR:H/UI:R/S:U/C:H/I:H/A:N"
+        },
+        {
+          "name": "requirements-check:fixed_version",
+          "value": "2.32.0"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-gc5v-m9x4-r6x2",
+      "source": {
+        "name": "OSV",
+        "url": "https://osv.dev/vulnerability/GHSA-gc5v-m9x4-r6x2"
+      },
+      "description": "Requests has Insecure Temp File Reuse in its extract_zipped_paths() utility function",
+      "affects": [
+        {
+          "ref": "pkg:pypi/requests@2.25.1"
+        }
+      ],
+      "references": [
+        {
+          "id": "CVE-2026-25645",
+          "source": {
+            "name": "OSV"
+          }
+        },
+        {
+          "id": "PYSEC-2026-2275",
+          "source": {
+            "name": "OSV"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "requirements-check:osv_severity",
+          "value": "CVSS:3.1/AV:L/AC:H/PR:L/UI:R/S:U/C:N/I:H/A:N"
+        },
+        {
+          "name": "requirements-check:fixed_version",
+          "value": "2.33.0"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-j8r2-6x86-q33q",
+      "source": {
+        "name": "OSV",
+        "url": "https://osv.dev/vulnerability/GHSA-j8r2-6x86-q33q"
+      },
+      "description": "Unintended leak of Proxy-Authorization header in requests",
+      "affects": [
+        {
+          "ref": "pkg:pypi/requests@2.25.1"
+        }
+      ],
+      "references": [
+        {
+          "id": "CVE-2023-32681",
+          "source": {
+            "name": "OSV"
+          }
+        },
+        {
+          "id": "PYSEC-2023-74",
+          "source": {
+            "name": "OSV"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "requirements-check:osv_severity",
+          "value": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:C/C:H/I:N/A:N"
+        },
+        {
+          "name": "requirements-check:fixed_version",
+          "value": "2.31.0"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-2xpw-w6gg-jr37",
+      "source": {
+        "name": "OSV",
+        "url": "https://osv.dev/vulnerability/GHSA-2xpw-w6gg-jr37"
+      },
+      "description": "urllib3 streaming API improperly handles highly compressed data",
+      "affects": [
+        {
+          "ref": "pkg:pypi/urllib3@1.26.20"
+        }
+      ],
+      "references": [
+        {
+          "id": "CVE-2025-66471",
+          "source": {
+            "name": "OSV"
+          }
+        },
+        {
+          "id": "PYSEC-2026-1994",
+          "source": {
+            "name": "OSV"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "requirements-check:osv_severity",
+          "value": "CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:N/VC:N/VI:N/VA:H/SC:N/SI:N/SA:H"
+        },
+        {
+          "name": "requirements-check:fixed_version",
+          "value": "2.6.0"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-38jv-5279-wg99",
+      "source": {
+        "name": "OSV",
+        "url": "https://osv.dev/vulnerability/GHSA-38jv-5279-wg99"
+      },
+      "description": "Decompression-bomb safeguards bypassed when following HTTP redirects (streaming API)",
+      "affects": [
+        {
+          "ref": "pkg:pypi/urllib3@1.26.20"
+        }
+      ],
+      "references": [
+        {
+          "id": "CVE-2026-21441",
+          "source": {
+            "name": "OSV"
+          }
+        },
+        {
+          "id": "PYSEC-2026-1996",
+          "source": {
+            "name": "OSV"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "requirements-check:osv_severity",
+          "value": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+        },
+        {
+          "name": "requirements-check:fixed_version",
+          "value": "2.6.3"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-gm62-xv2j-4w53",
+      "source": {
+        "name": "OSV",
+        "url": "https://osv.dev/vulnerability/GHSA-gm62-xv2j-4w53"
+      },
+      "description": "urllib3 allows an unbounded number of links in the decompression chain",
+      "affects": [
+        {
+          "ref": "pkg:pypi/urllib3@1.26.20"
+        }
+      ],
+      "references": [
+        {
+          "id": "CVE-2025-66418",
+          "source": {
+            "name": "OSV"
+          }
+        },
+        {
+          "id": "PYSEC-2026-1998",
+          "source": {
+            "name": "OSV"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "requirements-check:osv_severity",
+          "value": "CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:N/VC:N/VI:N/VA:H/SC:N/SI:N/SA:H"
+        },
+        {
+          "name": "requirements-check:fixed_version",
+          "value": "2.6.0"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-pq67-6m6q-mj2v",
+      "source": {
+        "name": "OSV",
+        "url": "https://osv.dev/vulnerability/GHSA-pq67-6m6q-mj2v"
+      },
+      "description": "urllib3 redirects are not disabled when retries are disabled on PoolManager instantiation",
+      "affects": [
+        {
+          "ref": "pkg:pypi/urllib3@1.26.20"
+        }
+      ],
+      "references": [
+        {
+          "id": "CVE-2025-50181",
+          "source": {
+            "name": "OSV"
+          }
+        },
+        {
+          "id": "PYSEC-2026-1999",
+          "source": {
+            "name": "OSV"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "requirements-check:osv_severity",
+          "value": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:H/I:N/A:N"
+        },
+        {
+          "name": "requirements-check:fixed_version",
+          "value": "2.5.0"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-qccp-gfcp-xxvc",
+      "source": {
+        "name": "OSV",
+        "url": "https://osv.dev/vulnerability/GHSA-qccp-gfcp-xxvc"
+      },
+      "description": "urllib3: Sensitive headers forwarded across origins in proxied low-level redirects",
+      "affects": [
+        {
+          "ref": "pkg:pypi/urllib3@1.26.20"
+        }
+      ],
+      "references": [
+        {
+          "id": "CVE-2026-44431",
+          "source": {
+            "name": "OSV"
+          }
+        },
+        {
+          "id": "PYSEC-2026-141",
+          "source": {
+            "name": "OSV"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "requirements-check:osv_severity",
+          "value": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N"
+        },
+        {
+          "name": "requirements-check:fixed_version",
+          "value": "2.7.0"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-29vq-49wr-vm6x",
+      "source": {
+        "name": "OSV",
+        "url": "https://osv.dev/vulnerability/GHSA-29vq-49wr-vm6x"
+      },
+      "description": " Werkzeug safe_join() allows Windows special device names",
+      "affects": [
+        {
+          "ref": "pkg:pypi/werkzeug@1.0.1"
+        }
+      ],
+      "references": [
+        {
+          "id": "CVE-2026-27199",
+          "source": {
+            "name": "OSV"
+          }
+        },
+        {
+          "id": "PYSEC-2026-2320",
+          "source": {
+            "name": "OSV"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "requirements-check:osv_severity",
+          "value": "CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:N/VC:N/VI:N/VA:L/SC:N/SI:N/SA:N"
+        },
+        {
+          "name": "requirements-check:fixed_version",
+          "value": "3.1.6"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-2g68-c3qc-8985",
+      "source": {
+        "name": "OSV",
+        "url": "https://osv.dev/vulnerability/GHSA-2g68-c3qc-8985"
+      },
+      "description": "Werkzeug debugger vulnerable to remote execution when interacting with attacker controlled domain",
+      "affects": [
+        {
+          "ref": "pkg:pypi/werkzeug@1.0.1"
+        }
+      ],
+      "references": [
+        {
+          "id": "CVE-2024-34069",
+          "source": {
+            "name": "OSV"
+          }
+        },
+        {
+          "id": "PYSEC-2026-2043",
+          "source": {
+            "name": "OSV"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "requirements-check:osv_severity",
+          "value": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:H"
+        },
+        {
+          "name": "requirements-check:fixed_version",
+          "value": "3.0.3"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-87hc-h4r5-73f7",
+      "source": {
+        "name": "OSV",
+        "url": "https://osv.dev/vulnerability/GHSA-87hc-h4r5-73f7"
+      },
+      "description": " Werkzeug safe_join() allows Windows special device names with compound extensions",
+      "affects": [
+        {
+          "ref": "pkg:pypi/werkzeug@1.0.1"
+        }
+      ],
+      "references": [
+        {
+          "id": "CVE-2026-21860",
+          "source": {
+            "name": "OSV"
+          }
+        },
+        {
+          "id": "PYSEC-2026-2044",
+          "source": {
+            "name": "OSV"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "requirements-check:osv_severity",
+          "value": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L"
+        },
+        {
+          "name": "requirements-check:fixed_version",
+          "value": "3.1.5"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-f9vj-2wh5-fj8j",
+      "source": {
+        "name": "OSV",
+        "url": "https://osv.dev/vulnerability/GHSA-f9vj-2wh5-fj8j"
+      },
+      "description": "Werkzeug safe_join not safe on Windows",
+      "affects": [
+        {
+          "ref": "pkg:pypi/werkzeug@1.0.1"
+        }
+      ],
+      "references": [
+        {
+          "id": "CVE-2024-49766",
+          "source": {
+            "name": "OSV"
+          }
+        },
+        {
+          "id": "PYSEC-2026-2045",
+          "source": {
+            "name": "OSV"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "requirements-check:osv_severity",
+          "value": "CVSS:4.0/AV:N/AC:H/AT:N/PR:N/UI:N/VC:L/VI:N/VA:N/SC:N/SI:N/SA:N"
+        },
+        {
+          "name": "requirements-check:fixed_version",
+          "value": "3.0.6"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-hgf8-39gv-g3f2",
+      "source": {
+        "name": "OSV",
+        "url": "https://osv.dev/vulnerability/GHSA-hgf8-39gv-g3f2"
+      },
+      "description": "Werkzeug safe_join() allows Windows special device names",
+      "affects": [
+        {
+          "ref": "pkg:pypi/werkzeug@1.0.1"
+        }
+      ],
+      "references": [
+        {
+          "id": "CVE-2025-66221",
+          "source": {
+            "name": "OSV"
+          }
+        },
+        {
+          "id": "PYSEC-2026-2046",
+          "source": {
+            "name": "OSV"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "requirements-check:osv_severity",
+          "value": "CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:N/VC:N/VI:N/VA:L/SC:N/SI:N/SA:N"
+        },
+        {
+          "name": "requirements-check:fixed_version",
+          "value": "3.1.4"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-px8h-6qxv-m22q",
+      "source": {
+        "name": "OSV",
+        "url": "https://osv.dev/vulnerability/GHSA-px8h-6qxv-m22q"
+      },
+      "description": "Incorrect parsing of nameless cookies leads to __Host- cookies bypass",
+      "affects": [
+        {
+          "ref": "pkg:pypi/werkzeug@1.0.1"
+        }
+      ],
+      "references": [
+        {
+          "id": "CVE-2023-23934",
+          "source": {
+            "name": "OSV"
+          }
+        },
+        {
+          "id": "PYSEC-2023-57",
+          "source": {
+            "name": "OSV"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "requirements-check:osv_severity",
+          "value": "CVSS:3.1/AV:A/AC:H/PR:N/UI:R/S:U/C:N/I:L/A:N"
+        },
+        {
+          "name": "requirements-check:fixed_version",
+          "value": "2.2.3"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-xg9f-g7g7-2323",
+      "source": {
+        "name": "OSV",
+        "url": "https://osv.dev/vulnerability/GHSA-xg9f-g7g7-2323"
+      },
+      "description": "High resource usage when parsing multipart form data with many fields",
+      "affects": [
+        {
+          "ref": "pkg:pypi/werkzeug@1.0.1"
+        }
+      ],
+      "references": [
+        {
+          "id": "CVE-2023-25577",
+          "source": {
+            "name": "OSV"
+          }
+        },
+        {
+          "id": "PYSEC-2023-58",
+          "source": {
+            "name": "OSV"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "requirements-check:osv_severity",
+          "value": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+        },
+        {
+          "name": "requirements-check:fixed_version",
+          "value": "2.2.3"
+        }
+      ]
+    },
+    {
+      "id": "PYSEC-2022-203",
+      "source": {
+        "name": "OSV",
+        "url": "https://osv.dev/vulnerability/PYSEC-2022-203"
+      },
+      "description": "** DISPUTED ** Improper parsing of HTTP requests in Pallets Werkzeug v2.1.0 and below allows attackers to perform HTTP Request Smuggling using a crafted HTTP request with multiple requests included in",
+      "affects": [
+        {
+          "ref": "pkg:pypi/werkzeug@1.0.1"
+        }
+      ],
+      "references": [
+        {
+          "id": "CVE-2022-29361",
+          "source": {
+            "name": "OSV"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "requirements-check:fixed_version",
+          "value": "2.1.1"
+        }
+      ]
+    },
+    {
+      "id": "PYSEC-2023-221",
+      "source": {
+        "name": "OSV",
+        "url": "https://osv.dev/vulnerability/PYSEC-2023-221"
+      },
+      "description": "Werkzeug is a comprehensive WSGI web application library. If an upload of a file that starts with CR or LF and then is followed by megabytes of data without these characters: all of these bytes are ap",
+      "affects": [
+        {
+          "ref": "pkg:pypi/werkzeug@1.0.1"
+        }
+      ],
+      "references": [
+        {
+          "id": "CVE-2023-46136",
+          "source": {
+            "name": "OSV"
+          }
+        },
+        {
+          "id": "GHSA-hrfv-mqp8-q5rw",
+          "source": {
+            "name": "OSV"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "requirements-check:osv_severity",
+          "value": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+        }
+      ]
+    }
+  ]
+}

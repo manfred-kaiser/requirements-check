@@ -1,0 +1,920 @@
+{
+  "dependencies": [
+    {
+      "name": "aiohttp",
+      "pinned_version": "3.9.5",
+      "license": "Apache 2",
+      "latest_patch": null,
+      "latest_minor": "3.14.2",
+      "latest_major": "3.14.2",
+      "constraint": "<3.10",
+      "best_within_constraint": "3.9.5",
+      "update_level": "minor",
+      "vulnerabilities": [
+        {
+          "id": "GHSA-2fqr-mr3j-6wp8",
+          "summary": "aiohttp: Host-Only Cookies Become Domain Cookies After CookieJar Persistence",
+          "severity": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:P/VC:N/VI:N/VA:N/SC:L/SI:N/SA:N/E:U",
+          "aliases": [
+            "CVE-2026-54279",
+            "PYSEC-2026-2112"
+          ],
+          "fixed_version": "3.14.1",
+          "fix_level": "minor"
+        },
+        {
+          "id": "GHSA-2vrm-gr82-f7m5",
+          "summary": "AIOHTTP has CRLF injection through multipart part content type header construction",
+          "severity": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:L/VA:N/SC:N/SI:N/SA:N/E:U",
+          "aliases": [
+            "CVE-2026-34514",
+            "PYSEC-2026-2096"
+          ],
+          "fixed_version": "3.13.4",
+          "fix_level": "minor"
+        },
+        {
+          "id": "GHSA-3wq7-rqq7-wx6j",
+          "summary": "AIOHTTP has late size enforcement for non-file multipart fields causes memory DoS",
+          "severity": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:L/SC:N/SI:N/SA:N/E:U",
+          "aliases": [
+            "CVE-2026-34517",
+            "PYSEC-2026-2099"
+          ],
+          "fixed_version": "3.13.4",
+          "fix_level": "minor"
+        },
+        {
+          "id": "GHSA-4fvr-rgm6-gqmc",
+          "summary": "aiohttp: HTTP/1 Pipelined Requests Queue Without Limit",
+          "severity": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:H/SC:N/SI:N/SA:N/E:U",
+          "aliases": [
+            "CVE-2026-54273",
+            "PYSEC-2026-2107"
+          ],
+          "fixed_version": "3.14.1",
+          "fix_level": "minor"
+        },
+        {
+          "id": "GHSA-4m7w-qmgq-4wj5",
+          "summary": "aiohttp: TLS Server Hostname Override Is Ignored When Reusing HTTPS Connections",
+          "severity": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:L/VI:L/VA:N/SC:N/SI:N/SA:N/E:U",
+          "aliases": [
+            "CVE-2026-54275",
+            "PYSEC-2026-237"
+          ],
+          "fixed_version": "3.14.1",
+          "fix_level": "minor"
+        },
+        {
+          "id": "GHSA-54jq-c3m8-4m76",
+          "summary": "AIOHTTP vulnerable to brute-force leak of internal static \ufb01le path components",
+          "severity": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:L/VI:N/VA:N/SC:N/SI:N/SA:N/E:U",
+          "aliases": [
+            "CVE-2025-69226",
+            "PYSEC-2026-1097"
+          ],
+          "fixed_version": "3.13.3",
+          "fix_level": "minor"
+        },
+        {
+          "id": "GHSA-63hf-3vf5-4wqf",
+          "summary": "AIOHTTP's C parser (llhttp) accepts null bytes and control characters in response header values - header injection/security bypass",
+          "severity": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:H",
+          "aliases": [
+            "CVE-2026-34520",
+            "PYSEC-2026-2102"
+          ],
+          "fixed_version": "3.13.4",
+          "fix_level": "minor"
+        },
+        {
+          "id": "GHSA-63hw-fmq6-xxg2",
+          "summary": "aiohttp: C HTTP Parser Bypasses max_line_size for Fragmented Lines",
+          "severity": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:H/SC:N/SI:N/SA:N/E:U",
+          "aliases": [
+            "CVE-2026-54277",
+            "PYSEC-2026-2110"
+          ],
+          "fixed_version": "3.14.1",
+          "fix_level": "minor"
+        },
+        {
+          "id": "GHSA-69f9-5gxw-wvc2",
+          "summary": "AIOHTTP's unicode processing of header values could cause parsing discrepancies",
+          "severity": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:L/VA:N/SC:N/SI:N/SA:N/E:U",
+          "aliases": [
+            "CVE-2025-69224",
+            "PYSEC-2026-1099"
+          ],
+          "fixed_version": "3.13.3",
+          "fix_level": "minor"
+        },
+        {
+          "id": "GHSA-6jhg-hg63-jvvf",
+          "summary": "AIOHTTP vulnerable to  denial of service through large payloads",
+          "severity": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:H/SC:N/SI:N/SA:N/E:U",
+          "aliases": [
+            "CVE-2025-69228",
+            "PYSEC-2026-1100"
+          ],
+          "fixed_version": "3.13.3",
+          "fix_level": "minor"
+        },
+        {
+          "id": "GHSA-6mq8-rvhq-8wgg",
+          "summary": "AIOHTTP's HTTP Parser auto_decompress feature is vulnerable to zip bomb",
+          "severity": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "aliases": [
+            "CVE-2025-69223",
+            "PYSEC-2026-1101"
+          ],
+          "fixed_version": "3.13.3",
+          "fix_level": "minor"
+        },
+        {
+          "id": "GHSA-8495-4g3g-x7pr",
+          "summary": "aiohttp allows request smuggling due to incorrect parsing of chunk extensions",
+          "severity": "CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:N/VC:N/VI:L/VA:N/SC:N/SI:N/SA:N/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X",
+          "aliases": [
+            "CVE-2024-52304",
+            "PYSEC-2026-1103"
+          ],
+          "fixed_version": "3.10.11",
+          "fix_level": "minor"
+        },
+        {
+          "id": "GHSA-9548-qrrj-x5pj",
+          "summary": " AIOHTTP is vulnerable to HTTP Request/Response Smuggling through incorrect parsing of chunked trailer sections",
+          "severity": "CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:N/VC:N/VI:L/VA:N/SC:N/SI:N/SA:N/E:U",
+          "aliases": [
+            "CVE-2025-53643",
+            "PYSEC-2026-1104"
+          ],
+          "fixed_version": "3.12.14",
+          "fix_level": "minor"
+        },
+        {
+          "id": "GHSA-966j-vmvw-g2g9",
+          "summary": "AIOHTTP leaks Cookie and Proxy-Authorization headers on cross-origin redirect",
+          "severity": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N",
+          "aliases": [
+            "CVE-2026-34518",
+            "PYSEC-2026-2100"
+          ],
+          "fixed_version": "3.13.4",
+          "fix_level": "minor"
+        },
+        {
+          "id": "GHSA-9x8q-7h8h-wcw9",
+          "summary": "aiohttp: Payload Response Resources Are Not Closed After Mid-Body Disconnect",
+          "severity": "CVSS:4.0/AV:N/AC:H/AT:N/PR:N/UI:N/VC:N/VI:N/VA:L/SC:N/SI:N/SA:N/E:U",
+          "aliases": [
+            "CVE-2026-54280",
+            "PYSEC-2026-2113"
+          ],
+          "fixed_version": "3.14.1",
+          "fix_level": "minor"
+        },
+        {
+          "id": "GHSA-c427-h43c-vf67",
+          "summary": "AIOHTTP accepts duplicate Host headers",
+          "severity": "CVSS:4.0/AV:N/AC:H/AT:P/PR:N/UI:N/VC:N/VI:L/VA:N/SC:L/SI:L/SA:N",
+          "aliases": [
+            "CVE-2026-34525",
+            "PYSEC-2026-2103"
+          ],
+          "fixed_version": "3.13.4",
+          "fix_level": "minor"
+        },
+        {
+          "id": "GHSA-fh55-r93g-j68g",
+          "summary": "AIOHTTP Vulnerable to Cookie Parser Warning Storm",
+          "severity": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:L/VA:L/SC:N/SI:N/SA:N/E:U",
+          "aliases": [
+            "CVE-2025-69230",
+            "PYSEC-2026-1105"
+          ],
+          "fixed_version": "3.13.3",
+          "fix_level": "minor"
+        },
+        {
+          "id": "GHSA-g3cq-j2xw-wf74",
+          "summary": "aiohttp: Unread Compressed Request Bodies Bypass client_max_size During Cleanup",
+          "severity": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:H/SC:N/SI:N/SA:N/E:U",
+          "aliases": [
+            "CVE-2026-54278",
+            "PYSEC-2026-2111"
+          ],
+          "fixed_version": "3.14.1",
+          "fix_level": "minor"
+        },
+        {
+          "id": "GHSA-g84x-mcqj-x9qq",
+          "summary": "AIOHTTP vulnerable to DoS through chunked messages",
+          "severity": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:H/SC:N/SI:N/SA:N/E:U",
+          "aliases": [
+            "CVE-2025-69229",
+            "PYSEC-2026-1106"
+          ],
+          "fixed_version": "3.13.3",
+          "fix_level": "minor"
+        },
+        {
+          "id": "GHSA-hcc4-c3v8-rx92",
+          "summary": "AIOHTTP Affected by Denial of Service (DoS) via Unbounded DNS Cache in TCPConnector",
+          "severity": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:L/SC:N/SI:N/SA:N/E:U",
+          "aliases": [
+            "CVE-2026-34513",
+            "PYSEC-2026-2095"
+          ],
+          "fixed_version": "3.13.4",
+          "fix_level": "minor"
+        },
+        {
+          "id": "GHSA-hg6j-4rv6-33pg",
+          "summary": "AIOHTTP is vulnerable to cross-origin redirect with per-request cookies",
+          "severity": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:N/VA:N/SC:N/SI:N/SA:N/E:U",
+          "aliases": [
+            "CVE-2026-47265",
+            "PYSEC-2026-2105"
+          ],
+          "fixed_version": "3.14.0",
+          "fix_level": "minor"
+        },
+        {
+          "id": "GHSA-hpj7-wq8m-9hgp",
+          "summary": "aiohttp: DigestAuthMiddleware Applies Credentials to Cross-Origin Redirect Challenges",
+          "severity": "CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:N/VC:L/VI:N/VA:N/SC:N/SI:N/SA:N",
+          "aliases": [
+            "CVE-2026-54276",
+            "PYSEC-2026-2109"
+          ],
+          "fixed_version": "3.14.1",
+          "fix_level": "minor"
+        },
+        {
+          "id": "GHSA-jg22-mg44-37j8",
+          "summary": "AIOHTTP is Vulnerable to Deserialization of Untrusted Data",
+          "severity": "CVSS:3.1/AV:L/AC:H/PR:H/UI:R/S:C/C:L/I:H/A:L",
+          "aliases": [
+            "CVE-2026-34993",
+            "PYSEC-2026-2104"
+          ],
+          "fixed_version": "3.14.0",
+          "fix_level": "minor"
+        },
+        {
+          "id": "GHSA-jj3x-wxrx-4x23",
+          "summary": "AIOHTTP vulnerable to DoS when bypassing asserts",
+          "severity": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:H/SC:N/SI:N/SA:N/E:U",
+          "aliases": [
+            "CVE-2025-69227",
+            "PYSEC-2026-1107"
+          ],
+          "fixed_version": "3.13.3",
+          "fix_level": "minor"
+        },
+        {
+          "id": "GHSA-m5qp-6w8w-w647",
+          "summary": "AIOHTTP has a Multipart Header Size Bypass",
+          "severity": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "aliases": [
+            "CVE-2026-34516",
+            "PYSEC-2026-2098"
+          ],
+          "fixed_version": "3.13.4",
+          "fix_level": "minor"
+        },
+        {
+          "id": "GHSA-m6qw-4cw2-hm4m",
+          "summary": "aiohttp: CRLF injection in multipart headers",
+          "severity": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:L/VA:N/SC:N/SI:N/SA:N/E:U",
+          "aliases": [
+            "CVE-2026-50269",
+            "PYSEC-2026-2106"
+          ],
+          "fixed_version": "3.14.0",
+          "fix_level": "minor"
+        },
+        {
+          "id": "GHSA-mqqc-3gqh-h2x8",
+          "summary": "AIOHTTP has unicode match groups in regexes for ASCII protocol elements",
+          "severity": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:L/VA:N/SC:N/SI:N/SA:N/E:U",
+          "aliases": [
+            "CVE-2025-69225",
+            "PYSEC-2026-1109"
+          ],
+          "fixed_version": "3.13.3",
+          "fix_level": "minor"
+        },
+        {
+          "id": "GHSA-mwh4-6h8g-pg8w",
+          "summary": "AIOHTTP has HTTP response splitting via \\r in reason phrase",
+          "severity": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:L/VA:N/SC:N/SI:N/SA:N/E:U",
+          "aliases": [
+            "CVE-2026-34519",
+            "PYSEC-2026-2101"
+          ],
+          "fixed_version": "3.13.4",
+          "fix_level": "minor"
+        },
+        {
+          "id": "GHSA-p998-jp59-783m",
+          "summary": "AIOHTTP affected by UNC SSRF/NTLMv2 Credential Theft/Local File Read in static resource handler on Windows",
+          "severity": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:N/VA:N/SC:N/SI:N/SA:N/E:U",
+          "aliases": [
+            "CVE-2026-34515",
+            "PYSEC-2026-2097"
+          ],
+          "fixed_version": "3.13.4",
+          "fix_level": "minor"
+        },
+        {
+          "id": "GHSA-w2fm-2cpv-w7v5",
+          "summary": "aiohttp allows unlimited trailer headers, leading to possible uncapped memory usage",
+          "severity": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:L/SC:N/SI:N/SA:N",
+          "aliases": [
+            "CVE-2026-22815",
+            "PYSEC-2026-2094"
+          ],
+          "fixed_version": "3.13.4",
+          "fix_level": "minor"
+        },
+        {
+          "id": "GHSA-xcgm-r5h9-7989",
+          "summary": "aiohttp: Incomplete websocket frame payloads bypass memory limits",
+          "severity": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:H/SC:N/SI:N/SA:N/E:U",
+          "aliases": [
+            "CVE-2026-54274",
+            "PYSEC-2026-2108"
+          ],
+          "fixed_version": "3.14.1",
+          "fix_level": "minor"
+        }
+      ],
+      "minimum_safe_version": "3.14.1",
+      "vulnerability_fix_level": "minor",
+      "error": null
+    },
+    {
+      "name": "aiosignal",
+      "pinned_version": "1.4.0",
+      "license": "Apache 2.0",
+      "latest_patch": null,
+      "latest_minor": null,
+      "latest_major": null,
+      "constraint": null,
+      "best_within_constraint": null,
+      "update_level": "none",
+      "vulnerabilities": [],
+      "minimum_safe_version": null,
+      "vulnerability_fix_level": null,
+      "error": null
+    },
+    {
+      "name": "attrs",
+      "pinned_version": "26.1.0",
+      "license": null,
+      "latest_patch": null,
+      "latest_minor": null,
+      "latest_major": null,
+      "constraint": null,
+      "best_within_constraint": null,
+      "update_level": "none",
+      "vulnerabilities": [],
+      "minimum_safe_version": null,
+      "vulnerability_fix_level": null,
+      "error": null
+    },
+    {
+      "name": "certifi",
+      "pinned_version": "2026.6.17",
+      "license": "MPL-2.0",
+      "latest_patch": null,
+      "latest_minor": null,
+      "latest_major": null,
+      "constraint": null,
+      "best_within_constraint": null,
+      "update_level": "none",
+      "vulnerabilities": [],
+      "minimum_safe_version": null,
+      "vulnerability_fix_level": null,
+      "error": null
+    },
+    {
+      "name": "chardet",
+      "pinned_version": "4.0.0",
+      "license": "LGPL",
+      "latest_patch": null,
+      "latest_minor": null,
+      "latest_major": "7.4.3",
+      "constraint": null,
+      "best_within_constraint": null,
+      "update_level": "major",
+      "vulnerabilities": [],
+      "minimum_safe_version": null,
+      "vulnerability_fix_level": null,
+      "error": null
+    },
+    {
+      "name": "click",
+      "pinned_version": "7.1.2",
+      "license": "BSD-3-Clause",
+      "latest_patch": null,
+      "latest_minor": null,
+      "latest_major": "8.4.2",
+      "constraint": null,
+      "best_within_constraint": null,
+      "update_level": "major",
+      "vulnerabilities": [
+        {
+          "id": "PYSEC-2026-2132",
+          "summary": "Pallets Click, versions 8.3.2 and below, contain a command injection vulnerability in the click.edit() function, allowing attackers to pass arbitrary OS commands from an unprivileged account.",
+          "severity": "CVSS:3.1/AV:L/AC:H/PR:H/UI:R/S:C/C:H/I:H/A:H",
+          "aliases": [
+            "CVE-2026-7246",
+            "GHSA-47fr-3ffg-hgmw"
+          ],
+          "fixed_version": "8.3.3",
+          "fix_level": "major"
+        }
+      ],
+      "minimum_safe_version": "8.3.3",
+      "vulnerability_fix_level": "major",
+      "error": null
+    },
+    {
+      "name": "flask",
+      "pinned_version": "1.1.4",
+      "license": "BSD-3-Clause",
+      "latest_patch": null,
+      "latest_minor": null,
+      "latest_major": "3.1.3",
+      "constraint": "<2.0",
+      "best_within_constraint": "1.1.4",
+      "update_level": "major",
+      "vulnerabilities": [
+        {
+          "id": "GHSA-68rp-wp8r-4726",
+          "summary": "Flask session does not add `Vary: Cookie` header when accessed in some ways",
+          "severity": "CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:P/VC:L/VI:N/VA:N/SC:N/SI:N/SA:N",
+          "aliases": [
+            "CVE-2026-27205",
+            "PYSEC-2026-2151"
+          ],
+          "fixed_version": "3.1.3",
+          "fix_level": "major"
+        },
+        {
+          "id": "GHSA-m2qf-hxjv-5gpq",
+          "summary": "Flask vulnerable to possible disclosure of permanent session cookie due to missing Vary: Cookie header",
+          "severity": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+          "aliases": [
+            "CVE-2023-30861",
+            "PYSEC-2023-62"
+          ],
+          "fixed_version": "2.2.5",
+          "fix_level": "major"
+        }
+      ],
+      "minimum_safe_version": "3.1.3",
+      "vulnerability_fix_level": "major",
+      "error": null
+    },
+    {
+      "name": "frozenlist",
+      "pinned_version": "1.8.0",
+      "license": "Apache-2.0",
+      "latest_patch": null,
+      "latest_minor": null,
+      "latest_major": null,
+      "constraint": null,
+      "best_within_constraint": null,
+      "update_level": "none",
+      "vulnerabilities": [],
+      "minimum_safe_version": null,
+      "vulnerability_fix_level": null,
+      "error": null
+    },
+    {
+      "name": "idna",
+      "pinned_version": "2.10",
+      "license": "BSD-like",
+      "latest_patch": null,
+      "latest_minor": null,
+      "latest_major": "3.18",
+      "constraint": null,
+      "best_within_constraint": null,
+      "update_level": "major",
+      "vulnerabilities": [
+        {
+          "id": "GHSA-65pc-fj4g-8rjx",
+          "summary": "Internationalized Domain Names in Applications (IDNA): Specially crafted inputs to idna.encode() can bypass CVE-2024-3651 fix",
+          "severity": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L",
+          "aliases": [
+            "CVE-2026-45409",
+            "PYSEC-2026-215"
+          ],
+          "fixed_version": "3.15",
+          "fix_level": "major"
+        },
+        {
+          "id": "GHSA-jjg7-2v4v-x38h",
+          "summary": "Internationalized Domain Names in Applications (IDNA) vulnerable to denial of service from specially crafted inputs to idna.encode",
+          "severity": "CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "aliases": [
+            "CVE-2024-3651",
+            "PYSEC-2024-60"
+          ],
+          "fixed_version": "3.7",
+          "fix_level": "major"
+        }
+      ],
+      "minimum_safe_version": "3.15",
+      "vulnerability_fix_level": "major",
+      "error": null
+    },
+    {
+      "name": "itsdangerous",
+      "pinned_version": "1.1.0",
+      "license": "BSD",
+      "latest_patch": null,
+      "latest_minor": null,
+      "latest_major": "2.2.0",
+      "constraint": null,
+      "best_within_constraint": null,
+      "update_level": "major",
+      "vulnerabilities": [],
+      "minimum_safe_version": null,
+      "vulnerability_fix_level": null,
+      "error": null
+    },
+    {
+      "name": "jinja2",
+      "pinned_version": "2.11.3",
+      "license": "BSD-3-Clause",
+      "latest_patch": null,
+      "latest_minor": null,
+      "latest_major": "3.1.6",
+      "constraint": null,
+      "best_within_constraint": null,
+      "update_level": "major",
+      "vulnerabilities": [
+        {
+          "id": "GHSA-cpwx-vrp4-4pq7",
+          "summary": "Jinja2 vulnerable to sandbox breakout through attr filter selecting format method",
+          "severity": "CVSS:4.0/AV:L/AC:L/AT:P/PR:L/UI:P/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N",
+          "aliases": [
+            "CVE-2025-27516",
+            "PYSEC-2026-1471"
+          ],
+          "fixed_version": "3.1.6",
+          "fix_level": "major"
+        },
+        {
+          "id": "GHSA-h5c8-rqwp-cp95",
+          "summary": "Jinja vulnerable to HTML attribute injection when passing user input as keys to xmlattr filter",
+          "severity": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:L/I:L/A:N",
+          "aliases": [
+            "CVE-2024-22195",
+            "PYSEC-2026-1473"
+          ],
+          "fixed_version": "3.1.3",
+          "fix_level": "major"
+        },
+        {
+          "id": "GHSA-h75v-3vvj-5mfj",
+          "summary": "Jinja vulnerable to HTML attribute injection when passing user input as keys to xmlattr filter",
+          "severity": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:L/I:L/A:N",
+          "aliases": [
+            "CVE-2024-34064",
+            "PYSEC-2026-1474"
+          ],
+          "fixed_version": "3.1.4",
+          "fix_level": "major"
+        },
+        {
+          "id": "GHSA-q2x7-8rv6-6q7h",
+          "summary": "Jinja has a sandbox breakout through indirect reference to format method",
+          "severity": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "aliases": [
+            "CVE-2024-56326",
+            "PYSEC-2026-1475"
+          ],
+          "fixed_version": "3.1.5",
+          "fix_level": "major"
+        }
+      ],
+      "minimum_safe_version": "3.1.6",
+      "vulnerability_fix_level": "major",
+      "error": null
+    },
+    {
+      "name": "markupsafe",
+      "pinned_version": "3.0.3",
+      "license": null,
+      "latest_patch": null,
+      "latest_minor": null,
+      "latest_major": null,
+      "constraint": null,
+      "best_within_constraint": null,
+      "update_level": "none",
+      "vulnerabilities": [],
+      "minimum_safe_version": null,
+      "vulnerability_fix_level": null,
+      "error": null
+    },
+    {
+      "name": "multidict",
+      "pinned_version": "6.7.1",
+      "license": "Apache License 2.0",
+      "latest_patch": null,
+      "latest_minor": null,
+      "latest_major": null,
+      "constraint": null,
+      "best_within_constraint": null,
+      "update_level": "none",
+      "vulnerabilities": [],
+      "minimum_safe_version": null,
+      "vulnerability_fix_level": null,
+      "error": null
+    },
+    {
+      "name": "propcache",
+      "pinned_version": "0.5.2",
+      "license": "Apache-2.0",
+      "latest_patch": null,
+      "latest_minor": null,
+      "latest_major": null,
+      "constraint": null,
+      "best_within_constraint": null,
+      "update_level": "none",
+      "vulnerabilities": [],
+      "minimum_safe_version": null,
+      "vulnerability_fix_level": null,
+      "error": null
+    },
+    {
+      "name": "requests",
+      "pinned_version": "2.25.1",
+      "license": "Apache 2.0",
+      "latest_patch": null,
+      "latest_minor": "2.34.2",
+      "latest_major": "2.34.2",
+      "constraint": "<2.26",
+      "best_within_constraint": "2.25.1",
+      "update_level": "minor",
+      "vulnerabilities": [
+        {
+          "id": "GHSA-9hjg-9r4m-mvj7",
+          "summary": "Requests vulnerable to .netrc credentials leak via malicious URLs",
+          "severity": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:N/A:N",
+          "aliases": [
+            "CVE-2024-47081",
+            "PYSEC-2026-1872"
+          ],
+          "fixed_version": "2.32.4",
+          "fix_level": "minor"
+        },
+        {
+          "id": "GHSA-9wx4-h78v-vm56",
+          "summary": "Requests `Session` object does not verify requests after making first request with verify=False",
+          "severity": "CVSS:3.1/AV:L/AC:H/PR:H/UI:R/S:U/C:H/I:H/A:N",
+          "aliases": [
+            "CVE-2024-35195",
+            "PYSEC-2026-1873"
+          ],
+          "fixed_version": "2.32.0",
+          "fix_level": "minor"
+        },
+        {
+          "id": "GHSA-gc5v-m9x4-r6x2",
+          "summary": "Requests has Insecure Temp File Reuse in its extract_zipped_paths() utility function",
+          "severity": "CVSS:3.1/AV:L/AC:H/PR:L/UI:R/S:U/C:N/I:H/A:N",
+          "aliases": [
+            "CVE-2026-25645",
+            "PYSEC-2026-2275"
+          ],
+          "fixed_version": "2.33.0",
+          "fix_level": "minor"
+        },
+        {
+          "id": "GHSA-j8r2-6x86-q33q",
+          "summary": "Unintended leak of Proxy-Authorization header in requests",
+          "severity": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:C/C:H/I:N/A:N",
+          "aliases": [
+            "CVE-2023-32681",
+            "PYSEC-2023-74"
+          ],
+          "fixed_version": "2.31.0",
+          "fix_level": "minor"
+        }
+      ],
+      "minimum_safe_version": "2.33.0",
+      "vulnerability_fix_level": "minor",
+      "error": null
+    },
+    {
+      "name": "urllib3",
+      "pinned_version": "1.26.20",
+      "license": "MIT",
+      "latest_patch": null,
+      "latest_minor": null,
+      "latest_major": "2.7.0",
+      "constraint": null,
+      "best_within_constraint": null,
+      "update_level": "major",
+      "vulnerabilities": [
+        {
+          "id": "GHSA-2xpw-w6gg-jr37",
+          "summary": "urllib3 streaming API improperly handles highly compressed data",
+          "severity": "CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:N/VC:N/VI:N/VA:H/SC:N/SI:N/SA:H",
+          "aliases": [
+            "CVE-2025-66471",
+            "PYSEC-2026-1994"
+          ],
+          "fixed_version": "2.6.0",
+          "fix_level": "major"
+        },
+        {
+          "id": "GHSA-38jv-5279-wg99",
+          "summary": "Decompression-bomb safeguards bypassed when following HTTP redirects (streaming API)",
+          "severity": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "aliases": [
+            "CVE-2026-21441",
+            "PYSEC-2026-1996"
+          ],
+          "fixed_version": "2.6.3",
+          "fix_level": "major"
+        },
+        {
+          "id": "GHSA-gm62-xv2j-4w53",
+          "summary": "urllib3 allows an unbounded number of links in the decompression chain",
+          "severity": "CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:N/VC:N/VI:N/VA:H/SC:N/SI:N/SA:H",
+          "aliases": [
+            "CVE-2025-66418",
+            "PYSEC-2026-1998"
+          ],
+          "fixed_version": "2.6.0",
+          "fix_level": "major"
+        },
+        {
+          "id": "GHSA-pq67-6m6q-mj2v",
+          "summary": "urllib3 redirects are not disabled when retries are disabled on PoolManager instantiation",
+          "severity": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:H/I:N/A:N",
+          "aliases": [
+            "CVE-2025-50181",
+            "PYSEC-2026-1999"
+          ],
+          "fixed_version": "2.5.0",
+          "fix_level": "major"
+        },
+        {
+          "id": "GHSA-qccp-gfcp-xxvc",
+          "summary": "urllib3: Sensitive headers forwarded across origins in proxied low-level redirects",
+          "severity": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N",
+          "aliases": [
+            "CVE-2026-44431",
+            "PYSEC-2026-141"
+          ],
+          "fixed_version": "2.7.0",
+          "fix_level": "major"
+        }
+      ],
+      "minimum_safe_version": "2.7.0",
+      "vulnerability_fix_level": "major",
+      "error": null
+    },
+    {
+      "name": "werkzeug",
+      "pinned_version": "1.0.1",
+      "license": "BSD-3-Clause",
+      "latest_patch": null,
+      "latest_minor": null,
+      "latest_major": "3.1.8",
+      "constraint": null,
+      "best_within_constraint": null,
+      "update_level": "major",
+      "vulnerabilities": [
+        {
+          "id": "GHSA-29vq-49wr-vm6x",
+          "summary": " Werkzeug safe_join() allows Windows special device names",
+          "severity": "CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:N/VC:N/VI:N/VA:L/SC:N/SI:N/SA:N",
+          "aliases": [
+            "CVE-2026-27199",
+            "PYSEC-2026-2320"
+          ],
+          "fixed_version": "3.1.6",
+          "fix_level": "major"
+        },
+        {
+          "id": "GHSA-2g68-c3qc-8985",
+          "summary": "Werkzeug debugger vulnerable to remote execution when interacting with attacker controlled domain",
+          "severity": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "aliases": [
+            "CVE-2024-34069",
+            "PYSEC-2026-2043"
+          ],
+          "fixed_version": "3.0.3",
+          "fix_level": "major"
+        },
+        {
+          "id": "GHSA-87hc-h4r5-73f7",
+          "summary": " Werkzeug safe_join() allows Windows special device names with compound extensions",
+          "severity": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L",
+          "aliases": [
+            "CVE-2026-21860",
+            "PYSEC-2026-2044"
+          ],
+          "fixed_version": "3.1.5",
+          "fix_level": "major"
+        },
+        {
+          "id": "GHSA-f9vj-2wh5-fj8j",
+          "summary": "Werkzeug safe_join not safe on Windows",
+          "severity": "CVSS:4.0/AV:N/AC:H/AT:N/PR:N/UI:N/VC:L/VI:N/VA:N/SC:N/SI:N/SA:N",
+          "aliases": [
+            "CVE-2024-49766",
+            "PYSEC-2026-2045"
+          ],
+          "fixed_version": "3.0.6",
+          "fix_level": "major"
+        },
+        {
+          "id": "GHSA-hgf8-39gv-g3f2",
+          "summary": "Werkzeug safe_join() allows Windows special device names",
+          "severity": "CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:N/VC:N/VI:N/VA:L/SC:N/SI:N/SA:N",
+          "aliases": [
+            "CVE-2025-66221",
+            "PYSEC-2026-2046"
+          ],
+          "fixed_version": "3.1.4",
+          "fix_level": "major"
+        },
+        {
+          "id": "GHSA-px8h-6qxv-m22q",
+          "summary": "Incorrect parsing of nameless cookies leads to __Host- cookies bypass",
+          "severity": "CVSS:3.1/AV:A/AC:H/PR:N/UI:R/S:U/C:N/I:L/A:N",
+          "aliases": [
+            "CVE-2023-23934",
+            "PYSEC-2023-57"
+          ],
+          "fixed_version": "2.2.3",
+          "fix_level": "major"
+        },
+        {
+          "id": "GHSA-xg9f-g7g7-2323",
+          "summary": "High resource usage when parsing multipart form data with many fields",
+          "severity": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "aliases": [
+            "CVE-2023-25577",
+            "PYSEC-2023-58"
+          ],
+          "fixed_version": "2.2.3",
+          "fix_level": "major"
+        },
+        {
+          "id": "PYSEC-2022-203",
+          "summary": "** DISPUTED ** Improper parsing of HTTP requests in Pallets Werkzeug v2.1.0 and below allows attackers to perform HTTP Request Smuggling using a crafted HTTP request with multiple requests included in",
+          "severity": null,
+          "aliases": [
+            "CVE-2022-29361"
+          ],
+          "fixed_version": "2.1.1",
+          "fix_level": "major"
+        },
+        {
+          "id": "PYSEC-2023-221",
+          "summary": "Werkzeug is a comprehensive WSGI web application library. If an upload of a file that starts with CR or LF and then is followed by megabytes of data without these characters: all of these bytes are ap",
+          "severity": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "aliases": [
+            "CVE-2023-46136",
+            "GHSA-hrfv-mqp8-q5rw"
+          ],
+          "fixed_version": null,
+          "fix_level": null
+        }
+      ],
+      "minimum_safe_version": null,
+      "vulnerability_fix_level": "no_fix",
+      "error": null
+    },
+    {
+      "name": "yarl",
+      "pinned_version": "1.24.5",
+      "license": "Apache-2.0",
+      "latest_patch": null,
+      "latest_minor": null,
+      "latest_major": null,
+      "constraint": null,
+      "best_within_constraint": null,
+      "update_level": "none",
+      "vulnerabilities": [],
+      "minimum_safe_version": null,
+      "vulnerability_fix_level": null,
+      "error": null
+    }
+  ],
+  "missing_transitive_dependencies": []
+}

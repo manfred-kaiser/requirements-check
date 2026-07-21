@@ -59,6 +59,7 @@ path = "requirements_check/__init__.py"
 [tool.hatch.build]
 include = [
     "requirements_check/**/*.py",
+    "requirements_check/py.typed",
 ]
 
 [tool.hatch.envs.hatch-test]
@@ -147,6 +148,10 @@ ignore = [
 
 [tool.ruff.lint.pylint]
 max-args = 7
+
+[tool.ruff.lint.per-file-ignores]
+# cli.py's print() calls are the CLI's actual user-facing output, not debug prints.
+"requirements_check/cli.py" = ["T201"]
 
 [tool.black]
 target-version = ["py311"]

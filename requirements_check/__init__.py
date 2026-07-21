@@ -10,8 +10,8 @@ from .models import AnalysisResult, Dependency, UpdateLevel, Vulnerability
 __version__ = "0.1.0"
 
 __all__ = [
-    "Analyzer",
     "AnalysisResult",
+    "Analyzer",
     "Dependency",
     "UpdateLevel",
     "Vulnerability",
