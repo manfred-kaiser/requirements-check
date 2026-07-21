@@ -122,6 +122,67 @@ def test_render_table_warns_about_missing_transitive_dependencies():
     assert "pip-compile" in output
 
 
+def test_render_table_note_shows_label_and_error_for_a_not_found_package():
+    result = AnalysisResult(
+        dependencies=[
+            Dependency(
+                name="doesnotexist",
+                raw_line="doesnotexist==1.0.0",
+                pinned_version="1.0.0",
+                update_level=UpdateLevel.NOT_FOUND,
+                error="Package not found on PyPI",
+            ),
+        ],
+    )
+
+    console = Console(record=True, width=200)
+    render_table(result, console=console)
+    output = console.export_text()
+
+    assert "not found" in output
+    assert "Package not found on PyPI" in output
+
+
+def test_render_table_blanks_out_columns_that_repeat_the_prior_column():
+    result = AnalysisResult(
+        dependencies=[
+            Dependency(
+                # No further minor/major beyond the patch release.
+                name="patch-only",
+                raw_line="patch-only==1.0.0",
+                pinned_version="1.0.0",
+                latest_patch="1.0.1",
+                latest_minor="1.0.1",
+                latest_major="1.0.1",
+                update_level=UpdateLevel.PATCH,
+            ),
+            Dependency(
+                # No minor bump within the pinned major; only a major jump.
+                name="major-jump",
+                raw_line="major-jump==1.0.0",
+                pinned_version="1.0.0",
+                latest_patch="1.0.1",
+                latest_minor="1.0.1",
+                latest_major="2.0.0",
+                update_level=UpdateLevel.MAJOR,
+            ),
+        ],
+    )
+
+    console = Console(record=True, width=200)
+    render_table(result, console=console)
+    output = console.export_text()
+
+    patch_only_row = next(
+        line for line in output.splitlines() if "patch-only" in line
+    )
+    assert patch_only_row.count("1.0.1") == 1
+
+    major_jump_row = next(line for line in output.splitlines() if "major-jump" in line)
+    assert major_jump_row.count("1.0.1") == 1
+    assert "2.0.0" in major_jump_row
+
+
 def test_render_table_note_shows_constraint_cap():
     result = AnalysisResult(
         dependencies=[

@@ -163,8 +163,8 @@ async def check_vulnerabilities(
     per_dep_ids: dict[str, list[str]] = {}
     id_to_pinned: dict[str, Version] = {}
     for dep, result in zip(eligible, results, strict=True):
-        if dep.pinned_version is None:
-            continue
+        if dep.pinned_version is None:  # pragma: no cover
+            continue  # unreachable: `eligible` above already filters for this
         ids = [vuln["id"] for vuln in result.get("vulns", [])]
         if not ids:
             continue

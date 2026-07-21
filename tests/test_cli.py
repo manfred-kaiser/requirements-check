@@ -217,6 +217,36 @@ def test_main_reads_cyclonedx_sbom_as_input(tmp_path, httpx_mock, capsys):
     assert data["dependencies"][0]["pinned_version"] == "1.0.0"
 
 
+def test_main_lists_vulnerability_details_alongside_the_table(
+    tmp_path,
+    httpx_mock,
+    capsys,
+):
+    path = _write(tmp_path, "foo==1.0.0\n")
+
+    _mock_pypi(
+        httpx_mock,
+        "foo",
+        {"releases": {"1.0.0": [{"yanked": False, "requires_python": None}]}},
+        pinned_version="1.0.0",
+    )
+    httpx_mock.add_response(
+        url="https://api.osv.dev/v1/querybatch",
+        json={"results": [{"vulns": [{"id": "GHSA-x"}]}]},
+    )
+    httpx_mock.add_response(
+        url="https://api.osv.dev/v1/vulns/GHSA-x",
+        json={"id": "GHSA-x", "summary": "bad"},
+    )
+
+    main([str(path), "--list-vulnerabilities", "--no-color"])
+
+    output = capsys.readouterr().out
+    assert "requirements-check" in output
+    assert "Vulnerability details" in output
+    assert "GHSA-x" in output
+
+
 def test_main_writes_table_to_output_file(tmp_path, httpx_mock, capsys):
     path = _write(tmp_path, "foo==1.0.0\n")
     out_file = tmp_path / "report.txt"

@@ -13,7 +13,7 @@ Initial release.
 
 ### Added
 
-- **Update checks**: scans a `requirements.txt` file and reports, per pinned dependency, the best available patch/minor/major update, by querying the PyPI JSON API directly — no installed environment needed
+- **Update checks**: scans a `requirements.txt` file and reports, per pinned dependency, the best available patch/minor/major update, by querying the PyPI JSON API directly — no installed environment needed; the table blanks out a column when it repeats the value shown to its left, so a package with no separate minor release doesn't show the same version twice
 - **Vulnerability checks**: cross-checks every pinned version against [OSV.dev](https://osv.dev), including the fix level needed (patch/minor/major/no known fix yet) and deduplication of advisories listed under multiple IDs (e.g. GHSA + PYSEC for the same issue)
 - **Coverage awareness**: warns when pinned packages declare dependencies not listed in the file (a sign it isn't fully resolved), and cross-checks against a loose `.in` source (e.g. from pip-compile) to flag when your own version constraints — not just PyPI availability — are capping an update
 - **Output formats**: table (default), `--json`, `--sbom` (CycloneDX 1.6, schema-validated, both export and auto-detected import), `--html` (self-contained report), `--sarif` (SARIF 2.1.0, schema-validated, with per-line locations for GitHub/Azure code scanning), and `--list-vulnerabilities` for a full per-CVE breakdown

@@ -94,6 +94,15 @@ def test_parse_constraints_captures_version_ranges(tmp_path):
     assert "click" in constraints
 
 
+def test_parse_constraints_skips_unparsable_lines(tmp_path):
+    path = tmp_path / "requirements.in"
+    path.write_text("not a valid requirement !!!\nbar<2.0\n")
+
+    constraints = parse_constraints(path)
+
+    assert "bar" in constraints
+
+
 def test_parse_constraints_skips_urls_and_options(tmp_path):
     path = tmp_path / "requirements.in"
     path.write_text("-r base.in\nfoo @ https://example.com/foo.whl\nbar<2.0\n")
@@ -172,6 +181,26 @@ def test_parse_cyclonedx_sbom_extracts_pypi_components(tmp_path):
     foo = next(dep for dep in deps if dep.name == "foo")
     assert foo.pinned_version == "1.0.0"
     assert foo.line_number is None
+
+
+def test_parse_cyclonedx_sbom_skips_components_missing_name_or_version(tmp_path):
+    path = _write_sbom(
+        tmp_path,
+        [
+            {"type": "library", "purl": "pkg:pypi/foo@1.0.0", "version": "1.0.0"},
+            {"type": "library", "purl": "pkg:pypi/bar@2.0.0", "name": "bar"},
+            {
+                "type": "library",
+                "purl": "pkg:pypi/baz@3.0.0",
+                "name": "baz",
+                "version": "3.0.0",
+            },
+        ],
+    )
+
+    deps = parse_cyclonedx_sbom(path)
+
+    assert {dep.name for dep in deps} == {"baz"}
 
 
 def test_parse_dependencies_auto_detects_sbom_vs_requirements(tmp_path):

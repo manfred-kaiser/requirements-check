@@ -88,6 +88,17 @@ run = "pytest tests/"
 testpaths = ["tests"]
 asyncio_mode = "auto"
 
+[tool.coverage.run]
+source = ["requirements_check"]
+omit = ["requirements_check/__main__.py"]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "if __name__ == .__main__.:",
+    "if TYPE_CHECKING:",
+]
+
 [tool.hatch.envs.lint]
 detached = false
 dependencies = [
@@ -99,13 +110,14 @@ dependencies = [
     "pylint",
     "pytest",
     "pytest-asyncio",
+    "pytest-cov",
     "pytest-httpx",
     "ruff",
 ]
 
 [tool.hatch.envs.lint.scripts]
 check = [
-    "pytest",
+    "pytest --cov=requirements_check --cov-report=term-missing --cov-fail-under=100",
     "black --check requirements_check",
     "bandit -r requirements_check",
     "ruff check requirements_check",

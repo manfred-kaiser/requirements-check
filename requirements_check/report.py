@@ -46,6 +46,29 @@ _FIX_STYLE = {
 }
 
 
+def _dedupe_update_columns(
+    dep: Dependency,
+) -> tuple[str, str, str]:
+    """Blank out a wider-scope column when it repeats the value shown to its left.
+
+    `latest_minor` is always within `latest_major`'s scope and `latest_patch`
+    within `latest_minor`'s, so identical values just mean "no further update
+    at that scope" — repeating the same version three times reads as a typo
+    to compare rather than a signal that there's nothing more to gain.
+    """
+    columns = (dep.latest_patch, dep.latest_minor, dep.latest_major)
+    displayed = []
+    last_shown = None
+    for version in columns:
+        if version is not None and version == last_shown:
+            displayed.append("-")
+        else:
+            displayed.append(version or "-")
+            if version is not None:
+                last_shown = version
+    return displayed[0], displayed[1], displayed[2]
+
+
 def _build_note(dep: Dependency) -> str:
     parts = []
     label = _NOTE_LABEL.get(dep.update_level)
@@ -89,12 +112,13 @@ def render_table(result: AnalysisResult, console: Console | None = None) -> None
         else:
             vulns = "-"
 
+        patch, minor, major = _dedupe_update_columns(dep)
         table.add_row(
             dep.name,
             dep.pinned_version or "-",
-            dep.latest_patch or "-",
-            dep.latest_minor or "-",
-            dep.latest_major or "-",
+            patch,
+            minor,
+            major,
             f"[{style}]{note}[/{style}]" if style else note,
             vulns,
         )
